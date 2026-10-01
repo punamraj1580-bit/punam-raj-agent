@@ -103,53 +103,53 @@ def get_offline_scripts():
             "id": 1,
             "theme": "bhakti",
             "voice": "hi-IN-SwaraNeural",
-            "headline": "श्री राधा कृष्ण दिव्य प्रेम रहस्य",
-            "caption": "जय श्री राधा कृष्ण! प्रेम और भक्ति का पावन संदेश। 🙏✨ #RadhaKrishna #Bhakti #Vrindavan #Shorts #DailyDevotion",
+            "headline": "✨ चेतना और ब्रह्मांडीय प्रेम का रहस्य ✨",
+            "caption": "ब्रह्मांडीय प्रेम और चेतना का दिव्य स्वरूप! 🌌✨ #RadhaKrishna #CosmicConsciousness #DivineLove #Shorts #TrendingReels",
             "segments": [
-                {"text": "राधे-कृष्ण का प्रेम केवल आकर्षण नहीं, आत्मा का परमात्मा से मिलन है।", "visual_prompt": "Divine Radha and Krishna smiling together in Vrindavan blooming gardens, glowing golden light, 9:16 vertical 8k wallpaper", "query": "Radha Krishna divine"},
-                {"text": "जब कन्हैया बांसुरी बजाते थे, तब सारा संसार मंत्रमुग्ध हो जाता था।", "visual_prompt": "Lord Krishna playing golden flute under kadamba tree near Yamuna river, peacock feathers glowing, ultra realistic", "query": "Lord Krishna playing flute"},
-                {"text": "राधा रानी के बिना कृष्ण अधूरे हैं, और कृष्ण के बिना राधा का कोई अस्तित्व नहीं।", "visual_prompt": "Shri Radha Rani surrounded by blooming lotus and sacred Vrindavan deer, divine aura, heavenly lights", "query": "Radha Rani divine"},
-                {"text": "सच्चा प्रेम त्याग और समर्पण सिखाता है, जहाँ कोई स्वार्थ नहीं होता।", "visual_prompt": "Sacred Vrindavan Yamuna river bank with glowing diyas floating in water, divine twilight atmosphere", "query": "Vrindavan Yamuna river diyas"},
-                {"text": "गोपियों का भाव केवल यह था कि प्रभु सदा प्रसन्न रहें।", "visual_prompt": "Vrindavan Yamuna ghat during golden sunset, spiritual peaceful reflection, celestial glowing mist", "query": "Vrindavan ghat sunset"},
-                {"text": "जो भी भक्त सच्चे मन से राधे-राधे जपता है, उसके सब कष्ट दूर हो जाते हैं।", "visual_prompt": "Glowing sacred symbol of Radha Krishna in cosmic divine radiance, lotus petals showering", "query": "Radha Krishna temple"},
-                {"text": "कलयुग में केवल हरि नाम ही मनुष्य को भवसागर से पार उतार सकता है।", "visual_prompt": "Divine flute on velvet with peacock feather in holy temple altar, soft warm diya light", "query": "Krishna flute peacock feather"},
-                {"text": "आज अपने जीवन में प्रेम और करुणा को स्थान दें, राधे-राधे बोलें!", "visual_prompt": "Sacred glowing footprints of Shri Radha Krishna adorned with fresh lotus flowers, celestial light rays", "query": "Radha Krishna lotus flowers"},
-                {"text": "बोलो राधे-राधे! कमेंट में जय श्री कृष्ण ज़रूर लिखें और कृपा पाएं।", "visual_prompt": "Vrindavan holy temple with thousands of glowing diyas at twilight, cinematic divine beauty", "query": "Vrindavan temple diyas night"}
+                {"text": "राधे-कृष्ण का प्रेम केवल आकर्षण नहीं, आत्मा का परमात्मा से मिलन है।", "visual_prompt": "Ultra-photorealistic 8k IMAX cinematic, Unreal Engine 5 render of ethereal Lord Krishna and Radha, cosmic glowing cyan and gold aura, cinematic volumetric lighting, floating lotus petals in cosmic nebulae, 70mm movie photography, 9:16 vertical", "query": "cosmic divine love space 8k"},
+                {"text": "जब कन्हैया बांसुरी बजाते थे, तब सारा संसार मंत्रमुग्ध हो जाता था।", "visual_prompt": "Lord Krishna playing golden flute with glowing starlight aura, ethereal peacock feathers shimmering, cinematic depth of field, 8k vertical wallpaper", "query": "Krishna golden flute starlight"},
+                {"text": "राधा रानी के बिना कृष्ण अधूरे हैं, और कृष्ण के बिना राधा का कोई अस्तित्व नहीं।", "visual_prompt": "Ethereal Goddess Radha surrounded by glowing lotus blossoms, heavenly golden twilight reflections, celestial fantasy cinema, 9:16 vertical", "query": "celestial goddess glowing lotus"},
+                {"text": "सच्चा प्रेम त्याग और समर्पण सिखाता है, जहाँ कोई स्वार्थ नहीं होता।", "visual_prompt": "Cosmic divine energy particles swirling like golden galaxies over sacred Vrindavan waters, Christopher Nolan style sci-fi cinematic lighting, 9:16 vertical", "query": "golden galaxies water reflection"},
+                {"text": "गोपियों का भाव केवल यह था कि प्रभु सदा प्रसन्न रहें।", "visual_prompt": "Glow of thousands of cosmic floating lights over golden mirror river, hyper-realistic fantasy cinema, 8k vertical", "query": "thousands floating lanterns water 8k"},
+                {"text": "जो भी भक्त सच्चे मन से राधे-राधे जपता है, उसके सब कष्ट दूर हो जाते हैं।", "visual_prompt": "Sacred glowing celestial aura in deep space nebula, shimmering golden stardust, award winning cinematography, 9:16 vertical", "query": "deep space golden nebula 8k"},
+                {"text": "कलयुग में केवल हरि नाम ही मनुष्य को भवसागर से पार उतार सकता है।", "visual_prompt": "Ethereal glowing golden flute floating in starlight with mystical blue peacock feather, macro lens 8k cinematic shot, 9:16 vertical", "query": "golden flute peacock starlight"},
+                {"text": "आज अपने जीवन में प्रेम और करुणा को स्थान दें, राधे-राधे बोलें!", "visual_prompt": "Sacred glowing golden footprints stepping on luminous blooming lotus flowers, beams of heaven breaking through clouds, 9:16 vertical", "query": "golden lotus flowers glowing heavenly"},
+                {"text": "बोलो राधे-राधे! कमेंट में जय श्री कृष्ण ज़रूर लिखें और कृपा पाएं।", "visual_prompt": "Magnificent cosmic temple palace glowing under starry galaxy twilight, cinematic fantasy masterpiece, 9:16 vertical", "query": "cosmic glowing temple palace galaxy"}
             ]
         },
         {
             "id": 2,
             "theme": "mystery",
             "voice": "hi-IN-MadhurNeural",
-            "headline": "सतयुग और त्रेतायुग के अनसुलझे रहस्य",
-            "caption": "प्रा प्राचीन सनातन विज्ञान और युगों के रहस्य! 🔱🚩 #AncientMysteries #TretaYug #SanatanDharma #VedicScience #Shorts",
+            "headline": "🔱 प्राचीन भारत का उन्नत विज्ञान 🚀",
+            "caption": "प्राचीन सनातन विज्ञान, वैदिक विमान और ब्रह्मांडीय रहस्य! 🔱⚡ #AncientMysteries #VedicScience #AdvancedAncientTech #Kalki2898AD #Shorts",
             "segments": [
-                {"text": "क्या आप जानते हैं कि सतयुग में मनुष्य की आयु एक लाख वर्ष मानी गई थी?", "visual_prompt": "Ancient Himalayan sages meditating in floating energy, golden age golden temples, 9:16 cinematic visual", "query": "ancient Himalayan yogi meditation"},
-                {"text": "त्रेतायुग में भगवान श्री राम के काल में पुष्पक विमान जैसी तकनीक थी।", "visual_prompt": "Ancient Vedic vimana golden flying chariot hovering over Ayodhya golden palace, epic cinematic lighting", "query": "ancient vimana flying temple"},
-                {"text": "वाल्मीकि रामायण में ऐसे अस्त्रों का वर्णन है जो आधुनिक मिसाइल से भी तीव्र थे।", "visual_prompt": "Glowing cosmic Brahmastra energy weapon releasing mystical light beams in sky, ancient epic visual", "query": "Brahmastra ancient weapon epic"},
-                {"text": "ब्रह्मास्त्र, पाशुपतास्त्र और नारायणास्त्र, ध्वनि तरंगों और मंत्रों से संचालित होते थे।", "visual_prompt": "Ancient Vedic manuscripts with glowing golden Sanskrit inscriptions and celestial geometry", "query": "ancient Sanskrit manuscript"},
-                {"text": "यह सनातन ज्ञान केवल कल्पना नहीं, बल्कि उच्चतर वैज्ञानिक चेतना का प्रमाण है।", "visual_prompt": "Mysterious ancient Vedic temple astronomical calendar wheel with glowing golden alignments, cinematic look", "query": "Konark Sun temple wheel astronomy"},
-                {"text": "द्वारका नगरी के समुद्र में मिले अवशेष इस बात को आज भी प्रमाणित करते हैं।", "visual_prompt": "Submerged ancient stone pillars and palace gates of Dwarka city deep underwater with glowing fish", "query": "Dwarka submerged city underwater"},
-                {"text": "ऋषि-मुनियों ने बिना दूरबीन के सौरमंडल और ग्रहों की सटीक दूरी माप ली थी।", "visual_prompt": "Ancient Indian astronomer yogi looking into glowing planetary orbits and stars in night sky", "query": "ancient Indian astronomy planets"},
-                {"text": "हमारी प्राचीन धरोहर में छिपे इन रहस्यों को जानना हर भारतीय का कर्तव्य है।", "visual_prompt": "Epic Kailash temple carved from single giant mountain rock, mystical glowing sunrise", "query": "Kailash temple Ellora rock"},
-                {"text": "सनातन के इस गौरवशाली इतिहास पर गर्व है तो कमेंट में 'हर हर महादेव' लिखें!", "visual_prompt": "Lord Shiva meditating in snow peaks of Himalayas with glowing trident, cosmic aura", "query": "Lord Shiva Himalayas meditating"}
+                {"text": "क्या आप जानते हैं कि सतयुग में मनुष्य की आयु एक लाख वर्ष मानी गई थी?", "visual_prompt": "Hyper-realistic 4K IMAX sci-fi cinema, ancient advanced Himalayan masters surrounded by floating holographic energy rings, golden futuristic temples, 9:16 vertical", "query": "ancient masters holographic rings sci-fi"},
+                {"text": "त्रेतायुग में भगवान श्री राम के काल में पुष्पक विमान जैसी तकनीक थी।", "visual_prompt": "Futuristic ancient Vedic vimana golden flying craft hovering above colossal golden palace towers of Ayodhya, epic blockbuster cinematography, 9:16 vertical", "query": "vimana flying chariot futuristic palace"},
+                {"text": "वाल्मीकि रामायण में ऐसे अस्त्रों का वर्णन है जो आधुनिक मिसाइल से भी तीव्र थे।", "visual_prompt": "Glowing cosmic Brahmastra quantum plasma energy beam piercing dark thunderclouds, epic Marvel Kalki 2898 AD VFX movie style, 9:16 vertical", "query": "Brahmastra energy beam lightning 8k"},
+                {"text": "ब्रह्मास्त्र, पाशुपतास्त्र और नारायणास्त्र, ध्वनि तरंगों और मंत्रों से संचालित होते थे।", "visual_prompt": "Ancient glowing golden metallic manuscripts with floating laser holographic Sanskrit equations, futuristic ancient tech, 9:16 vertical", "query": "holographic sanskrit equations ancient"},
+                {"text": "यह सनातन ज्ञान केवल कल्पना नहीं, बल्कि उच्चतर वैज्ञानिक चेतना का प्रमाण है।", "visual_prompt": "Colossal ancient astronomical stone wheel aligning with glowing planetary orbits in starry sky, Interstellar movie look, 9:16 vertical", "query": "ancient astronomical wheel planets"},
+                {"text": "द्वारका नगरी के समुद्र में मिले अवशेष इस बात को आज भी प्रमाणित करते हैं।", "visual_prompt": "Lost ancient underwater city of Dwarka, colossal submerged stone pillars, glowing bio-luminescent sea life, deep ocean exploration, 9:16 vertical", "query": "Dwarka sunken underwater city pillars"},
+                {"text": "ऋषि-मुनियों ने बिना दूरबीन के सौरमंडल और ग्रहों की सटीक दूरी माप ली थी।", "visual_prompt": "Ancient astronomer sage using advanced bronze astrolabe looking into glowing 3D planetary solar system model, IMAX 70mm, 9:16 vertical", "query": "astronomer looking into 3d planets"},
+                {"text": "हमारी प्राचीन धरोहर में छिपे इन रहस्यों को जानना हर भारतीय का कर्तव्य है।", "visual_prompt": "Colossal monolithic Kailash temple carved from giant dark mountain peak, mystical golden rays piercing fog, epic movie shot, 9:16 vertical", "query": "Kailash temple Ellora epic lighting"},
+                {"text": "सनातन के इस गौरवशाली इतिहास पर गर्व है तो कमेंट में 'हर हर महादेव' लिखें!", "visual_prompt": "Cosmic Mahadev meditating on snowy Himalayan peak with glowing trident, aurora borealis galaxy sky, epic cinematography, 9:16 vertical", "query": "cosmic shiva himalayas aurora galaxy"}
             ]
         },
         {
             "id": 3,
             "theme": "humor",
             "voice": "hi-IN-MadhurNeural",
-            "headline": "ज़िंदगी की मीठी बातें और हंसी का डोज़",
-            "caption": "थोड़ा मुस्कुराइए! ज़िंदगी बहुत खूबसूरत है 😂❤️ #DesiHumor #ComedyShorts #LifeJokes #TrendingReels #Shorts",
+            "headline": "😂 देसी ज़िंदगी के मज़ेदार पल ☕",
+            "caption": "थोड़ा मुस्कुराइए! ज़िंदगी बहुत खूबसूरत और मज़ेदार है 😂❤️ #DesiHumor #ComedyShorts #RelatableReels #DailyLaughs #Shorts",
             "segments": [
-                {"text": "जिंदगी में दो चीजें कभी समझ नहीं आतीं—एक डॉक्टर की हैंडराइटिंग और दूसरा...", "visual_prompt": "Funny confused cartoon character scratching head looking at strange prescription paper, comedic style", "query": "funny confused cartoon face"},
-                {"text": "कि सुबह 6 बजे अलार्म बजने पर 5 मिनट की नींद 5 घंटे जैसी सुखद क्यों लगती है!", "visual_prompt": "Comical cozy blanket alarm clock ringing loudly, funny sleepy expressions, bright fun lighting", "query": "funny alarm clock waking up cartoon"},
-                {"text": "एक भाई ने पूछा—शादी के बाद सुकून कहाँ मिलता है? मैंने कहा—यादों में!", "visual_prompt": "Humorous husband washing huge pile of dishes looking dramatically towards sky, funny expression", "query": "funny married life comedy cartoon"},
-                {"text": "वैसे प्यार में सबसे बड़ी ताक़त यह है कि इंसान बिना किसी वजह के मुस्कुराने लगता है।", "visual_prompt": "Cute romantic smiling cartoon couple walking in autumn park, golden warm sunshine, joyful vibe", "query": "cute romantic couple smiling sunset"},
-                {"text": "और जब वही इंसान घर आता है, तो मम्मी पूछती हैं—फोन में देखकर क्यों हंस रहा है रे?", "visual_prompt": "Funny cartoon character laughing uncontrollably holding smartphone on couch, bright colorful style", "query": "funny laughing cartoon holding phone"},
-                {"text": "दोस्तो, गुस्सा करने से सेहत खराब होती है, और हंसने से चेहरे पर रौनक आती है!", "visual_prompt": "Joyful cartoon characters laughing together over tea, cheerful colorful animation aesthetic", "query": "friends laughing tea party cartoon"},
-                {"text": "इसलिए हर दिन थोड़ा वक्त खुद के लिए और अपनों की खुशी के लिए ज़रूर निकालें।", "visual_prompt": "Warm beautiful sunrise view with hot steaming cup of tea on scenic balcony, peaceful morning", "query": "morning cup of tea sunrise balcony"},
-                {"text": "अगर आपके चेहरे पर थोड़ी सी भी मुस्कान आई हो, तो चैनल को सब्सक्राइब और शेयर ज़रूर करें!", "visual_prompt": "Bright sparkling emoji hearts and thumbs up floating in fun colorful cinematic background", "query": "emoji thumbs up celebration colorful"}
+                {"text": "जिंदगी में दो चीजें कभी समझ नहीं आतीं—एक डॉक्टर की हैंडराइटिंग और दूसरा...", "visual_prompt": "Hyper-realistic 4K cinematic shot of stylish modern Indian youth looking at hilarious doctor prescription with funny confused face, Sony A7S III 85mm, 9:16 vertical", "query": "funny confused man doctor prescription"},
+                {"text": "कि सुबह 6 बजे अलार्म बजने पर 5 मिनट की नींद 5 घंटे जैसी सुखद क्यों लगती है!", "visual_prompt": "Vibrant modern 3D Pixar style alarm clock vibrating wildly at 6 AM, hilarious sleepy reaction under cozy blanket, bright warm lighting, 9:16 vertical", "query": "pixar style alarm clock ringing funny"},
+                {"text": "एक भाई ने पूछा—शादी के बाद सुकून कहाँ मिलता है? मैंने कहा—यादों में!", "visual_prompt": "Relatable comedy scene of young modern husband looking comically overwhelmed next to huge mountain of sparkling dishes, 9:16 vertical", "query": "funny husband washing dishes cartoon comedy"},
+                {"text": "वैसे प्यार में सबसे बड़ी ताक़त यह है कि इंसान बिना किसी वजह के मुस्कुराने लगता है।", "visual_prompt": "Trendy stylish modern young couple laughing happily together in chic outdoor aesthetic cafe, warm golden sunset, Instagram photography, 9:16 vertical", "query": "stylish couple laughing outdoor cafe"},
+                {"text": "और जब वही इंसान घर आता है, तो मम्मी पूछती हैं—फोन में देखकर क्यों हंस रहा है रे?", "visual_prompt": "Funny relatable scene of guy laughing out loud looking at modern smartphone on couch, bright colorful modern apartment, 9:16 vertical", "query": "guy laughing at smartphone on couch"},
+                {"text": "दोस्तो, गुस्सा करने से सेहत खराब होती है, और हंसने से चेहरे पर रौनक आती है!", "visual_prompt": "Modern friends having fun laughing hysterically together over chai at trendy rooftop cafe, golden hour aesthetic, 9:16 vertical", "query": "friends laughing rooftop cafe sunset"},
+                {"text": "इसलिए हर दिन थोड़ा वक्त खुद के लिए और अपनों की खुशी के लिए ज़रूर निकालें।", "visual_prompt": "Steaming hot cutting chai cup on scenic glass high-rise balcony with breathtaking sunrise clouds, luxury lifestyle cinematic 4K, 9:16 vertical", "query": "hot tea cup glass balcony sunrise"},
+                {"text": "अगर आपके चेहरे पर थोड़ी सी भी मुस्कान आई हो, तो चैनल को सब्सक्राइब और शेयर ज़रूर करें!", "visual_prompt": "Explosion of 3D floating heart emojis and thumbs up celebration, trendy colorful YouTube Shorts outro, 9:16 vertical", "query": "3d floating hearts emojis celebration"}
             ]
         }
     ]
@@ -159,13 +159,16 @@ def generate_scripts():
 Aaj ki taarikh: {TODAY.strftime('%d %B %Y')}.
 Aapko 3 alag-alag vertical 9:16 videos ke liye high quality Hindi script banani hai.
 Har video ki kul avadhi lagbhag 60 se 75 second honi chahiye.
-Har video ko 9 se 12 chote segments me baanto (har segment 5-7 second ka, lagbhag 12-16 shabdon ka).
+Har video ko 8 se 10 chote segments me baanto (har segment 5-7 second ka, lagbhag 12-16 shabdon ka).
 
-Video 1: Shri Radha Krishna Prema Bhakti (Divya leela, prem aur samarpan, bhavuk vichaar).
-Video 2: Prachin Granth aur Satya Yug / Treta Yug ke Ankahe Rahasya (Vedic vigyan, vimana, astras, Dwarka, etc).
-Video 3: Hasi-Mazak / Desi Chutkula / Zindagi ka Meetha Pyar (Muskurahat laane wali baatein).
+Video 1: Shri Radha Krishna Cosmic Love & Wisdom (Modern 4K Unreal Engine 5 aesthetic, divine consciousness).
+Video 2: Prachin Bharat ka Unnat Vigyan aur Rahasya (Hollywood 4K sci-fi style, ancient advanced tech, vimanas, astras).
+Video 3: Desi Zindagi ke Mazedaar Pal / Hasi-Mazak (Modern 4K cinematography, relatable youth humor).
 
-Kripya dhyan dein: Kisi bhi segment me user ka chehra ya real photo nahi aayegi. Har segment ke liye thematic visual prompt banayein jo boli gayi line se 100% match kare.
+MAHATVAPURNA VISUAL RULE:
+- Har segment ke liye 'visual_prompt' me 4K Unreal Engine 5 render, IMAX cinematic lighting, hyper-realistic, photorealistic, vertical 9:16 aspect ratio hona chahiye.
+- Kripya koi bhi purani calendar art, traditional sketches ya religious paintings ka prompt MAT banayein. Har visual modern 4K Hollywood/Blockbuster movie jaisa dikhna chahiye!
+- User ka chehra ya real photo bilkul nahi aayegi.
 
 Output format: Kripya SIRF valid JSON dein is structure me:
 {{
@@ -179,7 +182,7 @@ Output format: Kripya SIRF valid JSON dein is structure me:
       "segments": [
         {{
           "text": "spoken Hindi line in Devanagari (12-16 words)",
-          "visual_prompt": "English image prompt describing matching visual in 9:16 vertical ratio, 8k cinematic"
+          "visual_prompt": "English image prompt in 4k IMAX cinematic style, 9:16 vertical ratio"
         }}
       ]
     }}
@@ -347,12 +350,18 @@ def prepare_vertical_image(img: Image.Image) -> Image.Image:
     top = (new_h - H) // 2
     return resized.crop((left, top, left + W, top + H))
 
-def overlay_hindi_text(img: Image.Image, text: str, headline: str = "") -> Image.Image:
+def split_text_into_phases(text: str) -> tuple[str, str]:
+    words = text.strip().split()
+    if len(words) <= 5:
+        return text, ""
+    mid = len(words) // 2
+    return " ".join(words[:mid]), " ".join(words[mid:])
+
+def overlay_hindi_text(img: Image.Image, text: str, headline: str = "", phase: int = 1) -> Image.Image:
     W, H = 1080, 1920
     # Center-crop & fill 9:16 vertical canvas
     img = prepare_vertical_image(img).convert("RGBA")
     
-    # Elegant cinematic vignette & subtitle badge overlay
     overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     draw_ov = ImageDraw.Draw(overlay)
     
@@ -363,25 +372,28 @@ def overlay_hindi_text(img: Image.Image, text: str, headline: str = "") -> Image
         head_box_w = min(max(head_w + 70, 480), W - 80)
         hx1 = (W - head_box_w) // 2
         hy1, hy2 = 120, 210
-        # Rounded glowing header badge
-        draw_ov.rounded_rectangle([(hx1, hy1), (hx1 + head_box_w, hy2)], radius=28, fill=(10, 10, 20, 215), outline=(255, 215, 0, 240), width=3)
+        border_col = (255, 215, 0, 240) if phase == 1 else (0, 230, 255, 240)
+        draw_ov.rounded_rectangle([(hx1, hy1), (hx1 + head_box_w, hy2)], radius=28, fill=(10, 10, 22, 220), outline=border_col, width=3)
     
-    # 2. Modern Viral Subtitles (Centered at Golden Reel Zone Y: 60-70%)
-    sub_font = get_font(52)
+    # 2. Modern Viral Kinetic Subtitles (Golden Reel Zone Y: 60-70%)
+    sub_font = get_font(54)
     pad = 70
     lines = wrap_text(draw_ov, text, sub_font, W - (2 * pad) - 40)
     
-    line_h = 72
+    line_h = 74
     total_text_h = len(lines) * line_h
-    pill_y1 = int(H * 0.62)
+    # Dynamic slight vertical movement between phases for kinetic feel
+    pill_y1 = int(H * 0.63) if phase == 1 else int(H * 0.60)
     pill_y2 = pill_y1 + total_text_h + 44
     
-    # Translucent rounded glass capsule with gold edge
+    capsule_fill = (12, 12, 24, 225)
+    capsule_border = (0, 235, 255, 240) if phase == 1 else (255, 220, 40, 240)
+    
     draw_ov.rounded_rectangle(
         [(pad - 20, pill_y1 - 18), (W - pad + 20, pill_y2)],
         radius=26,
-        fill=(12, 12, 22, 210),
-        outline=(255, 220, 40, 230),
+        fill=capsule_fill,
+        outline=capsule_border,
         width=3
     )
     
@@ -392,11 +404,13 @@ def overlay_hindi_text(img: Image.Image, text: str, headline: str = "") -> Image
     if headline:
         draw.text((W // 2, 165), headline, font=head_font, fill=(255, 225, 75), anchor="mm", stroke_width=2, stroke_fill=(0, 0, 0))
     
-    # Render Dynamic Two-Tone Subtitles
+    # Render Two-Tone Dynamic Subtitles
     cur_y = pill_y1 + 8
     for idx, line in enumerate(lines):
-        # Alternate vibrant highlight: First line radiant white, subsequent lines punchy golden-yellow
-        color = (255, 255, 255) if idx == 0 else (255, 230, 0)
+        if phase == 1:
+            color = (255, 255, 255) if idx == 0 else (0, 240, 255)
+        else:
+            color = (255, 255, 255) if idx == 0 else (255, 230, 0)
         draw.text(
             (W // 2, cur_y),
             line,
@@ -410,42 +424,75 @@ def overlay_hindi_text(img: Image.Image, text: str, headline: str = "") -> Image
         
     return img.convert("RGB")
 
-def build_segment_video(img_path: Path, audio_path: Path, duration: float, out_mp4: Path, seg_idx: int = 0):
+def build_segment_video(img1_path: Path, img2_path: Path | None, audio_path: Path, duration: float, out_mp4: Path, seg_idx: int = 0):
     fps = 30
-    frames = max(int(duration * fps), 30)
-    # Fast cinematic Ken Burns zoom-in and zoom-out
+    temp_dir = out_mp4.parent
+    
+    # If no phase 2 or short duration, single clip
+    if not img2_path or not img2_path.exists() or duration < 3.0:
+        frames = max(int(duration * fps), 30)
+        if seg_idx % 2 == 0:
+            vf = f"scale=1080:1920,zoompan=z='min(zoom+0.001,1.15)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s=1080x1920:fps={fps},format=yuv420p"
+        else:
+            vf = f"scale=1080:1920,zoompan=z='if(lte(zoom,1.0),1.15,max(1.001,zoom-0.001))':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s=1080x1920:fps={fps},format=yuv420p"
+        cmd = [
+            "ffmpeg", "-y",
+            "-loop", "1", "-i", str(img1_path),
+            "-i", str(audio_path),
+            "-t", f"{duration:.2f}",
+            "-vf", vf,
+            "-c:v", "libx264", "-preset", "veryfast", "-crf", "22",
+            "-pix_fmt", "yuv420p",
+            "-c:a", "aac", "-b:a", "192k",
+            "-shortest", str(out_mp4)
+        ]
+        try:
+            subprocess.run(cmd, check=True, capture_output=True, timeout=35)
+            return
+        except Exception:
+            pass
+
+    # Two-Phase Kinetic Subtitle Animation (Jumps & Advances with Speech)
+    dur1 = duration / 2.0
+    dur2 = duration - dur1
+    frames1 = max(int(dur1 * fps), 15)
+    frames2 = max(int(dur2 * fps), 15)
+    
+    sub1_mp4 = temp_dir / f"temp_{out_mp4.stem}_p1.mp4"
+    sub2_mp4 = temp_dir / f"temp_{out_mp4.stem}_p2.mp4"
+    
     if seg_idx % 2 == 0:
-        # Smooth Zoom-In (1.0 -> 1.15)
-        vf = (
-            f"scale=1080:1920,"
-            f"zoompan=z='min(zoom+0.001,1.15)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s=1080x1920:fps={fps},"
-            f"format=yuv420p"
-        )
+        vf1 = f"scale=1080:1920,zoompan=z='min(zoom+0.001,1.08)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames1}:s=1080x1920:fps={fps},format=yuv420p"
+        vf2 = f"scale=1080:1920,zoompan=z='min(1.08+0.001*on,1.16)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames2}:s=1080x1920:fps={fps},format=yuv420p"
     else:
-        # Smooth Zoom-Out (1.15 -> 1.0)
-        vf = (
-            f"scale=1080:1920,"
-            f"zoompan=z='if(lte(zoom,1.0),1.15,max(1.001,zoom-0.001))':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s=1080x1920:fps={fps},"
-            f"format=yuv420p"
-        )
-    cmd = [
-        "ffmpeg", "-y",
-        "-loop", "1", "-i", str(img_path),
-        "-i", str(audio_path),
-        "-t", f"{duration:.2f}",
-        "-vf", vf,
-        "-c:v", "libx264", "-preset", "veryfast", "-crf", "22",
-        "-pix_fmt", "yuv420p",
-        "-c:a", "aac", "-b:a", "192k",
-        "-shortest", str(out_mp4)
-    ]
+        vf1 = f"scale=1080:1920,zoompan=z='if(lte(zoom,1.0),1.16,max(1.08,zoom-0.001))':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames1}:s=1080x1920:fps={fps},format=yuv420p"
+        vf2 = f"scale=1080:1920,zoompan=z='if(lte(zoom,1.0),1.08,max(1.001,zoom-0.001))':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames2}:s=1080x1920:fps={fps},format=yuv420p"
+
+    cmd1 = ["ffmpeg", "-y", "-loop", "1", "-i", str(img1_path), "-t", f"{dur1:.2f}", "-vf", vf1, "-c:v", "libx264", "-preset", "veryfast", "-crf", "22", "-pix_fmt", "yuv420p", "-an", str(sub1_mp4)]
+    cmd2 = ["ffmpeg", "-y", "-loop", "1", "-i", str(img2_path), "-t", f"{dur2:.2f}", "-vf", vf2, "-c:v", "libx264", "-preset", "veryfast", "-crf", "22", "-pix_fmt", "yuv420p", "-an", str(sub2_mp4)]
+    
     try:
-        subprocess.run(cmd, check=True, capture_output=True, timeout=35)
+        subprocess.run(cmd1, check=True, capture_output=True, timeout=20)
+        subprocess.run(cmd2, check=True, capture_output=True, timeout=20)
+        
+        concat_txt = temp_dir / f"temp_{out_mp4.stem}_concat.txt"
+        concat_txt.write_text(f"file '{sub1_mp4.resolve().as_posix()}'\nfile '{sub2_mp4.resolve().as_posix()}'\n", encoding="utf-8")
+        
+        merge_cmd = [
+            "ffmpeg", "-y",
+            "-f", "concat", "-safe", "0", "-i", str(concat_txt),
+            "-i", str(audio_path),
+            "-c:v", "copy",
+            "-c:a", "aac", "-b:a", "192k",
+            "-shortest", str(out_mp4)
+        ]
+        subprocess.run(merge_cmd, check=True, capture_output=True, timeout=20)
+        return
     except Exception:
-        # Fast fallback to clean static 9:16 frame if zoompan hits issue
+        # Fallback to single clip
         simple_cmd = [
             "ffmpeg", "-y",
-            "-loop", "1", "-i", str(img_path),
+            "-loop", "1", "-i", str(img1_path),
             "-i", str(audio_path),
             "-t", f"{duration:.2f}",
             "-vf", "scale=1080:1920,format=yuv420p",
@@ -454,7 +501,7 @@ def build_segment_video(img_path: Path, audio_path: Path, duration: float, out_m
             "-c:a", "aac", "-b:a", "192k",
             "-shortest", str(out_mp4)
         ]
-        subprocess.run(simple_cmd, check=True, capture_output=True, timeout=30)
+        subprocess.run(simple_cmd, check=True, capture_output=True, timeout=25)
 
 def find_bgm_track(theme: str) -> Path | None:
     if not MUSIC_DIR.exists():
@@ -570,12 +617,20 @@ def generate():
             img_loaded = get_segment_image(seg["visual_prompt"], query, p.get("theme", ""), j, img_raw_path)
             print(f"    [Photo OK] Segment {j+1} HD image taiyar!")
                     
-            # 3. Add Hindi Text on Image
-            processed_img = overlay_hindi_text(img_loaded, seg["text"], p["headline"])
-            processed_img.save(img_final_path)
+            # 3. Add Hindi Text on Image (Kinetic Two-Phase Subtitles)
+            p1, p2 = split_text_into_phases(seg["text"])
+            img_p1_path = video_work_dir / f"{seg_prefix}_p1.png"
+            img_p2_path = (video_work_dir / f"{seg_prefix}_p2.png") if p2 else None
             
-            # 4. Make video segment with cinematic alternating zoom
-            build_segment_video(img_final_path, audio_path, dur, seg_video_path, seg_idx=j)
+            processed_p1 = overlay_hindi_text(img_loaded, p1, p["headline"], phase=1)
+            processed_p1.save(img_p1_path)
+            
+            if p2 and img_p2_path:
+                processed_p2 = overlay_hindi_text(img_loaded, p2, p["headline"], phase=2)
+                processed_p2.save(img_p2_path)
+            
+            # 4. Make video segment with cinematic alternating zoom & kinetic subtitles
+            build_segment_video(img_p1_path, img_p2_path, audio_path, dur, seg_video_path, seg_idx=j)
             seg_videos.append(seg_video_path)
             print(f"  ✓ Segment {j+1}/{len(p['segments'])} taiyar ({dur:.1f}s)")
             
