@@ -255,7 +255,10 @@ def fetch_image_pollinations(prompt: str, out_path: Path) -> bool:
 
 def fetch_image_ddg(query: str, out_path: Path) -> bool:
     try:
-        from duckduckgo_search import DDGS
+        try:
+            from ddgs import DDGS
+        except ImportError:
+            from duckduckgo_search import DDGS
         headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
         search_q = f"{query} 4k vertical wallpaper"
         with DDGS(timeout=12) as ddgs:
@@ -481,13 +484,20 @@ def find_bgm_track(theme: str) -> Path | None:
 
 def assemble_final_video(segment_videos: list[Path], bgm_file: Path | None, final_output: Path):
     temp_dir = final_output.parent
+    temp_dir.mkdir(parents=True, exist_ok=True)
     concat_list = temp_dir / f"concat_{final_output.stem}.txt"
     with open(concat_list, "w", encoding="utf-8") as f:
         for seg in segment_videos:
             f.write(f"file '{seg.resolve().as_posix()}'\n")
             
     raw_merged = temp_dir / f"merged_{final_output.stem}.mp4"
-    # Concatenate segments with clean 30fps re-encode so transitions are seamless with ZERO pause/gap!
+    if raw_merged.exists():
+        try:
+            raw_merged.unlink()
+        except Exception:
+            pass
+
+    # 1. Concatenate segments with clean 30fps re-encode so transitions are seamless with ZERO pause/gap!
     cmd_concat = [
         "ffmpeg", "-y", "-f", "concat", "-safe", "0",
         "-i", str(concat_list),
@@ -496,9 +506,19 @@ def assemble_final_video(segment_videos: list[Path], bgm_file: Path | None, fina
         "-c:a", "aac", "-b:a", "192k",
         str(raw_merged)
     ]
-    subprocess.run(cmd_concat, check=True, capture_output=True)
-    
+    print(f"  [FFmpeg Concat] Merging {len(segment_videos)} segments...")
+    res_concat = subprocess.run(cmd_concat, capture_output=True, text=True)
+    if res_concat.returncode != 0:
+        print(f"  [FFmpeg Concat Error] {res_concat.stderr[-400:]}")
+        raise RuntimeError(f"FFmpeg concat failed for {final_output.name}")
+
+    if not raw_merged.exists() or raw_merged.stat().st_size == 0:
+        raise FileNotFoundError(f"Raw merged file not created: {raw_merged}")
+
+    # 2. Add Background Music (BGM) if available
+    bgm_success = False
     if bgm_file and bgm_file.exists():
+        temp_with_bgm = temp_dir / f"bgm_{final_output.stem}.mp4"
         cmd_mix = [
             "ffmpeg", "-y",
             "-i", str(raw_merged),
@@ -506,24 +526,30 @@ def assemble_final_video(segment_videos: list[Path], bgm_file: Path | None, fina
             "-filter_complex", "[1:a]volume=0.15[bgm];[0:a][bgm]amix=inputs=2:duration=first:dropout_transition=2[aout]",
             "-map", "0:v", "-map", "[aout]",
             "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
-            str(final_output)
+            str(temp_with_bgm)
         ]
         try:
-            subprocess.run(cmd_mix, check=True, capture_output=True)
-            return
-        except Exception:
-            pass
-            
-    if raw_merged != final_output:
+            mix_res = subprocess.run(cmd_mix, capture_output=True, timeout=60)
+            if mix_res.returncode == 0 and temp_with_bgm.exists() and temp_with_bgm.stat().st_size > 0:
+                if final_output.exists():
+                    final_output.unlink()
+                temp_with_bgm.replace(final_output)
+                bgm_success = True
+                print(f"  [BGM Mix] Successfully mixed background score!")
+        except Exception as e:
+            print(f"  [BGM Mix Warning] Could not mix BGM: {e}")
+
+    # If no BGM was added or mixing didn't happen, use raw_merged directly as final_output
+    if not bgm_success:
         if final_output.exists():
             final_output.unlink()
-        raw_merged.rename(final_output)
-            
-    # If no BGM or mix failed, copy directly
-    if raw_merged != final_output:
-        if final_output.exists():
-            final_output.unlink()
-        raw_merged.rename(final_output)
+        raw_merged.replace(final_output)
+
+    # Clean up temporary concat list
+    try:
+        concat_list.unlink()
+    except Exception:
+        pass
 
 def ensure_fallback_assets():
     ASSETS_DIR.mkdir(parents=True, exist_ok=True)
