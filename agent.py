@@ -11,6 +11,7 @@ Punam Raj Auto Video Agent
 """
 
 import os
+import io
 import sys
 import json
 import time
@@ -238,14 +239,16 @@ def generate_voiceover(text: str, voice: str, out_path: Path) -> float:
 
 def fetch_image_pollinations(prompt: str, out_path: Path) -> bool:
     try:
-        clean = urllib.parse.quote(prompt[:160])
+        clean = urllib.parse.quote(prompt.strip()[:180])
         seed = random.randint(100, 999999)
         url = f"https://image.pollinations.ai/prompt/{clean}?width=720&height=1280&nologo=true&seed={seed}"
         headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
-        r = requests.get(url, headers=headers, timeout=14)
+        r = requests.get(url, headers=headers, timeout=22)
         if r.status_code == 200 and len(r.content) > 10000:
-            out_path.write_bytes(r.content)
-            return True
+            test_im = Image.open(io.BytesIO(r.content))
+            if test_im.size[0] >= 300 and test_im.size[1] >= 300:
+                out_path.write_bytes(r.content)
+                return True
     except Exception as e:
         print(f"[Pollinations Error] {e}")
     return False
@@ -254,16 +257,19 @@ def fetch_image_ddg(query: str, out_path: Path) -> bool:
     try:
         from duckduckgo_search import DDGS
         headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
-        with DDGS(timeout=10) as ddgs:
-            results = list(ddgs.images(keywords=query, max_results=5))
+        search_q = f"{query} 4k vertical wallpaper"
+        with DDGS(timeout=12) as ddgs:
+            results = list(ddgs.images(keywords=search_q, max_results=6))
             for item in results:
                 img_url = item.get("image")
                 if img_url:
                     try:
                         r = requests.get(img_url, headers=headers, timeout=10)
-                        if r.status_code == 200 and len(r.content) > 10000:
-                            out_path.write_bytes(r.content)
-                            return True
+                        if r.status_code == 200 and len(r.content) > 15000:
+                            test_im = Image.open(io.BytesIO(r.content))
+                            if test_im.size[0] >= 300:
+                                out_path.write_bytes(r.content)
+                                return True
                     except Exception:
                         continue
     except Exception as e:
@@ -357,7 +363,7 @@ def split_text_into_phases(text: str) -> tuple[str, str]:
     mid = len(words) // 2
     return " ".join(words[:mid]), " ".join(words[mid:])
 
-def overlay_hindi_text(img: Image.Image, text: str, headline: str = "", phase: int = 1) -> Image.Image:
+def overlay_hindi_text(img: Image.Image, text: str, headline: str = "") -> Image.Image:
     W, H = 1080, 1920
     # Center-crop & fill 9:16 vertical canvas
     img = prepare_vertical_image(img).convert("RGBA")
@@ -365,36 +371,37 @@ def overlay_hindi_text(img: Image.Image, text: str, headline: str = "", phase: i
     overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     draw_ov = ImageDraw.Draw(overlay)
     
-    # 1. Top Header Banner Badge (Pill Style)
+    # 1. Top Header Banner Badge (Y = 140 to 230)
     if headline:
         head_font = get_font(42)
         head_w = int(draw_ov.textlength(headline, font=head_font))
         head_box_w = min(max(head_w + 70, 480), W - 80)
         hx1 = (W - head_box_w) // 2
-        hy1, hy2 = 120, 210
-        border_col = (255, 215, 0, 240) if phase == 1 else (0, 230, 255, 240)
-        draw_ov.rounded_rectangle([(hx1, hy1), (hx1 + head_box_w, hy2)], radius=28, fill=(10, 10, 22, 220), outline=border_col, width=3)
+        hy1, hy2 = 140, 230
+        draw_ov.rounded_rectangle([(hx1, hy1), (hx1 + head_box_w, hy2)], radius=28, fill=(10, 10, 22, 220), outline=(255, 215, 0, 240), width=3)
     
-    # 2. Modern Viral Kinetic Subtitles (Golden Reel Zone Y: 60-70%)
-    sub_font = get_font(54)
-    pad = 70
+    # 2. Modern Viral Extra-Large Subtitles (SAFE CENTER GOLDEN ZONE: Y = 840 to 1100)
+    # Placed in the true center of the screen so comments and buttons never hide it!
+    sub_font = get_font(62)
+    pad = 60
     lines = wrap_text(draw_ov, text, sub_font, W - (2 * pad) - 40)
     
-    line_h = 74
+    line_h = 84
     total_text_h = len(lines) * line_h
-    # Dynamic slight vertical movement between phases for kinetic feel
-    pill_y1 = int(H * 0.63) if phase == 1 else int(H * 0.60)
-    pill_y2 = pill_y1 + total_text_h + 44
+    # Exact center-screen positioning
+    pill_y1 = int(H * 0.44)
+    pill_y2 = pill_y1 + total_text_h + 46
     
-    capsule_fill = (12, 12, 24, 225)
-    capsule_border = (0, 235, 255, 240) if phase == 1 else (255, 220, 40, 240)
+    capsule_fill = (10, 10, 24, 235)
+    capsule_border = (255, 220, 30, 255)
     
+    # Bold rounded frosted glass capsule
     draw_ov.rounded_rectangle(
         [(pad - 20, pill_y1 - 18), (W - pad + 20, pill_y2)],
-        radius=26,
+        radius=30,
         fill=capsule_fill,
         outline=capsule_border,
-        width=3
+        width=4
     )
     
     img = Image.alpha_composite(img, overlay)
@@ -402,101 +409,56 @@ def overlay_hindi_text(img: Image.Image, text: str, headline: str = "", phase: i
     
     # Render Headline Text
     if headline:
-        draw.text((W // 2, 165), headline, font=head_font, fill=(255, 225, 75), anchor="mm", stroke_width=2, stroke_fill=(0, 0, 0))
+        draw.text((W // 2, 185), headline, font=head_font, fill=(255, 225, 75), anchor="mm", stroke_width=2, stroke_fill=(0, 0, 0))
     
-    # Render Two-Tone Dynamic Subtitles
-    cur_y = pill_y1 + 8
+    # Render High-Impact Viral Subtitles (White & Neon Yellow)
+    cur_y = pill_y1 + 10
     for idx, line in enumerate(lines):
-        if phase == 1:
-            color = (255, 255, 255) if idx == 0 else (0, 240, 255)
-        else:
-            color = (255, 255, 255) if idx == 0 else (255, 230, 0)
+        color = (255, 255, 255) if idx == 0 else (255, 235, 0)
         draw.text(
             (W // 2, cur_y),
             line,
             font=sub_font,
             fill=color,
             anchor="mt",
-            stroke_width=4,
+            stroke_width=5,
             stroke_fill=(0, 0, 0)
         )
         cur_y += line_h
         
     return img.convert("RGB")
 
-def build_segment_video(img1_path: Path, img2_path: Path | None, audio_path: Path, duration: float, out_mp4: Path, seg_idx: int = 0):
+def build_segment_video(img_path: Path, audio_path: Path, duration: float, out_mp4: Path, seg_idx: int = 0):
     fps = 30
-    temp_dir = out_mp4.parent
-    
-    # If no phase 2 or short duration, single clip
-    if not img2_path or not img2_path.exists() or duration < 3.0:
-        frames = max(int(duration * fps), 30)
-        if seg_idx % 2 == 0:
-            vf = f"scale=1080:1920,zoompan=z='min(zoom+0.001,1.15)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s=1080x1920:fps={fps},format=yuv420p"
-        else:
-            vf = f"scale=1080:1920,zoompan=z='if(lte(zoom,1.0),1.15,max(1.001,zoom-0.001))':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s=1080x1920:fps={fps},format=yuv420p"
-        cmd = [
-            "ffmpeg", "-y",
-            "-loop", "1", "-i", str(img1_path),
-            "-i", str(audio_path),
-            "-t", f"{duration:.2f}",
-            "-vf", vf,
-            "-c:v", "libx264", "-preset", "veryfast", "-crf", "22",
-            "-pix_fmt", "yuv420p",
-            "-c:a", "aac", "-b:a", "192k",
-            "-shortest", str(out_mp4)
-        ]
-        try:
-            subprocess.run(cmd, check=True, capture_output=True, timeout=35)
-            return
-        except Exception:
-            pass
-
-    # Two-Phase Kinetic Subtitle Animation (Jumps & Advances with Speech)
-    dur1 = duration / 2.0
-    dur2 = duration - dur1
-    frames1 = max(int(dur1 * fps), 15)
-    frames2 = max(int(dur2 * fps), 15)
-    
-    sub1_mp4 = temp_dir / f"temp_{out_mp4.stem}_p1.mp4"
-    sub2_mp4 = temp_dir / f"temp_{out_mp4.stem}_p2.mp4"
-    
+    frames = max(int(duration * fps), 30)
+    # Smooth Ken Burns zoom with fixed 30fps and closed keyframes
     if seg_idx % 2 == 0:
-        vf1 = f"scale=1080:1920,zoompan=z='min(zoom+0.001,1.08)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames1}:s=1080x1920:fps={fps},format=yuv420p"
-        vf2 = f"scale=1080:1920,zoompan=z='min(1.08+0.001*on,1.16)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames2}:s=1080x1920:fps={fps},format=yuv420p"
+        vf = f"scale=1080:1920,zoompan=z='min(zoom+0.0012,1.15)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s=1080x1920:fps={fps},format=yuv420p"
     else:
-        vf1 = f"scale=1080:1920,zoompan=z='if(lte(zoom,1.0),1.16,max(1.08,zoom-0.001))':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames1}:s=1080x1920:fps={fps},format=yuv420p"
-        vf2 = f"scale=1080:1920,zoompan=z='if(lte(zoom,1.0),1.08,max(1.001,zoom-0.001))':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames2}:s=1080x1920:fps={fps},format=yuv420p"
-
-    cmd1 = ["ffmpeg", "-y", "-loop", "1", "-i", str(img1_path), "-t", f"{dur1:.2f}", "-vf", vf1, "-c:v", "libx264", "-preset", "veryfast", "-crf", "22", "-pix_fmt", "yuv420p", "-an", str(sub1_mp4)]
-    cmd2 = ["ffmpeg", "-y", "-loop", "1", "-i", str(img2_path), "-t", f"{dur2:.2f}", "-vf", vf2, "-c:v", "libx264", "-preset", "veryfast", "-crf", "22", "-pix_fmt", "yuv420p", "-an", str(sub2_mp4)]
-    
+        vf = f"scale=1080:1920,zoompan=z='if(lte(zoom,1.0),1.15,max(1.001,zoom-0.0012))':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s=1080x1920:fps={fps},format=yuv420p"
+    cmd = [
+        "ffmpeg", "-y",
+        "-loop", "1", "-i", str(img_path),
+        "-i", str(audio_path),
+        "-t", f"{duration:.2f}",
+        "-vf", vf,
+        "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
+        "-r", "30", "-g", "30",
+        "-pix_fmt", "yuv420p",
+        "-c:a", "aac", "-b:a", "192k",
+        "-shortest", str(out_mp4)
+    ]
     try:
-        subprocess.run(cmd1, check=True, capture_output=True, timeout=20)
-        subprocess.run(cmd2, check=True, capture_output=True, timeout=20)
-        
-        concat_txt = temp_dir / f"temp_{out_mp4.stem}_concat.txt"
-        concat_txt.write_text(f"file '{sub1_mp4.resolve().as_posix()}'\nfile '{sub2_mp4.resolve().as_posix()}'\n", encoding="utf-8")
-        
-        merge_cmd = [
-            "ffmpeg", "-y",
-            "-f", "concat", "-safe", "0", "-i", str(concat_txt),
-            "-i", str(audio_path),
-            "-c:v", "copy",
-            "-c:a", "aac", "-b:a", "192k",
-            "-shortest", str(out_mp4)
-        ]
-        subprocess.run(merge_cmd, check=True, capture_output=True, timeout=20)
-        return
+        subprocess.run(cmd, check=True, capture_output=True, timeout=35)
     except Exception:
-        # Fallback to single clip
         simple_cmd = [
             "ffmpeg", "-y",
-            "-loop", "1", "-i", str(img1_path),
+            "-loop", "1", "-i", str(img_path),
             "-i", str(audio_path),
             "-t", f"{duration:.2f}",
             "-vf", "scale=1080:1920,format=yuv420p",
-            "-c:v", "libx264", "-preset", "veryfast", "-crf", "22",
+            "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
+            "-r", "30", "-g", "30",
             "-pix_fmt", "yuv420p",
             "-c:a", "aac", "-b:a", "192k",
             "-shortest", str(out_mp4)
@@ -525,26 +487,18 @@ def assemble_final_video(segment_videos: list[Path], bgm_file: Path | None, fina
             f.write(f"file '{seg.resolve().as_posix()}'\n")
             
     raw_merged = temp_dir / f"merged_{final_output.stem}.mp4"
-    # Concatenate segments
+    # Concatenate segments with clean 30fps re-encode so transitions are seamless with ZERO pause/gap!
     cmd_concat = [
         "ffmpeg", "-y", "-f", "concat", "-safe", "0",
         "-i", str(concat_list),
-        "-c:v", "copy", "-c:a", "aac", str(raw_merged)
+        "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
+        "-r", "30", "-pix_fmt", "yuv420p",
+        "-c:a", "aac", "-b:a", "192k",
+        str(raw_merged)
     ]
-    try:
-        subprocess.run(cmd_concat, check=True, capture_output=True, text=True)
-    except subprocess.CalledProcessError as e:
-        print(f"[FFmpeg Concat Warning] {e.stderr[:300] if e.stderr else 'error'}. Retrying with re-encode.")
-        cmd_fallback = [
-            "ffmpeg", "-y", "-f", "concat", "-safe", "0",
-            "-i", str(concat_list),
-            "-c:v", "libx264", "-preset", "veryfast", "-c:a", "aac",
-            str(raw_merged)
-        ]
-        subprocess.run(cmd_fallback, check=True, capture_output=True)
+    subprocess.run(cmd_concat, check=True, capture_output=True)
     
     if bgm_file and bgm_file.exists():
-        # Mix background music at low volume (15%) with voiceover
         cmd_mix = [
             "ffmpeg", "-y",
             "-i", str(raw_merged),
@@ -557,8 +511,13 @@ def assemble_final_video(segment_videos: list[Path], bgm_file: Path | None, fina
         try:
             subprocess.run(cmd_mix, check=True, capture_output=True)
             return
-        except Exception as e:
-            print(f"[Warning] Failed to mix BGM: {e}. Keeping raw merged video.")
+        except Exception:
+            pass
+            
+    if raw_merged != final_output:
+        if final_output.exists():
+            final_output.unlink()
+        raw_merged.rename(final_output)
             
     # If no BGM or mix failed, copy directly
     if raw_merged != final_output:
@@ -569,20 +528,20 @@ def assemble_final_video(segment_videos: list[Path], bgm_file: Path | None, fina
 def ensure_fallback_assets():
     ASSETS_DIR.mkdir(parents=True, exist_ok=True)
     seed_items = [
-        ("bhakti_1.jpg", "Radha Krishna divine"),
-        ("bhakti_2.jpg", "Lord Krishna flute"),
-        ("bhakti_3.jpg", "Vrindavan temple"),
-        ("mystery_1.jpg", "ancient temple India"),
-        ("mystery_2.jpg", "Kailash temple"),
-        ("mystery_3.jpg", "ancient Sanskrit manuscript"),
-        ("humor_1.jpg", "funny cartoon"),
-        ("humor_2.jpg", "happy couple smiling"),
-        ("humor_3.jpg", "morning tea")
+        ("bhakti_1.jpg", "Ultra photorealistic 8k IMAX render of cosmic Lord Krishna cyan glowing skin vertical 9:16"),
+        ("bhakti_2.jpg", "Lord Krishna golden flute ethereal starlight aura 8k vertical"),
+        ("bhakti_3.jpg", "Cosmic temple palace galaxy twilight fantasy 8k vertical"),
+        ("mystery_1.jpg", "Futuristic Vedic vimana golden flying craft over Ayodhya palace 4k vertical"),
+        ("mystery_2.jpg", "Cosmic Brahmastra plasma energy beam lightning 8k vertical"),
+        ("mystery_3.jpg", "Submerged ancient stone pillars of Dwarka underwater 8k vertical"),
+        ("humor_1.jpg", "Stylish modern Indian youth funny confused face 4k vertical"),
+        ("humor_2.jpg", "Trendy young couple laughing outdoor cafe sunset 4k vertical"),
+        ("humor_3.jpg", "Hot cutting chai cup high rise glass balcony sunrise 4k vertical")
     ]
-    for name, q in seed_items:
+    for name, prmt in seed_items:
         file_path = ASSETS_DIR / name
         if not file_path.exists() or file_path.stat().st_size < 5000:
-            fetch_image_wikimedia(q, file_path)
+            fetch_image_pollinations(prmt, file_path)
 
 def generate():
     OUT.mkdir(parents=True, exist_ok=True)
@@ -617,20 +576,13 @@ def generate():
             img_loaded = get_segment_image(seg["visual_prompt"], query, p.get("theme", ""), j, img_raw_path)
             print(f"    [Photo OK] Segment {j+1} HD image taiyar!")
                     
-            # 3. Add Hindi Text on Image (Kinetic Two-Phase Subtitles)
-            p1, p2 = split_text_into_phases(seg["text"])
-            img_p1_path = video_work_dir / f"{seg_prefix}_p1.png"
-            img_p2_path = (video_work_dir / f"{seg_prefix}_p2.png") if p2 else None
+            # 3. Add Hindi Text on Image (Safe Center Golden Zone)
+            img_final_path = video_work_dir / f"{seg_prefix}_final.png"
+            processed_img = overlay_hindi_text(img_loaded, seg["text"], p["headline"])
+            processed_img.save(img_final_path)
             
-            processed_p1 = overlay_hindi_text(img_loaded, p1, p["headline"], phase=1)
-            processed_p1.save(img_p1_path)
-            
-            if p2 and img_p2_path:
-                processed_p2 = overlay_hindi_text(img_loaded, p2, p["headline"], phase=2)
-                processed_p2.save(img_p2_path)
-            
-            # 4. Make video segment with cinematic alternating zoom & kinetic subtitles
-            build_segment_video(img_p1_path, img_p2_path, audio_path, dur, seg_video_path, seg_idx=j)
+            # 4. Make video segment with smooth Ken Burns zoom
+            build_segment_video(img_final_path, audio_path, dur, seg_video_path, seg_idx=j)
             seg_videos.append(seg_video_path)
             print(f"  ✓ Segment {j+1}/{len(p['segments'])} taiyar ({dur:.1f}s)")
             
