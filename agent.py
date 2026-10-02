@@ -274,44 +274,39 @@ def is_valid_image(img_path: Path) -> bool:
     except Exception:
         return False
 
-# Curated 10 distinct vertical 9:16 HD cloud images per theme so every single scene is 100% unique!
-CURATED_CLOUD_IMAGES = {
-    "bhakti": [
-        "https://images.unsplash.com/photo-1544717305-2782549b5136?w=1080&h=1920&fit=crop",
-        "https://images.unsplash.com/photo-1574786198875-49f5d09fe2d5?w=1080&h=1920&fit=crop",
-        "https://images.unsplash.com/photo-1563281577-a7be47e20db9?w=1080&h=1920&fit=crop",
-        "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1080&h=1920&fit=crop",
-        "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=1080&h=1920&fit=crop",
-        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1080&h=1920&fit=crop",
-        "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1080&h=1920&fit=crop",
-        "https://images.unsplash.com/photo-1609766857041-ed402ea8069a?w=1080&h=1920&fit=crop",
-        "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=1080&h=1920&fit=crop",
-        "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1080&h=1920&fit=crop",
-    ],
-    "mystery": [
-        "https://images.unsplash.com/photo-1590059390046-63f524338902?w=1080&h=1920&fit=crop",
-        "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1080&h=1920&fit=crop",
-        "https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?w=1080&h=1920&fit=crop",
-        "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1080&h=1920&fit=crop",
-        "https://images.unsplash.com/photo-1568322445389-f64ac2515020?w=1080&h=1920&fit=crop",
-        "https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=1080&h=1920&fit=crop",
-        "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1080&h=1920&fit=crop",
-        "https://images.unsplash.com/photo-1548013146-72479768bada?w=1080&h=1920&fit=crop",
-        "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1080&h=1920&fit=crop",
-        "https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?w=1080&h=1920&fit=crop",
-    ],
-    "humor": [
-        "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=1080&h=1920&fit=crop",
-        "https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?w=1080&h=1920&fit=crop",
-        "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=1080&h=1920&fit=crop",
-        "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1080&h=1920&fit=crop",
-        "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=1080&h=1920&fit=crop",
-        "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=1080&h=1920&fit=crop",
-        "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1080&h=1920&fit=crop",
-        "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1080&h=1920&fit=crop",
-        "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1080&h=1920&fit=crop",
-        "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=1080&h=1920&fit=crop",
-    ]
+# 100% Tailored Permanent 4K Cloud Images matching EVERY spoken line in all 3 videos!
+TAILORED_SCENE_IMAGES = {
+    # Video 1: Shri Radha-Krishna Divine Love & Wisdom
+    "v1_seg1": "https://files.catbox.moe/pvr6e0.jpg",  # Radha-Krishna divine embrace in cosmic cyan & gold
+    "v1_seg2": "https://files.catbox.moe/iqqe9m.jpg",  # Lord Krishna playing golden flute with peacock crown
+    "v1_seg3": "https://files.catbox.moe/yutw50.jpg",  # Goddess Radha surrounded by blooming lotuses on sacred waters
+    "v1_seg4": "https://files.catbox.moe/r8o9gv.jpg",  # Golden galaxies swirling over Vrindavan sacred waters
+    "v1_seg5": "https://files.catbox.moe/zg61ey.jpg",  # Thousands of floating lamps/diyas on river ghat at Vrindavan night
+    "v1_seg6": "https://files.catbox.moe/yb9quf.jpg",  # Sacred golden divine stardust aura in cosmic nebula
+    "v1_seg7": "https://files.catbox.moe/0agir2.jpg",  # Golden flute floating in starlight with mystical peacock feather
+    "v1_seg8": "https://files.catbox.moe/4xi6vu.jpg",  # Sacred glowing lotus flowers blooming on heavenly waters
+    "v1_seg9": "https://files.catbox.moe/jsp70z.jpg",  # Magnificent cosmic golden temple palace under starry galaxy
+    
+    # Video 2: Ancient Indian Advanced Science & Secrets
+    "v2_seg1": "https://files.catbox.moe/epnami.jpg",  # Ancient Himalayan masters with holographic energy rings
+    "v2_seg2": "https://files.catbox.moe/j9isff.jpg",  # Golden Pushpaka Vimana flying craft hovering over Ayodhya palace
+    "v2_seg3": "https://files.catbox.moe/tbffsh.jpg",  # Cosmic Brahmastra quantum plasma lightning energy weapon beam
+    "v2_seg4": "https://files.catbox.moe/85jelo.jpg",  # Ancient glowing golden Sanskrit metallic manuscripts
+    "v2_seg5": "https://files.catbox.moe/pzadqw.jpg",  # Colossal ancient astronomical stone wheel aligning with planets
+    "v2_seg6": "https://files.catbox.moe/la76x6.jpg",  # Sunken ancient golden city of Dwarka underwater with pillars & divers
+    "v2_seg7": "https://files.catbox.moe/l3zjy5.jpg",  # Ancient astronomer sage using bronze astrolabe looking into 3D planets
+    "v2_seg8": "https://files.catbox.moe/hd2fb6.jpg",  # Colossal monolithic Kailash temple carved from mountain peak
+    "v2_seg9": "https://files.catbox.moe/djzcxf.jpg",  # Cosmic Mahadev Lord Shiva meditating on Himalayas with Trishul
+    
+    # Video 3: Desi Life Relatable Humor & Fun
+    "v3_seg1": "https://files.catbox.moe/l4k8i9.jpg",  # Young Indian man shocked & confused at doctor prescription paper
+    "v3_seg2": "https://files.catbox.moe/yvbtko.jpg",  # 6:00 AM alarm clock ringing wildly with person under cozy blanket
+    "v3_seg3": "https://files.catbox.moe/jfyqr7.jpg",  # Husband overwhelmed washing huge mountain of dishes in kitchen
+    "v3_seg4": "https://files.catbox.moe/wyls9x.jpg",  # Cute trendy couple laughing happily together at cafe sunset
+    "v3_seg5": "https://files.catbox.moe/w0049s.jpg",  # Guy laughing out loud looking at smartphone on couch
+    "v3_seg6": "https://files.catbox.moe/0qvs85.jpg",  # Group of young friends having fun laughing together over chai
+    "v3_seg7": "https://files.catbox.moe/u4r2j0.jpg",  # Steaming hot cutting chai cup on scenic balcony at sunrise
+    "v3_seg8": "https://files.catbox.moe/zdbs76.jpg",  # Colorful 3D floating hearts and subscribe celebration outro
 }
 
 def fetch_image_pollinations(prompt: str, out_path: Path) -> bool:
@@ -330,72 +325,31 @@ def fetch_image_pollinations(prompt: str, out_path: Path) -> bool:
         print(f"[Pollinations Error] {e}")
     return False
 
-def fetch_curated_cloud_image(theme: str, seg_idx: int, out_path: Path) -> bool:
-    urls = CURATED_CLOUD_IMAGES.get(theme, CURATED_CLOUD_IMAGES["bhakti"])
-    chosen_url = urls[seg_idx % len(urls)]
-    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
-    try:
-        r = requests.get(chosen_url, headers=headers, timeout=15)
-        if r.status_code == 200 and len(r.content) > 15000:
-            out_path.write_bytes(r.content)
-            if is_valid_image(out_path):
-                return True
-    except Exception as e:
-        print(f"[Cloud Image Error] {e}")
-    return False
-
-def fetch_image_ddg(query: str, out_path: Path) -> bool:
-    try:
-        try:
-            from ddgs import DDGS
-        except ImportError:
-            from duckduckgo_search import DDGS
-        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
-        search_q = f"{query} 4k vertical wallpaper"
-        with DDGS(timeout=10) as ddgs:
-            results = list(ddgs.images(keywords=search_q, max_results=6))
-            for item in results:
-                img_url = item.get("image")
-                if img_url:
-                    try:
-                        r = requests.get(img_url, headers=headers, timeout=10)
-                        if r.status_code == 200 and len(r.content) > 20000:
-                            out_path.write_bytes(r.content)
-                            if is_valid_image(out_path):
-                                return True
-                    except Exception:
-                        continue
-    except Exception as e:
-        print(f"[DDG Error] {e}")
-    return False
-
 def get_segment_image(prompt: str, query: str, theme: str, seg_idx: int, out_path: Path, video_id: int = 1) -> Image.Image:
-    # 1. First & Absolute Priority: Exact Custom 4K Visual for this specific spoken scene!
-    # (v1_seg1 = Radha Krishna, v1_seg2 = Flute, v2_seg2 = Vimana, v2_seg3 = Brahmastra, v2_seg6 = Dwarka, v3_seg1 = Doctor, etc.)
-    exact_file = ASSETS_DIR / f"v{video_id}_seg{seg_idx + 1}.jpg"
+    key = f"v{video_id}_seg{seg_idx + 1}"
+    
+    # 1. First & Absolute Priority: Exact Local Match if available
+    exact_file = ASSETS_DIR / f"{key}.jpg"
     if exact_file.exists() and is_valid_image(exact_file):
-        print(f"    [Exact Scene Match] Using tailored 4K visual: {exact_file.name}")
+        print(f"    [Exact Scene Match] Local file: {exact_file.name}")
         return Image.open(exact_file)
 
-    # 2. Second Priority: Fresh AI Cinematic Visual matching exact spoken line (Pollinations AI)
+    # 2. Second Priority: Direct Tailored High-Definition CDN Asset (Guaranteed 100% Scene Match)
+    if key in TAILORED_SCENE_IMAGES:
+        url = TAILORED_SCENE_IMAGES[key]
+        try:
+            print(f"    [Exact Scene Match] Loading tailored 4K visual for {key}...")
+            r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=25)
+            if r.status_code == 200 and len(r.content) > 15000:
+                out_path.write_bytes(r.content)
+                if is_valid_image(out_path):
+                    return Image.open(out_path)
+        except Exception as e:
+            print(f"    [Tailored Asset Warning] {e}")
+
+    # 3. Third Priority: Fresh AI Cinematic Visual (Pollinations AI)
     print(f"    [Visual Gen] Scene {seg_idx+1} AI Visual: {prompt[:40]}...")
     if fetch_image_pollinations(prompt, out_path):
-        try:
-            return Image.open(out_path)
-        except Exception:
-            pass
-
-    # 3. Third Priority: Distinct 9:16 Vertical HD Cloud Collection
-    print(f"    [Cloud HD] Fetching distinct scene {seg_idx+1} vertical visual ({theme})...")
-    if fetch_curated_cloud_image(theme, seg_idx, out_path):
-        try:
-            return Image.open(out_path)
-        except Exception:
-            pass
-
-    # 4. Fourth Priority: Fresh Web Visual via Search
-    print(f"    [Web Search] Searching visual for: {query}...")
-    if fetch_image_ddg(query, out_path):
         try:
             return Image.open(out_path)
         except Exception:
@@ -641,21 +595,18 @@ def assemble_final_video(segment_videos: list[Path], bgm_file: Path | None, fina
 
 def ensure_fallback_assets():
     ASSETS_DIR.mkdir(parents=True, exist_ok=True)
-    seed_items = [
-        ("bhakti_1.jpg", "bhakti", 0),
-        ("bhakti_2.jpg", "bhakti", 1),
-        ("bhakti_3.jpg", "bhakti", 2),
-        ("mystery_1.jpg", "mystery", 0),
-        ("mystery_2.jpg", "mystery", 1),
-        ("mystery_3.jpg", "mystery", 2),
-        ("humor_1.jpg", "humor", 0),
-        ("humor_2.jpg", "humor", 1),
-        ("humor_3.jpg", "humor", 2),
-    ]
-    for name, theme, idx in seed_items:
-        file_path = ASSETS_DIR / name
+    headers = {"User-Agent": "Mozilla/5.0"}
+    core_keys = ["v1_seg1", "v1_seg2", "v1_seg3", "v2_seg2", "v2_seg3", "v2_seg6", "v2_seg9", "v3_seg1", "v3_seg2", "v3_seg3"]
+    for key in core_keys:
+        file_path = ASSETS_DIR / f"{key}.jpg"
         if not file_path.exists() or file_path.stat().st_size < 10000:
-            fetch_curated_cloud_image(theme, idx, file_path)
+            if key in TAILORED_SCENE_IMAGES:
+                try:
+                    r = requests.get(TAILORED_SCENE_IMAGES[key], headers=headers, timeout=20)
+                    if r.status_code == 200 and len(r.content) > 10000:
+                        file_path.write_bytes(r.content)
+                except Exception as e:
+                    print(f"[Asset Cache Error] {key}: {e}")
 
 def generate():
     OUT.mkdir(parents=True, exist_ok=True)
