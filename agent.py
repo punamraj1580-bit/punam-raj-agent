@@ -315,13 +315,13 @@ CURATED_CLOUD_IMAGES = {
 }
 
 def fetch_image_pollinations(prompt: str, out_path: Path) -> bool:
-    clean = urllib.parse.quote(prompt.strip()[:240])
+    clean = urllib.parse.quote(prompt.strip()[:180])
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
     seed = random.randint(1000, 9999999)
     url = f"https://image.pollinations.ai/prompt/{clean}?width=720&height=1280&nologo=true&seed={seed}"
     
     try:
-        r = requests.get(url, headers=headers, timeout=40)
+        r = requests.get(url, headers=headers, timeout=75)
         if r.status_code == 200 and len(r.content) > 15000:
             out_path.write_bytes(r.content)
             if is_valid_image(out_path):
@@ -369,8 +369,15 @@ def fetch_image_ddg(query: str, out_path: Path) -> bool:
         print(f"[DDG Error] {e}")
     return False
 
-def get_segment_image(prompt: str, query: str, theme: str, seg_idx: int, out_path: Path) -> Image.Image:
-    # 1. First Priority: Fresh AI Cinematic Visual matching exact spoken line (Pollinations AI)
+def get_segment_image(prompt: str, query: str, theme: str, seg_idx: int, out_path: Path, video_id: int = 1) -> Image.Image:
+    # 1. First & Absolute Priority: Exact Custom 4K Visual for this specific spoken scene!
+    # (v1_seg1 = Radha Krishna, v1_seg2 = Flute, v2_seg2 = Vimana, v2_seg3 = Brahmastra, v2_seg6 = Dwarka, v3_seg1 = Doctor, etc.)
+    exact_file = ASSETS_DIR / f"v{video_id}_seg{seg_idx + 1}.jpg"
+    if exact_file.exists() and is_valid_image(exact_file):
+        print(f"    [Exact Scene Match] Using tailored 4K visual: {exact_file.name}")
+        return Image.open(exact_file)
+
+    # 2. Second Priority: Fresh AI Cinematic Visual matching exact spoken line (Pollinations AI)
     print(f"    [Visual Gen] Scene {seg_idx+1} AI Visual: {prompt[:40]}...")
     if fetch_image_pollinations(prompt, out_path):
         try:
@@ -378,7 +385,7 @@ def get_segment_image(prompt: str, query: str, theme: str, seg_idx: int, out_pat
         except Exception:
             pass
 
-    # 2. Second Priority: Distinct 9:16 Vertical HD Cloud Collection
+    # 3. Third Priority: Distinct 9:16 Vertical HD Cloud Collection
     print(f"    [Cloud HD] Fetching distinct scene {seg_idx+1} vertical visual ({theme})...")
     if fetch_curated_cloud_image(theme, seg_idx, out_path):
         try:
@@ -386,33 +393,13 @@ def get_segment_image(prompt: str, query: str, theme: str, seg_idx: int, out_pat
         except Exception:
             pass
 
-    # 3. Third Priority: Fresh Web Visual via Search
+    # 4. Fourth Priority: Fresh Web Visual via Search
     print(f"    [Web Search] Searching visual for: {query}...")
     if fetch_image_ddg(query, out_path):
         try:
             return Image.open(out_path)
         except Exception:
             pass
-
-    # 4. Fourth Priority: Curated Guaranteed Local 4K Pack
-    theme_key = theme if theme in ("bhakti", "mystery", "humor") else "bhakti"
-    curated_idx = (seg_idx % 3) + 1
-    curated_file = ASSETS_DIR / f"{theme_key}_{curated_idx}.jpg"
-    if curated_file.exists() and is_valid_image(curated_file):
-        try:
-            print(f"    [Local Pack] Using curated HD visual: {curated_file.name}")
-            return Image.open(curated_file)
-        except Exception:
-            pass
-
-    if ASSETS_DIR.exists():
-        assets = sorted([p for p in ASSETS_DIR.glob("*.jpg") if is_valid_image(p)])
-        if assets:
-            try:
-                chosen = assets[seg_idx % len(assets)]
-                return Image.open(chosen)
-            except Exception:
-                pass
 
     return Image.new("RGB", (1080, 1920), (25, 20, 38))
 
@@ -696,10 +683,10 @@ def generate():
         def _fetch_one(idx):
             seg = segments[idx]
             query = seg.get("query", seg["visual_prompt"][:50])
-            get_segment_image(seg["visual_prompt"], query, theme, idx, img_paths[idx])
+            get_segment_image(seg["visual_prompt"], query, theme, idx, img_paths[idx], video_id=video_num)
             return idx
             
-        with ThreadPoolExecutor(max_workers=4) as executor:
+        with ThreadPoolExecutor(max_workers=2) as executor:
             futures = [executor.submit(_fetch_one, j) for j in range(len(segments))]
             for fut in as_completed(futures):
                 fut.result()
@@ -720,7 +707,7 @@ def generate():
             try:
                 img_loaded = Image.open(img_raw_path)
             except Exception:
-                img_loaded = get_segment_image(seg["visual_prompt"], "", theme, j, img_raw_path)
+                img_loaded = get_segment_image(seg["visual_prompt"], "", theme, j, img_raw_path, video_id=video_num)
                     
             # 3. Make dynamic video segment with animated subtitles & smooth Ken Burns
             build_segment_video(img_loaded, seg["text"], p["headline"], audio_path, dur, seg_video_path, seg_idx=j)
