@@ -33,6 +33,18 @@ MUSIC_DIR = ROOT / "music"
 ASSETS_DIR = ROOT / "assets" / "images"
 DRY_RUN = os.getenv("DRY_RUN", "0") == "1"
 
+# Auto-unpack images.zip if committed to repository
+zip_path = ROOT / "images.zip"
+if zip_path.exists():
+    import zipfile
+    try:
+        ASSETS_DIR.mkdir(parents=True, exist_ok=True)
+        with zipfile.ZipFile(zip_path, "r") as z:
+            z.extractall(ASSETS_DIR)
+        print(f"[Assets] Extracted all tailored scene assets from images.zip!")
+    except Exception as e:
+        print(f"[Assets Error] Extracting images.zip: {e}")
+
 # Fonts for Devanagari Hindi Text
 FONT_CANDIDATES = [
     "/usr/share/fonts/truetype/noto/NotoSansDevanagari-Bold.ttf",
@@ -328,11 +340,18 @@ def fetch_image_pollinations(prompt: str, out_path: Path) -> bool:
 def get_segment_image(prompt: str, query: str, theme: str, seg_idx: int, out_path: Path, video_id: int = 1) -> Image.Image:
     key = f"v{video_id}_seg{seg_idx + 1}"
     
-    # 1. First & Absolute Priority: Exact Local Match if available
-    exact_file = ASSETS_DIR / f"{key}.jpg"
-    if exact_file.exists() and is_valid_image(exact_file):
-        print(f"    [Exact Scene Match] Local file: {exact_file.name}")
-        return Image.open(exact_file)
+    # 1. First & Absolute Priority: Exact Local Match in ANY location
+    candidate_paths = [
+        ASSETS_DIR / f"{key}.jpg",
+        ROOT / "assets" / "images" / f"{key}.jpg",
+        ROOT / "images" / f"{key}.jpg",
+        ROOT / f"{key}.jpg",
+        ROOT / "assets" / f"{key}.jpg",
+    ]
+    for p in candidate_paths:
+        if p.exists() and is_valid_image(p):
+            print(f"    [Exact Scene Match] Local file: {p.name}")
+            return Image.open(p)
 
     # 2. Second Priority: Direct Tailored High-Definition CDN Asset (Guaranteed 100% Scene Match)
     if key in TAILORED_SCENE_IMAGES:
