@@ -351,6 +351,11 @@ def get_segment_image(prompt: str, query: str, theme: str, seg_idx: int, out_pat
     for p in candidate_paths:
         if p.exists() and is_valid_image(p):
             print(f"    [Exact Scene Match] Local file: {p.name}")
+            try:
+                import shutil
+                shutil.copyfile(p, out_path)
+            except Exception:
+                pass
             return Image.open(p)
 
     # 2. Second Priority: Direct Tailored High-Definition CDN Asset (Guaranteed 100% Scene Match)
@@ -650,6 +655,14 @@ def generate():
         print(f"  [Parallel Visuals] Pre-fetching {len(segments)} distinct scene images...")
         img_paths = [video_work_dir / f"seg_{j+1:02d}_raw.jpg" for j in range(len(segments))]
         
+        # Clear any stale cached images from previous runs today
+        for p_old in img_paths:
+            if p_old.exists():
+                try:
+                    p_old.unlink()
+                except Exception:
+                    pass
+
         def _fetch_one(idx):
             seg = segments[idx]
             query = seg.get("query", seg["visual_prompt"][:50])
@@ -673,11 +686,8 @@ def generate():
             is_last = (j == len(segments) - 1)
             dur = generate_voiceover(seg["text"], voice, audio_path, is_last_segment=is_last)
             
-            # 2. Load the distinct prepared image
-            try:
-                img_loaded = Image.open(img_raw_path)
-            except Exception:
-                img_loaded = get_segment_image(seg["visual_prompt"], "", theme, j, img_raw_path, video_id=video_num)
+            # 2. Load the distinct prepared image (exact match from images.zip)
+            img_loaded = get_segment_image(seg["visual_prompt"], "", theme, j, img_raw_path, video_id=video_num)
                     
             # 3. Make dynamic video segment with animated subtitles & smooth Ken Burns
             build_segment_video(img_loaded, seg["text"], p["headline"], audio_path, dur, seg_video_path, seg_idx=j)
