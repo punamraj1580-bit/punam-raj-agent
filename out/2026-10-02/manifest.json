@@ -3,144 +3,132 @@
     "id": 1,
     "theme": "bhakti",
     "voice": "hi-IN-SwaraNeural",
-    "headline": "राधा-कृष्ण का ब्रह्मांडीय प्रेम और चेतना का रहस्य",
-    "caption": "ब्रह्मांडीय प्रेम और शाश्वत चेतना का यह अलौकिक अनुभव। जानिए श्री राधा-कृष्ण के प्रेम का गूढ़ आध्यात्मिक रहस्य। #RadhaKrishna #CosmicLove #SpiritualAwakening #DivineConsciousness",
+    "headline": "ब्रह्मांडीय प्रेम का दिव्य रहस्य",
+    "caption": "राधा-कृष्ण का अनंत प्रेम और ब्रह्मांडीय ऊर्जा। #RadhaKrishna #CosmicLove #Wisdom #Divine",
     "segments": [
       {
-        "text": "क्या प्रेम केवल सांसारिक है, या यह पूरे ब्रह्मांड को बांधने वाली सर्वोच्च दिव्य ऊर्जा है?",
-        "visual_prompt": "Cosmic scale cinematic shot, glowing ethereal energy intertwining in deep outer space, nebulae swirling into divine golden and cyan light filaments, hyper-realistic, photorealistic, Unreal Engine 5 render, IMAX cinematic lighting, 8k resolution, volumetric atmosphere, vertical 9:16 aspect ratio"
+        "text": "इस अनंत ब्रह्मांड के कण-कण में एक दिव्य और जादुई ऊर्जा लगातार बह रही है।",
+        "visual_prompt": "A breathtaking cosmic nebula forming the subtle, glowing silhouettes of Radha and Krishna, stars swirling around them, 4K Unreal Engine 5 render, IMAX cinematic lighting, hyper-realistic, photorealistic, vertical 9:16 aspect ratio."
       },
       {
-        "text": "श्री कृष्ण और श्री राधा का संबंध केवल एक कहानी नहीं, बल्कि शाश्वत चेतना का विस्तार है।",
-        "visual_prompt": "Cinematic wide shot of two glowing divine energy silhouettes standing upon a celestial lotus floating amidst galactical clusters, stardust particles radiating, hyper-realistic, Unreal Engine 5 render, IMAX 70mm style, photorealistic, volumetric god rays, vertical 9:16 aspect ratio"
+        "text": "यह ऊर्जा कुछ और नहीं, बल्कि राधा और कृष्ण का शाश्वत और पवित्र प्रेम है।",
+        "visual_prompt": "Close-up of a glowing cosmic flute made of crystal light, floating amidst glowing golden dust and starlight, 4K Unreal Engine 5 render, IMAX cinematic lighting, hyper-realistic, photorealistic, vertical 9:16 aspect ratio."
       },
       {
-        "text": "जब मुरली की धुन बजती है, तो समस्त आकाशगंगाएं एक दिव्य लय में थिरकने लगती हैं।",
-        "visual_prompt": "Macro cinematic focus on an ornate crystalline flute glowing with cosmic blue quantum energy, sonic vibrational light waves rippling through space, galaxies orbiting, hyper-realistic, Unreal Engine 5 render, IMAX cinematic lighting, octane render, vertical 9:16 aspect ratio"
+        "text": "जब हम अपने भीतर झांकते हैं, तब हमें इस परम सत्य का अनुभव होता है।",
+        "visual_prompt": "A modern spiritual seeker meditating inside a futuristic glass temple overlooking a swirling galaxy, neon blue and gold highlights, 4K Unreal Engine 5 render, IMAX cinematic lighting, hyper-realistic, photorealistic, vertical 9:16 aspect ratio."
       },
       {
-        "text": "राधा का अर्थ है समर्पण, जहाँ अहंकार शून्य होकर केवल परमात्मा का प्रकाश ही शेष रह जाता है।",
-        "visual_prompt": "Photorealistic cinematic visual of luminous golden lotus petals dissolving into pure divine light particles, floating in celestial waters reflecting the galaxy, Unreal Engine 5 render, cinematic IMAX lighting, hyper-detailed, vertical 9:16 aspect ratio"
+        "text": "प्रेम कोई साधारण भावना नहीं, बल्कि इस पूरी सृष्टि को बांधने वाली सर्वोच्च शक्ति है।",
+        "visual_prompt": "Interlocking rings of golden light and sacred geometry spinning in deep space, hyper-detailed, 4K Unreal Engine 5 render, IMAX cinematic lighting, hyper-realistic, photorealistic, vertical 9:16 aspect ratio."
       },
       {
-        "text": "कृष्ण की मुस्कान में छिपा है वह ज्ञान, जो जीवन के हर संघर्ष को शांत कर देता है।",
-        "visual_prompt": "Ethereal peacock feather made of iridescent celestial plasma drifting through calm cosmic nebula clouds, starlight refractions, cinematic Hollywood lighting, Unreal Engine 5 render, hyper-realistic, vertical 9:16 aspect ratio"
+        "text": "राधा आत्मा की पुकार हैं, और कृष्ण उस पुकार को सुनने वाले परमात्मा हैं।",
+        "visual_prompt": "A majestic bioluminescent peacock feather glowing with neon cyan and magenta colors in a dark mystical forest, 4K Unreal Engine 5 render, IMAX cinematic lighting, hyper-realistic, photorealistic, vertical 9:16 aspect ratio."
       },
       {
-        "text": "आत्मा जब परमात्मा से मिलती है, तो समय और स्थान की सारी सीमाएं पूरी तरह मिट जाती हैं।",
-        "visual_prompt": "Epic sci-fi spiritual portal opening in deep space, two converging streams of radiant gold and deep azure light merging into infinite oneness, photorealistic, Unreal Engine 5 render, IMAX lighting, vertical 9:16 aspect ratio"
+        "text": "इस सुंदर और पवित्र बंधन में खोकर ही मनुष्य परम शांति को प्राप्त कर सकता है।",
+        "visual_prompt": "A massive, glowing golden tree of life with roots spreading into a cosmic ocean of stars, 4K Unreal Engine 5 render, IMAX cinematic lighting, hyper-realistic, photorealistic, vertical 9:16 aspect ratio."
       },
       {
-        "text": "यह प्रेम हमें सिखाता है कि निस्वार्थ भाव से जीने में ही आत्मा का सच्चा मोक्ष छिपा है।",
-        "visual_prompt": "A solitary glowing soul entity floating in serene cosmic harmony, surrounded by shimmering celestial constellations, peaceful ambiance, cinematic composition, hyper-realistic, Unreal Engine 5 render, vertical 9:16 aspect ratio"
+        "text": "अपने व्यस्त जीवन से कुछ पल निकालकर इस दिव्य चेतना को महसूस करने का प्रयास करें।",
+        "visual_prompt": "A person's hand reaching out towards floating particles of pure light in a surreal, dreamlike cosmic environment, 4K Unreal Engine 5 render, IMAX cinematic lighting, hyper-realistic, photorealistic, vertical 9:16 aspect ratio."
       },
       {
-        "text": "जब भी मन अशांत हो, अपने भीतर बहती राधा-कृष्ण की प्रेम धारा को गहराई से महसूस कीजिए।",
-        "visual_prompt": "A crystal clear mystical river flowing with luminous star dust through a hyper-realistic enchanted cosmic forest of light, cinematic volumetric fog, Unreal Engine 5 render, IMAX quality, vertical 9:16 aspect ratio"
-      },
-      {
-        "text": "आज ही अपने हृदय को दिव्य प्रेम के इस अनंत ब्रह्मांडीय प्रकाश से आलोकित होने दीजिए।",
-        "visual_prompt": "Blinding yet benevolent golden-white burst of cosmic super-illumination expanding outward across galaxies, awe-inspiring, hyper-realistic, Unreal Engine 5 render, IMAX cinematic lighting, photorealistic, vertical 9:16 aspect ratio"
+        "text": "आज ही अपने हृदय के द्वार खोलें और इस असीमित दिव्य प्रेम को बहने दें।",
+        "visual_prompt": "A brilliant explosion of warm golden light and pink lotus petals emerging from a cosmic singularity, 4K Unreal Engine 5 render, IMAX cinematic lighting, hyper-realistic, photorealistic, vertical 9:16 aspect ratio."
       }
     ],
     "name": "post1",
     "video_file": "out/2026-10-02/post1.mp4",
-    "full_caption": "राधा-कृष्ण का ब्रह्मांडीय प्रेम और चेतना का रहस्य\n\nब्रह्मांडीय प्रेम और शाश्वत चेतना का यह अलौकिक अनुभव। जानिए श्री राधा-कृष्ण के प्रेम का गूढ़ आध्यात्मिक रहस्य। #RadhaKrishna #CosmicLove #SpiritualAwakening #DivineConsciousness\n\n#PunamRaj #Shorts #Reels"
+    "full_caption": "ब्रह्मांडीय प्रेम का दिव्य रहस्य\n\nराधा-कृष्ण का अनंत प्रेम और ब्रह्मांडीय ऊर्जा। #RadhaKrishna #CosmicLove #Wisdom #Divine\n\n#PunamRaj #Shorts #Reels"
   },
   {
     "id": 2,
-    "theme": "science_history",
+    "theme": "science",
     "voice": "hi-IN-MadhurNeural",
-    "headline": "प्राचीन भारत का उन्नत विज्ञान: क्या वे हमसे आगे थे?",
-    "caption": "प्राचीन भारत का गुप्त वैज्ञानिक ज्ञान जो आज के विज्ञान को भी चकित करता है! #AncientScience #Vimana #VedicWisdom #IndianHeritage #SciFiHistory",
+    "headline": "प्राचीन भारत की एडवांस टेक्नोलॉजी",
+    "caption": "क्या प्राचीन भारत में मौजूद थी आधुनिक तकनीक? जानिए विमान और अस्त्रों का रहस्य। #AncientScience #Vimana #MysticIndia #SciFi",
     "segments": [
       {
-        "text": "क्या हमारे पूर्वज हजारों साल पहले उन्नत तकनीक और एंटी-ग्रेविटी विमानों का निर्माण कर चुके थे?",
-        "visual_prompt": "Hollywood cinematic blockbuster shot of a massive ancient metallic Vimana hovering majestically over misty mountains, futuristic anti-gravity plasma rings pulsating underneath, hyper-realistic, photorealistic, Unreal Engine 5 render, IMAX cinematic lighting, vertical 9:16 aspect ratio"
+        "text": "हजारों साल पहले हमारे पूर्वजों के पास विज्ञान की ऐसी अद्भुत तकनीकें मौजूद थीं।",
+        "visual_prompt": "A massive ancient stone temple carved into a mountain, integrated with glowing blue holographic circuits, 4K Unreal Engine 5 render, IMAX cinematic lighting, hyper-realistic, photorealistic, vertical 9:16 aspect ratio."
       },
       {
-        "text": "वैमानिक शास्त्र में ऐसे इंजनों का विवरण है, जो पारा और ध्वनि तरंगों से संचालित होते थे।",
-        "visual_prompt": "Extreme close-up of a futuristic ancient propulsion core, swirling liquid mercury inside glowing glass chambers, resonant acoustic frequency waves visible as blue energy, hyper-detailed, Unreal Engine 5 render, cinematic lighting, vertical 9:16 aspect ratio"
+        "text": "वेदों और पुराणों में वर्णित विमान आज के आधुनिक लड़ाकू विमानों से भी तेज थे।",
+        "visual_prompt": "A majestic bronze-gold Vimana flying through the clouds at supersonic speed, trailing energy plasma, 4K Unreal Engine 5 render, IMAX cinematic lighting, hyper-realistic, photorealistic, vertical 9:16 aspect ratio."
       },
       {
-        "text": "प्राचीन मंदिरों की ज्यामिति और वास्तुकla आधुनिक इंजीनियरिंग को आज भी हैरान और चकित कर देती है।",
-        "visual_prompt": "A colossal stone monolithic temple carved out of a single mountain cliff, illuminated by cinematic sunrise light beams, intricate geometric quantum architectural patterns, photorealistic, Unreal Engine 5 render, IMAX 70mm, vertical 9:16 aspect ratio"
+        "text": "ये शक्तिशाली विमान केवल ईंधन से नहीं, बल्कि मंत्रों और ध्वनि तरंगों से उड़ते थे।",
+        "visual_prompt": "Close-up of complex mechanical engine gears inside a spaceship engraved with glowing Sanskrit glyphs, 4K Unreal Engine 5 render, IMAX cinematic lighting, hyper-realistic, photorealistic, vertical 9:16 aspect ratio."
       },
       {
-        "text": "ब्रह्मास्त्र का वर्णन आधुनिक परमाणु हथियारों और प्लाज्मा ऊर्जा के समान विनाशकारी प्रभाव दिखाता है।",
-        "visual_prompt": "Cinematic visual of high-tech ancient celestial weapon unleashing an intense beam of concentrated plasma energy into the sky, atmospheric distortion waves, epic scale, Unreal Engine 5 render, hyper-realistic, vertical 9:16 aspect ratio"
+        "text": "प्राचीन अस्त्र-शस्त्र परमाणु बमों से भी अधिक विनाशकारी और सटीक वार करने में सक्षम थे।",
+        "visual_prompt": "A futuristic metallic bow launching an arrow made of pure blinding plasma energy, illuminating a battlefield, 4K Unreal Engine 5 render, IMAX cinematic lighting, hyper-realistic, photorealistic, vertical 9:16 aspect ratio."
       },
       {
-        "text": "सुश्रुत संहिता में लिखी गई शल्य चिकित्सा तकनीकें आधुनिक प्लास्टिक सर्जरी की मजबूत नींव बनी हैं।",
-        "visual_prompt": "High-tech hologram displaying ancient Sanskrit surgical treatises alongside futuristic bio-medical anatomical schematics, sleek laboratory setting, hyper-realistic, photorealistic, Unreal Engine 5 render, cinematic blue lighting, vertical 9:16 aspect ratio"
+        "text": "धातु विज्ञान और खगोलशास्त्र में भारत का ज्ञान पूरी दुनिया से बहुत आगे था।",
+        "visual_prompt": "A giant metallic astrolabe spinning with holographic planets projected in an ancient observatory, 4K Unreal Engine 5 render, IMAX cinematic lighting, hyper-realistic, photorealistic, vertical 9:16 aspect ratio."
       },
       {
-        "text": "सूर्य और पृथ्वी की सटीक दूरी सदियों पहले प्राचीन भारतीय खगोलशास्त्रियों ने बिना दूरबीन माप ली थी।",
-        "visual_prompt": "Ancient bronze armillary sphere and astronomical alignment instruments glowing under a hyper-detailed starfield and orbiting planets, solar rays illuminating dust motes, cinematic IMAX lighting, Unreal Engine 5 render, vertical 9:16 aspect ratio"
+        "text": "सुश्रुत जैसे महान चिकित्सकों ने सदियों पहले जटिल प्लास्टिक सर्जरी को सफलतापूर्वक अंजाम दिया।",
+        "visual_prompt": "A clean, high-tech ancient laboratory with copper medical tools glowing under soft blue lights, 4K Unreal Engine 5 render, IMAX cinematic lighting, hyper-realistic, photorealistic, vertical 9:16 aspect ratio."
       },
       {
-        "text": "क्या यह केवल कल्पना थी, या हमारी खोई हुई कोई अत्यंत उन्नत आधुनिक सभ्यता की विरासत?",
-        "visual_prompt": "Wide cinematic shot of an ancient advanced city made of carved sandstone fused with glowing photon energy grids, futuristic airships docked at temples, Unreal Engine 5 render, photorealistic, blockbuster movie look, vertical 9:16 aspect ratio"
+        "text": "इस महान और समृद्ध वैज्ञानिक विरासत को पहचानना हमारा सबसे बड़ा कर्तव्य है।",
+        "visual_prompt": "A dramatic shot of a young scientist looking at a holographic DNA strand emerging from an ancient copper scroll, 4K Unreal Engine 5 render, IMAX cinematic lighting, hyper-realistic, photorealistic, vertical 9:16 aspect ratio."
       },
       {
-        "text": "विज्ञान और अध्यात्म का यह संगम हमें हमारी असली महान जड़ों की ओर वापस खींचता है।",
-        "visual_prompt": "A symbolic massive ancient temple spire reaching into the stratosphere, merging seamlessly with a high-tech orbital space elevator ring, hyper-realistic, Unreal Engine 5 render, IMAX cinematic lighting, vertical 9:16 aspect ratio"
-      },
-      {
-        "text": "अपनी इस गौरवशाली वैज्ञानिक धरोहर को पहचानें और भारत के ज्ञान पर गर्व से सिर उठाएं।",
-        "visual_prompt": "Golden light illuminating a high-tech holographic Ashoka Chakra spinning majestically above planet Earth viewed from space, majestic, hyper-realistic, Unreal Engine 5 render, IMAX cinematic lighting, vertical 9:16 aspect ratio"
+        "text": "आइए हम सब मिलकर अपने इतिहास के इन अनसुने वैज्ञानिक रहस्यों को उजागर करें।",
+        "visual_prompt": "A vast library filled with towering shelves of ancient manuscripts and floating glowing energy orbs, 4K Unreal Engine 5 render, IMAX cinematic lighting, hyper-realistic, photorealistic, vertical 9:16 aspect ratio."
       }
     ],
     "name": "post2",
     "video_file": "out/2026-10-02/post2.mp4",
-    "full_caption": "प्राचीन भारत का उन्नत विज्ञान: क्या वे हमसे आगे थे?\n\nप्राचीन भारत का गुप्त वैज्ञानिक ज्ञान जो आज के विज्ञान को भी चकित करता है! #AncientScience #Vimana #VedicWisdom #IndianHeritage #SciFiHistory\n\n#PunamRaj #Shorts #Reels"
+    "full_caption": "प्राचीन भारत की एडवांस टेक्नोलॉजी\n\nक्या प्राचीन भारत में मौजूद थी आधुनिक तकनीक? जानिए विमान और अस्त्रों का रहस्य। #AncientScience #Vimana #MysticIndia #SciFi\n\n#PunamRaj #Shorts #Reels"
   },
   {
     "id": 3,
-    "theme": "humor",
-    "voice": "hi-IN-MadhurNeural",
-    "headline": "देसी ज़िंदगी के वो पल जब हँसी रोकना नामुमकिन हो जाता है!",
-    "caption": "देसी घर और हमारी आदतें! कौन-कौन इन पलों से रिलेट कर सकता है? कमेंट में बताओ! #DesiHumor #Relatable #FunnyIndia #DesiLife #ComedyReels",
+    "theme": "comedy",
+    "voice": "hi-IN-SwaraNeural",
+    "headline": "देसी दोस्तों के मजेदार ड्रामे",
+    "caption": "जब देसी दोस्त मिलकर बनाते हैं प्लान! हर ग्रुप की यही कहानी। #DesiHumor #Comedy #Relatable #Friendship",
     "segments": [
       {
-        "text": "जब मम्मी कहती हैं कि 'बस दो मिनट में आ रही हूँ', तो समझो पूरा युग बीतेगा।",
-        "visual_prompt": "Cinematic humorous dramatic shot of an ornate vintage clock ticking with calendar pages flying backward in ultra slow motion, cinematic Hollywood lighting, shallow depth of field, hyper-realistic, Unreal Engine 5 render, vertical 9:16 aspect ratio"
+        "text": "हमारे देसी दोस्तों के ग्रुप में हर प्लान की शुरुआत बेहद जोश से होती है।",
+        "visual_prompt": "A group of three trendy young Indian friends sitting on a stylish neon-lit rooftop cafe, laughing, cinematic composition, 4K Unreal Engine 5 render, IMAX cinematic lighting, hyper-realistic, photorealistic, vertical 9:16 aspect ratio."
       },
       {
-        "text": "रिमोट नहीं चलता तो उसे थप्पड़ मारकर चालू करना, यह हमारी विश्व प्रसिद्ध भारतीय इंजीनियरिंग है।",
-        "visual_prompt": "Cinematic close-up of a TV remote wrapped in clear cellophane tape resting on a coffee table, illuminated dramatically by the glowing television screen, ultra-realistic textures, IMAX cinematic lighting, vertical 9:16 aspect ratio"
+        "text": "लेकिन जैसे ही ट्रिप का बजट सामने आता है, सबका जोश तुरंत ठंडा हो जाता है।",
+        "visual_prompt": "A cinematic close-up of a high-tech smartphone screen showing an empty digital wallet app with funny sad emojis, 4K Unreal Engine 5 render, IMAX cinematic lighting, hyper-realistic, photorealistic, vertical 9:16 aspect ratio."
       },
       {
-        "text": "शादी में चाहे जितने पकवान हों, असली घमासान तो केवल गरमा-गरम गोलगप्पे के काउंटर पर होता है।",
-        "visual_prompt": "Cinematic macro slow-motion shot of a crispy golden puri bursting as flavored mint water splashes out in 4K high speed detail, warm wedding banquet lights in the blurred background, Unreal Engine 5 render, vertical 9:16 aspect ratio"
+        "text": "हमेशा एक ऐसा दोस्त जरूर होता है जो आखिरी वक्त पर पलटी मार जाता है।",
+        "visual_prompt": "A cinematic dramatic shot of a modern Indian guy looking away with a guilty expression, rain pouring outside a window, 4K Unreal Engine 5 render, IMAX cinematic lighting, hyper-realistic, photorealistic, vertical 9:16 aspect ratio."
       },
       {
-        "text": "जब दोस्त बोले 'भाई तू टेंशन मत ले', तो समझो सबसे बड़ी आफत आने वाली है।",
-        "visual_prompt": "Dramatic cinematic shot of a chaotic comedy movie scene, two pairs of sneakers running through a sunny urban alleyway creating dust clouds, Hollywood action-comedy lighting, hyper-realistic, vertical 9:16 aspect ratio"
+        "text": "चाय की दुकान पर होने वाली बहसें देश के बड़े मुद्दों से भी गंभीर होती हैं।",
+        "visual_prompt": "Steam rising beautifully from a modern clay tea cup (kulhad) on a rustic wooden table under warm streetlights, 4K Unreal Engine 5 render, IMAX cinematic lighting, hyper-realistic, photorealistic, vertical 9:16 aspect ratio."
       },
       {
-        "text": "सर्दियों में सुबह रजाई से बाहर निकलना किसी ओलंपिक मेडल जीतने से कम बड़ा संघर्ष नहीं है।",
-        "visual_prompt": "Dramatic cinematic hero shot of a thick, colorful quilted blanket glowing in freezing morning dawn light, steam rising in the cold room, hyper-detailed textile texture, Unreal Engine 5 render, vertical 9:16 aspect ratio"
+        "text": "परीक्षा के एक दिन पहले पढ़ाई करने का आत्मविश्वास अलग ही लेवल पर होता है।",
+        "visual_prompt": "A study desk in a dark room with a single glowing study lamp, a mountain of heavy books, and a glowing energy drink, 4K Unreal Engine 5 render, IMAX cinematic lighting, hyper-realistic, photorealistic, vertical 9:16 aspect ratio."
       },
       {
-        "text": "चाय के साथ बिस्कुट डूबकर गिर जाए, तो उस गम का कोई इलाज नहीं मिलता दुनिया में।",
-        "visual_prompt": "Ultra-dramatic slow-motion IMAX shot of a biscuit breaking in half and descending into a steaming ceramic cup of Indian masala chai, golden tea splash captured in mid-air, photorealistic, Unreal Engine 5 render, vertical 9:16 aspect ratio"
+        "text": "और जब रिजल्ट आता है, तो मम्मी का गुस्सा सीधे सातवें आसमान पर पहुंच जाता है।",
+        "visual_prompt": "A dramatic cinematic shot of an ornate traditional wooden rolling pin (belan) floating in mid-air with fiery orange background sparks, 4K Unreal Engine 5 render, IMAX cinematic lighting, hyper-realistic, photorealistic, vertical 9:16 aspect ratio."
       },
       {
-        "text": "परीक्षा हॉल में जब सामने वाला अचानक एक्स्ट्रा शीट मांगे, तो दिल बैठ सा जाता है।",
-        "visual_prompt": "Cinematic suspense shot inside an examination hall, an ominous blank answer booklet under a sharp desk lamp light beam, deep shadows, Hollywood thriller cinematography aesthetic, hyper-realistic, vertical 9:16 aspect ratio"
+        "text": "इन सभी नोक-झोंक और ड्रामे के बिना हमारी देसी जिंदगी अधूरी लगती है।",
+        "visual_prompt": "A colorful cinematic collage of polaroid photos showing laughing friends hanging on a glowing fairy-light wall, 4K Unreal Engine 5 render, IMAX cinematic lighting, hyper-realistic, photorealistic, vertical 9:16 aspect ratio."
       },
       {
-        "text": "इन छोटी-छोटी बातों में ही बसी है हमारे हर दिन की असली और बेपरवाह देसी खुशी।",
-        "visual_prompt": "Vibrant cinematic evening street scene of a colorful Indian market bathed in golden hour sunlight and bokeh street lamps, bustling warmth, hyper-realistic, photorealistic, Unreal Engine 5 render, vertical 9:16 aspect ratio"
-      },
-      {
-        "text": "अपने उस पक्के यार को टैग करो जो इन सभी हरकतों में सौ प्रतिशत माहिर है।",
-        "visual_prompt": "Cinematic dynamic shot of two tea cups (cutting chai glasses) clinking together in celebration against a warm sunset rooftop background, tea droplets splashing, Unreal Engine 5 render, IMAX cinematic lighting, vertical 9:16 aspect ratio"
+        "text": "अपने उस दोस्त को तुरंत टैग करें जो इस वीडियो की कहानी में फिट बैठता है।",
+        "visual_prompt": "A glowing, futuristic golden 'Tag Your Friend' button floating in a vibrant, neon-lit social media feed background, 4K Unreal Engine 5 render, IMAX cinematic lighting, hyper-realistic, photorealistic, vertical 9:16 aspect ratio."
       }
     ],
     "name": "post3",
     "video_file": "out/2026-10-02/post3.mp4",
-    "full_caption": "देसी ज़िंदगी के वो पल जब हँसी रोकना नामुमकिन हो जाता है!\n\nदेसी घर और हमारी आदतें! कौन-कौन इन पलों से रिलेट कर सकता है? कमेंट में बताओ! #DesiHumor #Relatable #FunnyIndia #DesiLife #ComedyReels\n\n#PunamRaj #Shorts #Reels"
+    "full_caption": "देसी दोस्तों के मजेदार ड्रामे\n\nजब देसी दोस्त मिलकर बनाते हैं प्लान! हर ग्रुप की यही कहानी। #DesiHumor #Comedy #Relatable #Friendship\n\n#PunamRaj #Shorts #Reels"
   }
 ]
