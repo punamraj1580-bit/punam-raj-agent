@@ -19,6 +19,7 @@ import random
 import datetime
 import subprocess
 import urllib.parse
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 import requests
 from PIL import Image, ImageDraw, ImageFont
@@ -221,11 +222,30 @@ def get_audio_duration(file_path: Path) -> float:
     except Exception:
         return 6.0
 
-def generate_voiceover(text: str, voice: str, out_path: Path) -> float:
+def generate_voiceover(text: str, voice: str, out_path: Path, is_last_segment: bool = False) -> float:
     try:
-        # Use edge-tts command line directly
-        cmd = ["edge-tts", "--voice", voice, "--text", text, "--write-media", str(out_path)]
+        raw_tts = out_path.with_name(f"raw_{out_path.name}")
+        cmd = ["edge-tts", "--voice", voice, "--text", text, "--write-media", str(raw_tts)]
         subprocess.run(cmd, check=True, capture_output=True, timeout=30)
+        
+        # Add acoustic silence pad (0.6s for segments, 1.0s for outro) so the last syllable/word NEVER cuts off
+        pad_duration = 1.0 if is_last_segment else 0.6
+        cmd_pad = [
+            "ffmpeg", "-y", "-i", str(raw_tts),
+            "-af", f"apad=pad_dur={pad_duration}",
+            "-c:a", "libmp3lame", "-q:a", "2",
+            str(out_path)
+        ]
+        pad_res = subprocess.run(cmd_pad, capture_output=True)
+        if pad_res.returncode != 0 or not out_path.exists():
+            # If FFmpeg padding fails for any reason, use raw TTS
+            raw_tts.replace(out_path)
+        else:
+            try:
+                raw_tts.unlink()
+            except Exception:
+                pass
+                
         dur = get_audio_duration(out_path)
         return max(dur, 4.0)
     except Exception as e:
@@ -254,35 +274,74 @@ def is_valid_image(img_path: Path) -> bool:
     except Exception:
         return False
 
+# Curated 10 distinct vertical 9:16 HD cloud images per theme so every single scene is 100% unique!
+CURATED_CLOUD_IMAGES = {
+    "bhakti": [
+        "https://images.unsplash.com/photo-1544717305-2782549b5136?w=1080&h=1920&fit=crop",
+        "https://images.unsplash.com/photo-1574786198875-49f5d09fe2d5?w=1080&h=1920&fit=crop",
+        "https://images.unsplash.com/photo-1563281577-a7be47e20db9?w=1080&h=1920&fit=crop",
+        "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1080&h=1920&fit=crop",
+        "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=1080&h=1920&fit=crop",
+        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1080&h=1920&fit=crop",
+        "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1080&h=1920&fit=crop",
+        "https://images.unsplash.com/photo-1609766857041-ed402ea8069a?w=1080&h=1920&fit=crop",
+        "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=1080&h=1920&fit=crop",
+        "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1080&h=1920&fit=crop",
+    ],
+    "mystery": [
+        "https://images.unsplash.com/photo-1590059390046-63f524338902?w=1080&h=1920&fit=crop",
+        "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1080&h=1920&fit=crop",
+        "https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?w=1080&h=1920&fit=crop",
+        "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1080&h=1920&fit=crop",
+        "https://images.unsplash.com/photo-1568322445389-f64ac2515020?w=1080&h=1920&fit=crop",
+        "https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=1080&h=1920&fit=crop",
+        "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1080&h=1920&fit=crop",
+        "https://images.unsplash.com/photo-1548013146-72479768bada?w=1080&h=1920&fit=crop",
+        "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1080&h=1920&fit=crop",
+        "https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?w=1080&h=1920&fit=crop",
+    ],
+    "humor": [
+        "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=1080&h=1920&fit=crop",
+        "https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?w=1080&h=1920&fit=crop",
+        "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=1080&h=1920&fit=crop",
+        "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1080&h=1920&fit=crop",
+        "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=1080&h=1920&fit=crop",
+        "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=1080&h=1920&fit=crop",
+        "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1080&h=1920&fit=crop",
+        "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1080&h=1920&fit=crop",
+        "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1080&h=1920&fit=crop",
+        "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=1080&h=1920&fit=crop",
+    ]
+}
+
 def fetch_image_pollinations(prompt: str, out_path: Path) -> bool:
-    # Try high-speed & high-quality models (turbo and flux)
-    models = ["flux", "turbo"]
-    clean = urllib.parse.quote(prompt.strip()[:200])
+    clean = urllib.parse.quote(prompt.strip()[:240])
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
+    seed = random.randint(1000, 9999999)
+    url = f"https://image.pollinations.ai/prompt/{clean}?width=720&height=1280&nologo=true&seed={seed}"
     
-    for model in models:
-        try:
-            seed = random.randint(100, 999999)
-            url = f"https://image.pollinations.ai/prompt/{clean}?width=720&height=1280&nologo=true&seed={seed}&model={model}"
-            r = requests.get(url, headers=headers, timeout=28)
-            if r.status_code == 200 and len(r.content) > 15000:
-                out_path.write_bytes(r.content)
-                if is_valid_image(out_path):
-                    return True
-        except Exception as e:
-            print(f"[Pollinations {model} Error] {e}")
-            
-    # Direct fallback without model parameter
     try:
-        seed = random.randint(100, 999999)
-        url = f"https://image.pollinations.ai/prompt/{clean}?width=720&height=1280&nologo=true&seed={seed}"
-        r = requests.get(url, headers=headers, timeout=22)
+        r = requests.get(url, headers=headers, timeout=40)
         if r.status_code == 200 and len(r.content) > 15000:
             out_path.write_bytes(r.content)
             if is_valid_image(out_path):
                 return True
     except Exception as e:
-        print(f"[Pollinations Default Error] {e}")
+        print(f"[Pollinations Error] {e}")
+    return False
+
+def fetch_curated_cloud_image(theme: str, seg_idx: int, out_path: Path) -> bool:
+    urls = CURATED_CLOUD_IMAGES.get(theme, CURATED_CLOUD_IMAGES["bhakti"])
+    chosen_url = urls[seg_idx % len(urls)]
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
+    try:
+        r = requests.get(chosen_url, headers=headers, timeout=15)
+        if r.status_code == 200 and len(r.content) > 15000:
+            out_path.write_bytes(r.content)
+            if is_valid_image(out_path):
+                return True
+    except Exception as e:
+        print(f"[Cloud Image Error] {e}")
     return False
 
 def fetch_image_ddg(query: str, out_path: Path) -> bool:
@@ -293,13 +352,13 @@ def fetch_image_ddg(query: str, out_path: Path) -> bool:
             from duckduckgo_search import DDGS
         headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
         search_q = f"{query} 4k vertical wallpaper"
-        with DDGS(timeout=12) as ddgs:
+        with DDGS(timeout=10) as ddgs:
             results = list(ddgs.images(keywords=search_q, max_results=6))
             for item in results:
                 img_url = item.get("image")
                 if img_url:
                     try:
-                        r = requests.get(img_url, headers=headers, timeout=12)
+                        r = requests.get(img_url, headers=headers, timeout=10)
                         if r.status_code == 200 and len(r.content) > 20000:
                             out_path.write_bytes(r.content)
                             if is_valid_image(out_path):
@@ -311,23 +370,31 @@ def fetch_image_ddg(query: str, out_path: Path) -> bool:
     return False
 
 def get_segment_image(prompt: str, query: str, theme: str, seg_idx: int, out_path: Path) -> Image.Image:
-    # 1. First Priority: Fresh AI Cinematic Visual matching exact spoken line (Pollinations AI Flux / Turbo)
-    print(f"    [Visual Gen] Creating fresh AI visual: {prompt[:40]}...")
+    # 1. First Priority: Fresh AI Cinematic Visual matching exact spoken line (Pollinations AI)
+    print(f"    [Visual Gen] Scene {seg_idx+1} AI Visual: {prompt[:40]}...")
     if fetch_image_pollinations(prompt, out_path):
         try:
             return Image.open(out_path)
         except Exception:
             pass
 
-    # 2. Second Priority: Fresh Web Visual via DuckDuckGo
-    print(f"    [Visual Gen] Searching web for: {query}...")
+    # 2. Second Priority: Distinct 9:16 Vertical HD Cloud Collection
+    print(f"    [Cloud HD] Fetching distinct scene {seg_idx+1} vertical visual ({theme})...")
+    if fetch_curated_cloud_image(theme, seg_idx, out_path):
+        try:
+            return Image.open(out_path)
+        except Exception:
+            pass
+
+    # 3. Third Priority: Fresh Web Visual via Search
+    print(f"    [Web Search] Searching visual for: {query}...")
     if fetch_image_ddg(query, out_path):
         try:
             return Image.open(out_path)
         except Exception:
             pass
 
-    # 3. Third Priority: Curated Guaranteed Local 4K Pack (Never Blank/Black)
+    # 4. Fourth Priority: Curated Guaranteed Local 4K Pack
     theme_key = theme if theme in ("bhakti", "mystery", "humor") else "bhakti"
     curated_idx = (seg_idx % 3) + 1
     curated_file = ASSETS_DIR / f"{theme_key}_{curated_idx}.jpg"
@@ -343,7 +410,6 @@ def get_segment_image(prompt: str, query: str, theme: str, seg_idx: int, out_pat
         if assets:
             try:
                 chosen = assets[seg_idx % len(assets)]
-                print(f"    [Local Pack Fallback] Using: {chosen.name}")
                 return Image.open(chosen)
             except Exception:
                 pass
@@ -374,53 +440,61 @@ def render_text_frame(img_base: Image.Image, text: str, headline: str = "") -> I
     overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     draw_ov = ImageDraw.Draw(overlay)
     
-    # 1. Top Header Banner Badge (Y = 140 to 230)
+    # 1. Top Header Banner Badge (Y = 140 to 220) - Compact & Elegant
     if headline:
-        head_font = get_font(42)
+        head_font = get_font(38)
         head_w = int(draw_ov.textlength(headline, font=head_font))
-        head_box_w = min(max(head_w + 70, 480), W - 80)
+        head_box_w = min(max(head_w + 60, 460), W - 100)
         hx1 = (W - head_box_w) // 2
-        hy1, hy2 = 140, 230
-        draw_ov.rounded_rectangle([(hx1, hy1), (hx1 + head_box_w, hy2)], radius=28, fill=(10, 10, 22, 220), outline=(255, 215, 0, 240), width=3)
+        hy1, hy2 = 140, 218
+        draw_ov.rounded_rectangle(
+            [(hx1, hy1), (hx1 + head_box_w, hy2)],
+            radius=24,
+            fill=(10, 10, 20, 210),
+            outline=(255, 215, 0, 220),
+            width=2
+        )
     
-    # 2. Modern Extra-Large Subtitles (SAFE CENTER GOLDEN ZONE: Y = 840 to 1100)
-    sub_font = get_font(64)
-    pad = 60
+    # 2. Modern Subtitles in LOWER-THIRD SAFE ZONE (Y = 1290 to 1460)
+    # CRITICAL: Y = 250 to 1250 remains 100% CLEAR so character faces, expressions, and visuals are NEVER BLOCKED!
+    sub_font = get_font(52)
+    pad = 70
     lines = wrap_text(draw_ov, text, sub_font, W - (2 * pad) - 40)
     
-    line_h = 86
+    line_h = 74
     total_text_h = len(lines) * line_h
-    pill_y1 = int(H * 0.44)
-    pill_y2 = pill_y1 + total_text_h + 46
     
-    capsule_fill = (10, 10, 24, 235)
-    capsule_border = (255, 220, 30, 255)
+    # Anchor to lower safe zone: Y ≈ 1300 to 1480 (Clear from face, clear from Shorts bottom buttons)
+    pill_y1 = int(H * 0.68)
+    pill_y2 = pill_y1 + total_text_h + 36
     
-    # Frosted rounded gold capsule
+    capsule_fill = (12, 12, 22, 185)  # Modern sleek translucent frosted pill
+    capsule_border = (255, 215, 0, 220)
+    
     draw_ov.rounded_rectangle(
-        [(pad - 20, pill_y1 - 18), (W - pad + 20, pill_y2)],
-        radius=30,
+        [(pad - 20, pill_y1 - 14), (W - pad + 20, pill_y2)],
+        radius=26,
         fill=capsule_fill,
         outline=capsule_border,
-        width=4
+        width=3
     )
     
     frame = Image.alpha_composite(frame, overlay)
     draw = ImageDraw.Draw(frame)
     
     if headline:
-        draw.text((W // 2, 185), headline, font=head_font, fill=(255, 225, 75), anchor="mm", stroke_width=2, stroke_fill=(0, 0, 0))
+        draw.text((W // 2, 179), headline, font=head_font, fill=(255, 225, 75), anchor="mm", stroke_width=2, stroke_fill=(0, 0, 0))
     
     cur_y = pill_y1 + 10
     for idx, line in enumerate(lines):
-        color = (255, 255, 255) if idx == 0 else (255, 235, 0)
+        color = (255, 255, 255) if idx == 0 else (255, 235, 50)
         draw.text(
             (W // 2, cur_y),
             line,
             font=sub_font,
             fill=color,
             anchor="mt",
-            stroke_width=6,
+            stroke_width=5,
             stroke_fill=(0, 0, 0)
         )
         cur_y += line_h
@@ -448,14 +522,14 @@ def build_segment_video(img_loaded: Image.Image, text: str, headline: str, audio
         t_split = duration / 2.0
         # Zoom Ken Burns with seamless subtitle cut at midpoint
         if seg_idx % 2 == 0:
-            vf = f"scale=1080:1920,zoompan=z='min(zoom+0.0012,1.15)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=1080x1920:fps={fps},format=yuv420p"
+            vf = f"scale=1080:1920,zoompan=z='min(zoom+0.0010,1.14)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=1080x1920:fps={fps},format=yuv420p"
         else:
-            vf = f"scale=1080:1920,zoompan=z='if(lte(zoom,1.0),1.15,max(1.001,zoom-0.0012))':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=1080x1920:fps={fps},format=yuv420p"
+            vf = f"scale=1080:1920,zoompan=z='if(lte(zoom,1.0),1.14,max(1.001,zoom-0.0010))':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=1080x1920:fps={fps},format=yuv420p"
             
         cmd = [
             "ffmpeg", "-y",
             "-loop", "1", "-t", f"{t_split:.2f}", "-i", str(p1_path),
-            "-loop", "1", "-t", f"{(duration - t_split):.2f}", "-i", str(p2_path),
+            "-loop", "1", "-t", f"{(duration - t_split + 0.1):.2f}", "-i", str(p2_path),
             "-i", str(audio_path),
             "-filter_complex", f"[0:v]{vf}[v0];[1:v]{vf}[v1];[v0][v1]concat=n=2:v=1:a=0[vout]",
             "-map", "[vout]", "-map", "2:a",
@@ -463,7 +537,8 @@ def build_segment_video(img_loaded: Image.Image, text: str, headline: str, audio
             "-r", "30", "-g", "30",
             "-pix_fmt", "yuv420p",
             "-c:a", "aac", "-b:a", "192k",
-            "-shortest", str(out_mp4)
+            "-t", f"{duration:.2f}",
+            str(out_mp4)
         ]
         res = subprocess.run(cmd, capture_output=True)
         if res.returncode == 0 and out_mp4.exists() and out_mp4.stat().st_size > 0:
@@ -476,9 +551,9 @@ def build_segment_video(img_loaded: Image.Image, text: str, headline: str, audio
     
     frames = max(int(duration * fps), 30)
     if seg_idx % 2 == 0:
-        vf = f"scale=1080:1920,zoompan=z='min(zoom+0.0012,1.15)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s=1080x1920:fps={fps},format=yuv420p"
+        vf = f"scale=1080:1920,zoompan=z='min(zoom+0.0010,1.14)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s=1080x1920:fps={fps},format=yuv420p"
     else:
-        vf = f"scale=1080:1920,zoompan=z='if(lte(zoom,1.0),1.15,max(1.001,zoom-0.0012))':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s=1080x1920:fps={fps},format=yuv420p"
+        vf = f"scale=1080:1920,zoompan=z='if(lte(zoom,1.0),1.14,max(1.001,zoom-0.0010))':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s=1080x1920:fps={fps},format=yuv420p"
         
     cmd_fallback = [
         "ffmpeg", "-y",
@@ -490,7 +565,7 @@ def build_segment_video(img_loaded: Image.Image, text: str, headline: str, audio
         "-r", "30", "-g", "30",
         "-pix_fmt", "yuv420p",
         "-c:a", "aac", "-b:a", "192k",
-        "-shortest", str(out_mp4)
+        str(out_mp4)
     ]
     subprocess.run(cmd_fallback, check=True, capture_output=True)
 
@@ -580,20 +655,20 @@ def assemble_final_video(segment_videos: list[Path], bgm_file: Path | None, fina
 def ensure_fallback_assets():
     ASSETS_DIR.mkdir(parents=True, exist_ok=True)
     seed_items = [
-        ("bhakti_1.jpg", "Ultra photorealistic 8k IMAX render of cosmic Lord Krishna cyan glowing skin vertical 9:16"),
-        ("bhakti_2.jpg", "Lord Krishna golden flute ethereal starlight aura 8k vertical"),
-        ("bhakti_3.jpg", "Cosmic temple palace galaxy twilight fantasy 8k vertical"),
-        ("mystery_1.jpg", "Futuristic Vedic vimana golden flying craft over Ayodhya palace 4k vertical"),
-        ("mystery_2.jpg", "Cosmic Brahmastra plasma energy beam lightning 8k vertical"),
-        ("mystery_3.jpg", "Submerged ancient stone pillars of Dwarka underwater 8k vertical"),
-        ("humor_1.jpg", "Stylish modern Indian youth funny confused face 4k vertical"),
-        ("humor_2.jpg", "Trendy young couple laughing outdoor cafe sunset 4k vertical"),
-        ("humor_3.jpg", "Hot cutting chai cup high rise glass balcony sunrise 4k vertical")
+        ("bhakti_1.jpg", "bhakti", 0),
+        ("bhakti_2.jpg", "bhakti", 1),
+        ("bhakti_3.jpg", "bhakti", 2),
+        ("mystery_1.jpg", "mystery", 0),
+        ("mystery_2.jpg", "mystery", 1),
+        ("mystery_3.jpg", "mystery", 2),
+        ("humor_1.jpg", "humor", 0),
+        ("humor_2.jpg", "humor", 1),
+        ("humor_3.jpg", "humor", 2),
     ]
-    for name, prmt in seed_items:
+    for name, theme, idx in seed_items:
         file_path = ASSETS_DIR / name
-        if not file_path.exists() or file_path.stat().st_size < 5000:
-            fetch_image_pollinations(prmt, file_path)
+        if not file_path.exists() or file_path.stat().st_size < 10000:
+            fetch_curated_cloud_image(theme, idx, file_path)
 
 def generate():
     OUT.mkdir(parents=True, exist_ok=True)
@@ -606,35 +681,54 @@ def generate():
         name = f"post{video_num}"
         video_work_dir = OUT / name
         video_work_dir.mkdir(parents=True, exist_ok=True)
+        theme = p.get("theme", "bhakti")
         
         print(f"\n==========================================")
-        print(f"[GENERATING VIDEO {video_num}/3] {p['headline']} ({p['theme']})")
+        print(f"[GENERATING VIDEO {video_num}/3] {p['headline']} ({theme})")
         print(f"==========================================")
         
+        segments = p["segments"]
+        
+        # Parallel Pre-fetch all scene images simultaneously for maximum speed and variety!
+        print(f"  [Parallel Visuals] Pre-fetching {len(segments)} distinct scene images...")
+        img_paths = [video_work_dir / f"seg_{j+1:02d}_raw.jpg" for j in range(len(segments))]
+        
+        def _fetch_one(idx):
+            seg = segments[idx]
+            query = seg.get("query", seg["visual_prompt"][:50])
+            get_segment_image(seg["visual_prompt"], query, theme, idx, img_paths[idx])
+            return idx
+            
+        with ThreadPoolExecutor(max_workers=4) as executor:
+            futures = [executor.submit(_fetch_one, j) for j in range(len(segments))]
+            for fut in as_completed(futures):
+                fut.result()
+        
         seg_videos = []
-        for j, seg in enumerate(p["segments"]):
+        for j, seg in enumerate(segments):
             seg_prefix = f"seg_{j+1:02d}"
             audio_path = video_work_dir / f"{seg_prefix}.mp3"
-            img_raw_path = video_work_dir / f"{seg_prefix}_raw.jpg"
-            img_final_path = video_work_dir / f"{seg_prefix}_final.png"
+            img_raw_path = img_paths[j]
             seg_video_path = video_work_dir / f"{seg_prefix}.mp4"
             
-            # 1. Voiceover
+            # 1. Voiceover with natural silence padding (extra 1.0s pad for final outro line!)
             voice = p.get("voice", "hi-IN-MadhurNeural")
-            dur = generate_voiceover(seg["text"], voice, audio_path)
+            is_last = (j == len(segments) - 1)
+            dur = generate_voiceover(seg["text"], voice, audio_path, is_last_segment=is_last)
             
-            # 2. Multi-tier Image Fetcher (Wikimedia HD + DuckDuckGo + Curated Local Pack)
-            query = seg.get("query", seg["visual_prompt"][:50])
-            img_loaded = get_segment_image(seg["visual_prompt"], query, p.get("theme", ""), j, img_raw_path)
-            print(f"    [Photo OK] Segment {j+1} HD image taiyar!")
+            # 2. Load the distinct prepared image
+            try:
+                img_loaded = Image.open(img_raw_path)
+            except Exception:
+                img_loaded = get_segment_image(seg["visual_prompt"], "", theme, j, img_raw_path)
                     
             # 3. Make dynamic video segment with animated subtitles & smooth Ken Burns
             build_segment_video(img_loaded, seg["text"], p["headline"], audio_path, dur, seg_video_path, seg_idx=j)
             seg_videos.append(seg_video_path)
-            print(f"  ✓ Segment {j+1}/{len(p['segments'])} taiyar ({dur:.1f}s)")
+            print(f"  ✓ Segment {j+1}/{len(segments)} taiyar ({dur:.1f}s)")
             
         # 5. Assemble and Add BGM
-        bgm = find_bgm_track(p.get("theme", ""))
+        bgm = find_bgm_track(theme)
         final_mp4 = OUT / f"{name}.mp4"
         assemble_final_video(seg_videos, bgm, final_mp4)
         
