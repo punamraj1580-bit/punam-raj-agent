@@ -3,166 +3,132 @@
     "id": 1,
     "theme": "bhakti",
     "voice": "hi-IN-SwaraNeural",
-    "headline": "✨ चेतना और ब्रह्मांडीय प्रेम का रहस्य ✨",
-    "caption": "ब्रह्मांडीय प्रेम और चेतना का दिव्य स्वरूप! 🌌✨ #RadhaKrishna #CosmicConsciousness #DivineLove #Shorts #TrendingReels",
+    "headline": "ब्रह्मांडीय प्रेम का परम रहस्य",
+    "caption": "क्या आप जानते हैं कि राधा-कृष्ण का प्रेम केवल एक कहानी नहीं, बल्कि इस पूरे ब्रह्मांड की परम ऊर्जा है? जानिए इस दिव्य रहस्य को। #radhakrishna #cosmiclove #divine #spiritual #wisdom",
     "segments": [
       {
-        "text": "राधे-कृष्ण का प्रेम केवल आकर्षण नहीं, आत्मा का परमात्मा से मिलन है।",
-        "visual_prompt": "Ultra-photorealistic 8k IMAX cinematic, Unreal Engine 5 render of ethereal Lord Krishna and Radha, cosmic glowing cyan and gold aura, cinematic volumetric lighting, floating lotus petals in cosmic nebulae, 70mm movie photography, 9:16 vertical",
-        "query": "cosmic divine love space 8k"
+        "text": "इस अनंत ब्रह्मांड के कण-कण में एक ऐसी अदृश्य दिव्य ऊर्जा प्रवाहित हो रही है।",
+        "visual_prompt": "Hyper-realistic 4K Unreal Engine 5 render, vertical 9:16 aspect ratio, cosmic nebula forming glowing gold and blue patterns of light, IMAX cinematic lighting"
       },
       {
-        "text": "जब कन्हैया बांसुरी बजाते थे, तब सारा संसार मंत्रमुग्ध हो जाता था।",
-        "visual_prompt": "Lord Krishna playing golden flute with glowing starlight aura, ethereal peacock feathers shimmering, cinematic depth of field, 8k vertical wallpaper",
-        "query": "Krishna golden flute starlight"
+        "text": "जिसे हम और आप प्रेम कहते हैं, वही वास्तव में राधा और कृष्ण का अस्तित्व है।",
+        "visual_prompt": "A cosmic silhouette of two divine figures made of stardust and glowing galaxies, standing in deep space, vertical 9:16 aspect ratio, photorealistic, IMAX lighting"
       },
       {
-        "text": "राधा रानी के बिना कृष्ण अधूरे हैं, और कृष्ण के बिना राधा का कोई अस्तित्व नहीं।",
-        "visual_prompt": "Ethereal Goddess Radha surrounded by glowing lotus blossoms, heavenly golden twilight reflections, celestial fantasy cinema, 9:16 vertical",
-        "query": "celestial goddess glowing lotus"
+        "text": "राधा कोई अलग शरीर नहीं, बल्कि कृष्ण की ही आत्मा का एक परम आनंदमय रूप हैं।",
+        "visual_prompt": "A glowing, ethereal divine female form dissolving into golden light particles that merge with a male form, cosmic background, Unreal Engine 5, vertical 9:16 aspect ratio, photorealistic"
       },
       {
-        "text": "सच्चा प्रेम त्याग और समर्पण सिखाता है, जहाँ कोई स्वार्थ नहीं होता।",
-        "visual_prompt": "Cosmic divine energy particles swirling like golden galaxies over sacred Vrindavan waters, Christopher Nolan style sci-fi cinematic lighting, 9:16 vertical",
-        "query": "golden galaxies water reflection"
+        "text": "जब सृष्टि में पहला स्पंदन हुआ, तब केवल निस्वार्थ प्रेम की बांसुरी की गूंज सुनाई दी।",
+        "visual_prompt": "A divine glowing flute made of crystal and light floating in a beautiful cosmic vortex, emitting waves of gold energy, IMAX lighting, vertical 9:16 aspect ratio"
       },
       {
-        "text": "गोपियों का भाव केवल यह था कि प्रभु सदा प्रसन्न रहें।",
-        "visual_prompt": "Glow of thousands of cosmic floating lights over golden mirror river, hyper-realistic fantasy cinema, 8k vertical",
-        "query": "thousands floating lanterns water 8k"
+        "text": "यह प्रेम किसी भौतिक बंधन में नहीं बंधा, बल्कि यह तो आत्मा की परम स्वतंत्रता है।",
+        "visual_prompt": "A mesmerizing visual of glowing lotus flowers floating in a river of stars, reflections of divine light, photorealistic, cinematic, vertical 9:16 aspect ratio"
       },
       {
-        "text": "जो भी भक्त सच्चे मन से राधे-राधे जपता है, उसके सब कष्ट दूर हो जाते हैं।",
-        "visual_prompt": "Sacred glowing celestial aura in deep space nebula, shimmering golden stardust, award winning cinematography, 9:16 vertical",
-        "query": "deep space golden nebula 8k"
+        "text": "जब आप अपने भीतर के अहंकार को मिटा देते हैं, तब इस दिव्य प्रेम का उदय होता है।",
+        "visual_prompt": "Close-up of a human silhouette meditating in a futuristic glowing temple, a bright light shining from the chest, Unreal Engine 5, vertical 9:16 aspect ratio, cinematic lighting"
       },
       {
-        "text": "कलयुग में केवल हरि नाम ही मनुष्य को भवसागर से पार उतार सकता है।",
-        "visual_prompt": "Ethereal glowing golden flute floating in starlight with mystical blue peacock feather, macro lens 8k cinematic shot, 9:16 vertical",
-        "query": "golden flute peacock starlight"
+        "text": "कृष्ण का अर्थ है आकर्षण, और राधा उस आकर्षण की परम चेतना और अटूट शक्ति है।",
+        "visual_prompt": "A majestic cosmic tree of life with glowing golden leaves radiating divine energy under a starry sky, blockbuster movie style, vertical 9:16 aspect ratio"
       },
       {
-        "text": "आज अपने जीवन में प्रेम और करुणा को स्थान दें, राधे-राधे बोलें!",
-        "visual_prompt": "Sacred glowing golden footprints stepping on luminous blooming lotus flowers, beams of heaven breaking through clouds, 9:16 vertical",
-        "query": "golden lotus flowers glowing heavenly"
-      },
-      {
-        "text": "बोलो राधे-राधे! कमेंट में जय श्री कृष्ण ज़रूर लिखें और कृपा पाएं।",
-        "visual_prompt": "Magnificent cosmic temple palace glowing under starry galaxy twilight, cinematic fantasy masterpiece, 9:16 vertical",
-        "query": "cosmic glowing temple palace galaxy"
+        "text": "आज ही अपने जीवन में इस निस्वार्थ और शाश्वत ब्रह्मांडीय प्रेम का अनुभव करके देखिए।",
+        "visual_prompt": "A stunning cinematic view of a glowing golden temple floating in a cosmic sky filled with nebulas, ultra-realistic, 4K, vertical 9:16 aspect ratio"
       }
     ],
     "name": "post1",
     "video_file": "out/2026-10-02/post1.mp4",
-    "full_caption": "✨ चेतना और ब्रह्मांडीय प्रेम का रहस्य ✨\n\nब्रह्मांडीय प्रेम और चेतना का दिव्य स्वरूप! 🌌✨ #RadhaKrishna #CosmicConsciousness #DivineLove #Shorts #TrendingReels\n\n#PunamRaj #Shorts #Reels"
+    "full_caption": "ब्रह्मांडीय प्रेम का परम रहस्य\n\nक्या आप जानते हैं कि राधा-कृष्ण का प्रेम केवल एक कहानी नहीं, बल्कि इस पूरे ब्रह्मांड की परम ऊर्जा है? जानिए इस दिव्य रहस्य को। #radhakrishna #cosmiclove #divine #spiritual #wisdom\n\n#PunamRaj #Shorts #Reels"
   },
   {
     "id": 2,
-    "theme": "mystery",
+    "theme": "sci-fi",
     "voice": "hi-IN-MadhurNeural",
-    "headline": "🔱 प्राचीन भारत का उन्नत विज्ञान 🚀",
-    "caption": "प्राचीन सनातन विज्ञान, वैदिक विमान और ब्रह्मांडीय रहस्य! 🔱⚡ #AncientMysteries #VedicScience #AdvancedAncientTech #Kalki2898AD #Shorts",
+    "headline": "प्राचीन भारत की खोई हुई तकनीक",
+    "caption": "क्या हमारे पूर्वजों के पास हमसे भी उन्नत तकनीक थी? जानिए प्राचीन भारत के विमानों और अस्त्रों का हैरतअंगेज सच। #ancienttechnology #vimana #scifi #ancientindia #mysteries",
     "segments": [
       {
-        "text": "क्या आप जानते हैं कि सतयुग में मनुष्य की आयु एक लाख वर्ष मानी गई थी?",
-        "visual_prompt": "Hyper-realistic 4K IMAX sci-fi cinema, ancient advanced Himalayan masters surrounded by floating holographic energy rings, golden futuristic temples, 9:16 vertical",
-        "query": "ancient masters holographic rings sci-fi"
+        "text": "क्या हजारों साल पहले भारत में ऐसी तकनीक थी जो आज के विज्ञान से आगे थी?",
+        "visual_prompt": "High-tech holographic blueprints of a golden metallic spacecraft hovering inside a futuristic ancient Indian palace, IMAX cinematic lighting, vertical 9:16 aspect ratio"
       },
       {
-        "text": "त्रेतायुग में भगवान श्री राम के काल में पुष्पक विमान जैसी तकनीक थी।",
-        "visual_prompt": "Futuristic ancient Vedic vimana golden flying craft hovering above colossal golden palace towers of Ayodhya, epic blockbuster cinematography, 9:16 vertical",
-        "query": "vimana flying chariot futuristic palace"
+        "text": "हमारे प्राचीन ग्रंथों में वर्णित विमान केवल कल्पना नहीं, बल्कि उच्च कोटि के अंतरिक्ष यान थे।",
+        "visual_prompt": "A massive metallic Vimana spacecraft taking off from a high-tech ancient launchpad in a mountainous landscape, Unreal Engine 5, vertical 9:16 aspect ratio, photorealistic"
       },
       {
-        "text": "वाल्मीकि रामायण में ऐसे अस्त्रों का वर्णन है जो आधुनिक मिसाइल से भी तीव्र थे।",
-        "visual_prompt": "Glowing cosmic Brahmastra quantum plasma energy beam piercing dark thunderclouds, epic Marvel Kalki 2898 AD VFX movie style, 9:16 vertical",
-        "query": "Brahmastra energy beam lightning 8k"
+        "text": "मरकरी वॉर्टेक्स इंजन की तकनीक से चलने वाले ये यान पलक झपकते ही गायब हो जाते थे।",
+        "visual_prompt": "Close-up of a glowing blue liquid mercury engine spinning rapidly with golden sparks, sci-fi mechanical details, photorealistic, vertical 9:16 aspect ratio"
       },
       {
-        "text": "ब्रह्मास्त्र, पाशुपतास्त्र और नारायणास्त्र, ध्वनि तरंगों और मंत्रों से संचालित होते थे।",
-        "visual_prompt": "Ancient glowing golden metallic manuscripts with floating laser holographic Sanskrit equations, futuristic ancient tech, 9:16 vertical",
-        "query": "holographic sanskrit equations ancient"
+        "text": "ब्रह्मास्त्र कोई साधारण तीर नहीं था, बल्कि यह एक विनाशकारी परमाणु हथियार जैसा काम करता था।",
+        "visual_prompt": "A glowing high-tech energy weapon charging with bright plasma rings, held by an ancient warrior silhouette, cinematic Hollywood sci-fi, vertical 9:16 aspect ratio"
       },
       {
-        "text": "यह सनातन ज्ञान केवल कल्पना नहीं, बल्कि उच्चतर वैज्ञानिक चेतना का प्रमाण है।",
-        "visual_prompt": "Colossal ancient astronomical stone wheel aligning with glowing planetary orbits in starry sky, Interstellar movie look, 9:16 vertical",
-        "query": "ancient astronomical wheel planets"
+        "text": "धातुओं को पिघलाने और नए तत्वों को बनाने की कला में हमारे वैज्ञानिक अत्यंत निपुण थे।",
+        "visual_prompt": "A futuristic ancient laboratory with glowing chemical liquids and molten metal being shaped by magnetic fields, Unreal Engine 5 render, vertical 9:16 aspect ratio"
       },
       {
-        "text": "द्वारका नगरी के समुद्र में मिले अवशेष इस बात को आज भी प्रमाणित करते हैं।",
-        "visual_prompt": "Lost ancient underwater city of Dwarka, colossal submerged stone pillars, glowing bio-luminescent sea life, deep ocean exploration, 9:16 vertical",
-        "query": "Dwarka sunken underwater city pillars"
+        "text": "कोणार्क का सूर्य मंदिर आज भी ऊर्जा संचरण के अद्भुत और रहस्यमयी सिद्धांतों को दर्शाता है।",
+        "visual_prompt": "A futuristic depiction of the Konark Sun Temple with glowing golden lines of energy running through its stone wheels, IMAX lighting, vertical 9:16 aspect ratio"
       },
       {
-        "text": "ऋषि-मुनियों ने बिना दूरबीन के सौरमंडल और ग्रहों की सटीक दूरी माप ली थी।",
-        "visual_prompt": "Ancient astronomer sage using advanced bronze astrolabe looking into glowing 3D planetary solar system model, IMAX 70mm, 9:16 vertical",
-        "query": "astronomer looking into 3d planets"
+        "text": "आज का आधुनिक विज्ञान उन्हीं सिद्धांतों को दोबारा खोजने की कोशिश में दिन-रात लगा हुआ है।",
+        "visual_prompt": "A modern futuristic laboratory screen comparing ancient Sanskrit texts with advanced quantum physics equations, hyper-realistic, vertical 9:16 aspect ratio"
       },
       {
-        "text": "हमारी प्राचीन धरोहर में छिपे इन रहस्यों को जानना हर भारतीय का कर्तव्य है।",
-        "visual_prompt": "Colossal monolithic Kailash temple carved from giant dark mountain peak, mystical golden rays piercing fog, epic movie shot, 9:16 vertical",
-        "query": "Kailash temple Ellora epic lighting"
-      },
-      {
-        "text": "सनातन के इस गौरवशाली इतिहास पर गर्व है तो कमेंट में 'हर हर महादेव' लिखें!",
-        "visual_prompt": "Cosmic Mahadev meditating on snowy Himalayan peak with glowing trident, aurora borealis galaxy sky, epic cinematography, 9:16 vertical",
-        "query": "cosmic shiva himalayas aurora galaxy"
+        "text": "अपनी इस महान और वैज्ञानिक विरासत पर गर्व करें और इस वीडियो को जरूर शेयर करें।",
+        "visual_prompt": "A cinematic low-angle shot of a grand futuristic Indian city with ancient architectural elements and flying vehicles, sunset sky, 4K, vertical 9:16 aspect ratio"
       }
     ],
     "name": "post2",
     "video_file": "out/2026-10-02/post2.mp4",
-    "full_caption": "🔱 प्राचीन भारत का उन्नत विज्ञान 🚀\n\nप्राचीन सनातन विज्ञान, वैदिक विमान और ब्रह्मांडीय रहस्य! 🔱⚡ #AncientMysteries #VedicScience #AdvancedAncientTech #Kalki2898AD #Shorts\n\n#PunamRaj #Shorts #Reels"
+    "full_caption": "प्राचीन भारत की खोई हुई तकनीक\n\nक्या हमारे पूर्वजों के पास हमसे भी उन्नत तकनीक थी? जानिए प्राचीन भारत के विमानों और अस्त्रों का हैरतअंगेज सच। #ancienttechnology #vimana #scifi #ancientindia #mysteries\n\n#PunamRaj #Shorts #Reels"
   },
   {
     "id": 3,
-    "theme": "humor",
-    "voice": "hi-IN-MadhurNeural",
-    "headline": "😂 देसी ज़िंदगी के मज़ेदार पल ☕",
-    "caption": "थोड़ा मुस्कुराइए! ज़िंदगी बहुत खूबसूरत और मज़ेदार है 😂❤️ #DesiHumor #ComedyShorts #RelatableReels #DailyLaughs #Shorts",
+    "theme": "comedy",
+    "voice": "hi-IN-SwaraNeural",
+    "headline": "देसी घरों की मजेदार सच्चाई",
+    "caption": "हर भारतीय घर की वो बातें जो हम सबको हंसा-हंसा कर लोटपोट कर देती हैं! क्या आपके घर में भी ऐसा होता है? #desilife #funny #humor #relatable #indians",
     "segments": [
       {
-        "text": "जिंदगी में दो चीजें कभी समझ नहीं आतीं—एक डॉक्टर की हैंडराइटिंग और दूसरा...",
-        "visual_prompt": "Hyper-realistic 4K cinematic shot of stylish modern Indian youth looking at hilarious doctor prescription with funny confused face, Sony A7S III 85mm, 9:16 vertical",
-        "query": "funny confused man doctor prescription"
+        "text": "दुनिया के सभी देशों में लोग अलार्म बजते ही चुपचाप शांति से उठ जाते हैं।",
+        "visual_prompt": "A modern, sleek aesthetic bedroom in morning light, a smartphone buzzing on a wooden table, photorealistic, cinematic, vertical 9:16 aspect ratio"
       },
       {
-        "text": "कि सुबह 6 बजे अलार्म बजने पर 5 मिनट की नींद 5 घंटे जैसी सुखद क्यों लगती है!",
-        "visual_prompt": "Vibrant modern 3D Pixar style alarm clock vibrating wildly at 6 AM, hilarious sleepy reaction under cozy blanket, bright warm lighting, 9:16 vertical",
-        "query": "pixar style alarm clock ringing funny"
+        "text": "लेकिन हमारे देसी घरों में सुबह का अलार्म मम्मी के बेलन की आवाज से बजता है।",
+        "visual_prompt": "A cinematic kitchen shot with warm light, a wooden rolling pin hitting a metallic plate, flour flying in the air, Unreal Engine 5 style, vertical 9:16 aspect ratio"
       },
       {
-        "text": "एक भाई ने पूछा—शादी के बाद सुकून कहाँ मिलता है? मैंने कहा—यादों में!",
-        "visual_prompt": "Relatable comedy scene of young modern husband looking comically overwhelmed next to huge mountain of sparkling dishes, 9:16 vertical",
-        "query": "funny husband washing dishes cartoon comedy"
+        "text": "मेहमानों के आने पर जो खास कांच के बर्तन निकलते हैं, वे सिर्फ उनके लिए होते हैं।",
+        "visual_prompt": "A beautiful, modern glass cabinet opening to show shining luxury crystal glasses and plates, warm ambient lighting, 4K, vertical 9:16 aspect ratio"
       },
       {
-        "text": "वैसे प्यार में सबसे बड़ी ताक़त यह है कि इंसान बिना किसी वजह के मुस्कुराने लगता है।",
-        "visual_prompt": "Trendy stylish modern young couple laughing happily together in chic outdoor aesthetic cafe, warm golden sunset, Instagram photography, 9:16 vertical",
-        "query": "stylish couple laughing outdoor cafe"
+        "text": "मेहमान के जाते ही वे बर्तन वापस तिजोरी की तरह अलमारी में बंद हो जाते हैं।",
+        "visual_prompt": "A dramatic close-up of a key turning in a wooden cabinet lock with dust motes floating in the cinematic light, photorealistic, vertical 9:16 aspect ratio"
       },
       {
-        "text": "और जब वही इंसान घर आता है, तो मम्मी पूछती हैं—फोन में देखकर क्यों हंस रहा है रे?",
-        "visual_prompt": "Funny relatable scene of guy laughing out loud looking at modern smartphone on couch, bright colorful modern apartment, 9:16 vertical",
-        "query": "guy laughing at smartphone on couch"
+        "text": "रिमोट कंट्रोल काम न करे तो उसे फेंकने के बजाय ठोक-ठोक कर चलाया जाता है।",
+        "visual_prompt": "A hand dramatically hitting a sleek black television remote control on a modern sofa, sparks flying out in a humorous cinematic way, vertical 9:16 aspect ratio"
       },
       {
-        "text": "दोस्तो, गुस्सा करने से सेहत खराब होती है, और हंसने से चेहरे पर रौनक आती है!",
-        "visual_prompt": "Modern friends having fun laughing hysterically together over chai at trendy rooftop cafe, golden hour aesthetic, 9:16 vertical",
-        "query": "friends laughing rooftop cafe sunset"
+        "text": "और कमाल की बात देखिए, दो बार ठोकने के बाद वह सचमुच चलने भी लगता है।",
+        "visual_prompt": "A glowing modern TV screen turning on with a vibrant interface, reflecting colorful light on a living room wall, Unreal Engine 5, vertical 9:16 aspect ratio"
       },
       {
-        "text": "इसलिए हर दिन थोड़ा वक्त खुद के लिए और अपनों की खुशी के लिए ज़रूर निकालें।",
-        "visual_prompt": "Steaming hot cutting chai cup on scenic glass high-rise balcony with breathtaking sunrise clouds, luxury lifestyle cinematic 4K, 9:16 vertical",
-        "query": "hot tea cup glass balcony sunrise"
+        "text": "बाजार से धनिया मुफ्त में न मिले तो हमारी मम्मी का पूरा दिन खराब हो जाता है।",
+        "visual_prompt": "Fresh green coriander leaves falling in super slow motion onto a polished dark kitchen counter, bright dramatic lighting, 4K, vertical 9:16 aspect ratio"
       },
       {
-        "text": "अगर आपके चेहरे पर थोड़ी सी भी मुस्कान आई हो, तो चैनल को सब्सक्राइब और शेयर ज़रूर करें!",
-        "visual_prompt": "Explosion of 3D floating heart emojis and thumbs up celebration, trendy colorful YouTube Shorts outro, 9:16 vertical",
-        "query": "3d floating hearts emojis celebration"
+        "text": "अगर आपके घर में भी ऐसा ही होता है, तो अभी इस वीडियो को लाइक करें।",
+        "visual_prompt": "A modern cinematic shot of a young Indian person smiling warmly while looking at their glowing smartphone screen, cozy room, vertical 9:16 aspect ratio"
       }
     ],
     "name": "post3",
     "video_file": "out/2026-10-02/post3.mp4",
-    "full_caption": "😂 देसी ज़िंदगी के मज़ेदार पल ☕\n\nथोड़ा मुस्कुराइए! ज़िंदगी बहुत खूबसूरत और मज़ेदार है 😂❤️ #DesiHumor #ComedyShorts #RelatableReels #DailyLaughs #Shorts\n\n#PunamRaj #Shorts #Reels"
+    "full_caption": "देसी घरों की मजेदार सच्चाई\n\nहर भारतीय घर की वो बातें जो हम सबको हंसा-हंसा कर लोटपोट कर देती हैं! क्या आपके घर में भी ऐसा होता है? #desilife #funny #humor #relatable #indians\n\n#PunamRaj #Shorts #Reels"
   }
 ]
