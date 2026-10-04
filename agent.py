@@ -126,44 +126,44 @@ def get_offline_scripts():
                 {"text": "सच्चा प्रेम त्याग और समर्पण सिखाता है, जहाँ कोई स्वार्थ नहीं होता।", "visual_prompt": "Cosmic divine energy particles swirling like golden galaxies over sacred Vrindavan waters, Christopher Nolan style sci-fi cinematic lighting, 9:16 vertical", "query": "golden galaxies water reflection"},
                 {"text": "गोपियों का भाव केवल यह था कि प्रभु सदा प्रसन्न रहें।", "visual_prompt": "Glow of thousands of cosmic floating lights over golden mirror river, hyper-realistic fantasy cinema, 8k vertical", "query": "thousands floating lanterns water 8k"},
                 {"text": "जो भी भक्त सच्चे मन से राधे-राधे जपता है, उसके सब कष्ट दूर हो जाते हैं।", "visual_prompt": "Sacred glowing celestial aura in deep space nebula, shimmering golden stardust, award winning cinematography, 9:16 vertical", "query": "deep space golden nebula 8k"},
-                {"text": "कलयुग में केवल हरि नाम ही मनुष्य को भवसागर से पार उतार सकता है।", "visual_prompt": "Ethereal glowing golden flute floating in starlight with mystical blue peacock feather, macro lens 8k cinematic shot, 9:16 vertical", "query": "golden flute peacock starlight"},
+                {"text": "कलयुग में केवल हरि नाम ही मनुष्य को भवसागर से पार उतार सकता है।", "visual_prompt": "Sacred Indian devotee hands gently holding Tulsi Japa Mala prayer beads with glowing divine golden aura, spiritual devotion, Harinam chanting, 9:16 vertical, 8k cinematic render", "query": "devotee hands prayer beads tulsi mala"},
                 {"text": "आज अपने जीवन में प्रेम और करुणा को स्थान दें, राधे-राधे बोलें!", "visual_prompt": "Sacred glowing golden footprints stepping on luminous blooming lotus flowers, beams of heaven breaking through clouds, 9:16 vertical", "query": "golden lotus flowers glowing heavenly"},
                 {"text": "बोलो राधे-राधे! कमेंट में जय श्री कृष्ण ज़रूर लिखें और कृपा पाएं।", "visual_prompt": "Magnificent cosmic temple palace glowing under starry galaxy twilight, cinematic fantasy masterpiece, 9:16 vertical", "query": "cosmic glowing temple palace galaxy"}
             ]
         },
         {
             "id": 2,
-            "theme": "mystery",
+            "theme": "chanakya",
             "voice": "hi-IN-MadhurNeural",
-            "headline": "🔱 प्राचीन भारत का उन्नत विज्ञान 🚀",
-            "caption": "प्राचीन सनातन विज्ञान, वैदिक विमान और ब्रह्मांडीय रहस्य! 🔱⚡ #AncientMysteries #VedicScience #AdvancedAncientTech #Kalki2898AD #Shorts",
+            "headline": "📜 चाणक्य नीति: जीवन बदलने वाले 3 नियम ⚔️",
+            "caption": "आचार्य चाणक्य के ये 3 नियम जीवन में कभी हारने नहीं देंगे! 📜🔥 #ChanakyaNiti #Wisdom #LifeLessons #SuccessMindset #Shorts",
             "segments": [
-                {"text": "क्या आप जानते हैं कि सतयुग में मनुष्य की आयु एक लाख वर्ष मानी गई थी?", "visual_prompt": "Hyper-realistic 4K IMAX sci-fi cinema, ancient advanced Himalayan masters surrounded by floating holographic energy rings, golden futuristic temples, 9:16 vertical", "query": "ancient masters holographic rings sci-fi"},
-                {"text": "त्रेतायुग में भगवान श्री राम के काल में पुष्पक विमान जैसी तकनीक थी।", "visual_prompt": "Futuristic ancient Vedic vimana golden flying craft hovering above colossal golden palace towers of Ayodhya, epic blockbuster cinematography, 9:16 vertical", "query": "vimana flying chariot futuristic palace"},
-                {"text": "वाल्मीकि रामायण में ऐसे अस्त्रों का वर्णन है जो आधुनिक मिसाइल से भी तीव्र थे।", "visual_prompt": "Glowing cosmic Brahmastra quantum plasma energy beam piercing dark thunderclouds, epic Marvel Kalki 2898 AD VFX movie style, 9:16 vertical", "query": "Brahmastra energy beam lightning 8k"},
-                {"text": "ब्रह्मास्त्र, पाशुपतास्त्र और नारायणास्त्र, ध्वनि तरंगों और मंत्रों से संचालित होते थे।", "visual_prompt": "Ancient glowing golden metallic manuscripts with floating laser holographic Sanskrit equations, futuristic ancient tech, 9:16 vertical", "query": "holographic sanskrit equations ancient"},
-                {"text": "यह सनातन ज्ञान केवल कल्पना नहीं, बल्कि उच्चतर वैज्ञानिक चेतना का प्रमाण है।", "visual_prompt": "Colossal ancient astronomical stone wheel aligning with glowing planetary orbits in starry sky, Interstellar movie look, 9:16 vertical", "query": "ancient astronomical wheel planets"},
-                {"text": "द्वारका नगरी के समुद्र में मिले अवशेष इस बात को आज भी प्रमाणित करते हैं।", "visual_prompt": "Lost ancient underwater city of Dwarka, colossal submerged stone pillars, glowing bio-luminescent sea life, deep ocean exploration, 9:16 vertical", "query": "Dwarka sunken underwater city pillars"},
-                {"text": "ऋषि-मुनियों ने बिना दूरबीन के सौरमंडल और ग्रहों की सटीक दूरी माप ली थी।", "visual_prompt": "Ancient astronomer sage using advanced bronze astrolabe looking into glowing 3D planetary solar system model, IMAX 70mm, 9:16 vertical", "query": "astronomer looking into 3d planets"},
-                {"text": "हमारी प्राचीन धरोहर में छिपे इन रहस्यों को जानना हर भारतीय का कर्तव्य है।", "visual_prompt": "Colossal monolithic Kailash temple carved from giant dark mountain peak, mystical golden rays piercing fog, epic movie shot, 9:16 vertical", "query": "Kailash temple Ellora epic lighting"},
-                {"text": "सनातन के इस गौरवशाली इतिहास पर गर्व है तो कमेंट में 'हर हर महादेव' लिखें!", "visual_prompt": "Cosmic Mahadev meditating on snowy Himalayan peak with glowing trident, aurora borealis galaxy sky, epic cinematography, 9:16 vertical", "query": "cosmic shiva himalayas aurora galaxy"}
+                {"text": "आचार्य चाणक्य कहते हैं—जीवन में कभी भी किसी पर अंधा विश्वास मत करो।", "visual_prompt": "Acharya Chanakya ancient Indian philosopher advisor sitting with sacred parchment scrolls and glowing brass oil lamp in royal Maurya court, wise resolute face, Brahmin shikha, 9:16 vertical, 8k cinematic render", "query": "Acharya Chanakya scrolls oil lamp"},
+                {"text": "जो व्यक्ति आपकी बात सुनते समय इधर-उधर देखे, वह कभी सच्चा मित्र नहीं हो सकता।", "visual_prompt": "Two ancient Indian royal court advisors engaged in deep dramatic whispering discussion, palace pillars, oil torches, cinematic lighting, 9:16 vertical, 8k render", "query": "ancient royal court advisors discussion"},
+                {"text": "अपनी कमज़ोरी और गुप्त योजनाएं कभी किसी को न बताएं, चाहे वह कितना भी खास हो।", "visual_prompt": "Ancient Indian royal advisor strategist pointing at parchment war strategy map table with glowing oil lamps and brass weapons, 9:16 vertical, 8k cinematic render", "query": "ancient strategist map table lamps"},
+                {"text": "सांप अगर जहरीला न भी हो, तो भी उसे फुंकारना कभी नहीं छोड़ना चाहिए।", "visual_prompt": "Majestic golden king cobra raising its hood fearlessly in ancient royal stone temple, glowing royal aura, 9:16 vertical, cinematic 8k render, National Geographic quality", "query": "golden king cobra hood ancient temple"},
+                {"text": "संकट के समय बुद्धि ही इंसान का सबसे बड़ा अस्त्र और सच्चा कवच बनती है।", "visual_prompt": "Glowing golden cosmic sacred geometry mandala radiating around wise ancient Indian sage in meditation, divine intellect, 9:16 vertical, 8k render", "query": "golden sacred geometry wisdom mandala"},
+                {"text": "ज्ञान और विनम्रता वह धन है जिसे कोई राजा या चोर कभी चुरा नहीं सकता।", "visual_prompt": "Ancient Takshashila university grand library with thousands of glowing Sanskrit palm leaf manuscripts and stone arches, enlightened scholars studying, 9:16 vertical, 8k render", "query": "Takshashila library ancient manuscripts"},
+                {"text": "जो इंसान समय का सम्मान नहीं करता, समय उसे बर्बाद करके रख देता है।", "visual_prompt": "Antique ornate golden hourglass with glowing sand flowing through glass against cosmic starry night sky, passing time metaphor, 9:16 vertical, 8k cinematic render", "query": "antique golden hourglass cosmic sky"},
+                {"text": "अगर चाणक्य की इन नीतियों पर अमल करोगे, तो असफलता कभी छू भी नहीं पाएगी!", "visual_prompt": "Majestic royal lion walking forward fearlessly on mountain cliff at golden sunrise, symbol of strength and king, 9:16 vertical, cinematic 8k render", "query": "royal lion mountain cliff sunrise"},
+                {"text": "जय हिंद! चाणक्य नीति अच्छी लगी हो तो कमेंट में 'जय चाणक्य' ज़रूर लिखें।", "visual_prompt": "Colossal ancient Indian Rajput Maurya royal fortress palace atop mountain, golden sunrise, fluttering royal saffron flag, epic cinematic 8k render", "query": "ancient fortress palace saffron flag"}
             ]
         },
         {
             "id": 3,
-            "theme": "humor",
+            "theme": "motivation",
             "voice": "hi-IN-MadhurNeural",
-            "headline": "😂 देसी ज़िंदगी के मज़ेदार पल ☕",
-            "caption": "थोड़ा मुस्कुराइए! ज़िंदगी बहुत खूबसूरत और मज़ेदार है 😂❤️ #DesiHumor #ComedyShorts #RelatableReels #DailyLaughs #Shorts",
+            "headline": "🔥 उठो, लड़ो और जीतो: कभी हार मत मानो 🚀",
+            "caption": "जब हौसले बुलंद हों तो कोई भी रुकावट तुम्हें रोक नहीं सकती! 🔥💪 #Motivation #NeverGiveUp #SuccessMindset #Inspiration #Shorts",
             "segments": [
-                {"text": "जिंदगी में दो चीजें कभी समझ नहीं आतीं—एक डॉक्टर की हैंडराइटिंग और दूसरा...", "visual_prompt": "Hyper-realistic 4K cinematic shot of stylish modern Indian youth looking at hilarious doctor prescription with funny confused face, Sony A7S III 85mm, 9:16 vertical", "query": "funny confused man doctor prescription"},
-                {"text": "कि सुबह 6 बजे अलार्म बजने पर 5 मिनट की नींद 5 घंटे जैसी सुखद क्यों लगती है!", "visual_prompt": "Vibrant modern 3D Pixar style alarm clock vibrating wildly at 6 AM, hilarious sleepy reaction under cozy blanket, bright warm lighting, 9:16 vertical", "query": "pixar style alarm clock ringing funny"},
-                {"text": "एक भाई ने पूछा—शादी के बाद सुकून कहाँ मिलता है? मैंने कहा—यादों में!", "visual_prompt": "Relatable comedy scene of young modern husband looking comically overwhelmed next to huge mountain of sparkling dishes, 9:16 vertical", "query": "funny husband washing dishes cartoon comedy"},
-                {"text": "वैसे प्यार में सबसे बड़ी ताक़त यह है कि इंसान बिना किसी वजह के मुस्कुराने लगता है।", "visual_prompt": "Trendy stylish modern young couple laughing happily together in chic outdoor aesthetic cafe, warm golden sunset, Instagram photography, 9:16 vertical", "query": "stylish couple laughing outdoor cafe"},
-                {"text": "और जब वही इंसान घर आता है, तो मम्मी पूछती हैं—फोन में देखकर क्यों हंस रहा है रे?", "visual_prompt": "Funny relatable scene of guy laughing out loud looking at modern smartphone on couch, bright colorful modern apartment, 9:16 vertical", "query": "guy laughing at smartphone on couch"},
-                {"text": "दोस्तो, गुस्सा करने से सेहत खराब होती है, और हंसने से चेहरे पर रौनक आती है!", "visual_prompt": "Modern friends having fun laughing hysterically together over chai at trendy rooftop cafe, golden hour aesthetic, 9:16 vertical", "query": "friends laughing rooftop cafe sunset"},
-                {"text": "इसलिए हर दिन थोड़ा वक्त खुद के लिए और अपनों की खुशी के लिए ज़रूर निकालें।", "visual_prompt": "Steaming hot cutting chai cup on scenic glass high-rise balcony with breathtaking sunrise clouds, luxury lifestyle cinematic 4K, 9:16 vertical", "query": "hot tea cup glass balcony sunrise"},
-                {"text": "अगर आपके चेहरे पर थोड़ी सी भी मुस्कान आई हो, तो चैनल को सब्सक्राइब और शेयर ज़रूर करें!", "visual_prompt": "Explosion of 3D floating heart emojis and thumbs up celebration, trendy colorful YouTube Shorts outro, 9:16 vertical", "query": "3d floating hearts emojis celebration"}
+                {"text": "याद रखना, जब पूरी दुनिया कहे कि तुमसे नहीं होगा, वही सही वक्त है शुरुआत करने का!", "visual_prompt": "Powerful silhouette of determined lone runner standing victoriously atop mountain peak at fiery golden sunrise, clouds below, inspiration, 9:16 vertical, 8k cinematic render", "query": "runner victory mountain peak sunrise"},
+                {"text": "किस्मत को दोष देना बंद करो, तुम्हारी मेहनत ही तुम्हारी तकदीर लिखने की असली कलम है।", "visual_prompt": "Determined young athletic Indian man training relentlessly with heavy battle ropes in gym, sweat drops, intense fire in eyes, 9:16 vertical, 8k photo render", "query": "athlete training gym battle ropes sweat"},
+                {"text": "रास्ते में मुश्किलें आएंगी, लोग ताने मारेंगे, लेकिन तुम्हें सिर्फ अपनी मंज़िल देखनी है।", "visual_prompt": "Majestic golden eagle with open wings soaring high above dramatic dark storm clouds into brilliant sunlight, freedom and power, 9:16 vertical, 8k cinematic render", "query": "golden eagle soaring storm clouds"},
+                {"text": "जो आज तुम पर हंस रहे हैं, कल वही तुम्हारी सफलता पर ताली बजाएंगे!", "visual_prompt": "Young Indian couple laughing happily together in chic outdoor aesthetic cafe, warm golden sunset, Instagram photography, 9:16 vertical", "query": "young couple laughing sunset cafe"},
+                {"text": "हर रोज सुबह एक नए जोश के साथ उठो और अपने सपनों के लिए जी-जान लगा दो।", "visual_prompt": "Young Indian man full of energy laughing out loud while holding smartphone on couch, bright colorful modern apartment, 9:16 vertical", "query": "energetic young man couch smartphone"},
+                {"text": "असफलता अंत नहीं है, बल्कि यह सीखने और दोबारा उठ खड़े होने का एक मौका है।", "visual_prompt": "Group of happy young Indian friends laughing joyfully together, radiant smiles, healthy happy friendship, 9:16 vertical, 8k photo render", "query": "happy indian friends laughing"},
+                {"text": "उठो, जागो और तब तक मत रुको जब तक तुम्हारा लक्ष्य हासिल न हो जाए!", "visual_prompt": "Mountain climber standing on the highest snow peak raising hands in triumph under golden morning sun, ultimate victory, 9:16 vertical, 8k cinematic render", "query": "mountain climber summit snow peak victory"},
+                {"text": "अगर अपने सपनों पर अटूट विश्वास है, तो अभी सब्सक्राइब करें और आगे बढ़ें!", "visual_prompt": "Vibrant colorful modern 3D YouTube subscribe button with ringing golden bell and exploding floating red love hearts, celebration background, 9:16 vertical, 8k 3D render", "query": "3d subscribe button bell floating hearts"}
             ]
         }
     ]
@@ -175,9 +175,9 @@ Aapko 3 alag-alag vertical 9:16 videos ke liye high quality Hindi script banani 
 Har video ki kul avadhi lagbhag 60 se 75 second honi chahiye.
 Har video ko 8 se 10 chote segments me baanto (har segment 5-7 second ka, lagbhag 12-16 shabdon ka).
 
-Video 1: Shri Radha Krishna Cosmic Love & Wisdom (Modern 4K Unreal Engine 5 aesthetic, divine consciousness).
-Video 2: Prachin Bharat ka Unnat Vigyan aur Rahasya (Hollywood 4K sci-fi style, ancient advanced tech, vimanas, astras).
-Video 3: Desi Zindagi ke Mazedaar Pal / Hasi-Mazak (Modern 4K cinematography, relatable youth humor).
+Video 1: Shri Radha Krishna Cosmic Love, Wisdom & Teachings (Modern 4K Unreal Engine 5 aesthetic, divine consciousness).
+Video 2: Acharya Chanakya Niti & Life Strategy (Deep ancient wisdom, rules of success, human psychology, 4K royal aesthetic).
+Video 3: Powerful Life Motivation & Relentless Drive (High energy, never give up, self-belief, winning mindset).
 
 MAHATVAPURNA VISUAL RULE:
 - Har segment ke liye 'visual_prompt' me 4K Unreal Engine 5 render, IMAX cinematic lighting, hyper-realistic, photorealistic, vertical 9:16 aspect ratio hona chahiye.
