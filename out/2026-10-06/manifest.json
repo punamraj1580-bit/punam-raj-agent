@@ -1,0 +1,146 @@
+[
+  {
+    "id": 1,
+    "theme": "bhakti",
+    "voice": "hi-IN-SwaraNeural",
+    "headline": "श्री राधा-कृष्ण का अनंत ब्रह्मांडीय प्रेम",
+    "caption": "प्रेम कोई मोह नहीं, बल्कि संपूर्ण ब्रह्मांड की सर्वोच्च चेतना और शाश्वत सत्य है। #RadhaKrishna #CosmicWisdom #DivineConsciousness #Bhakti",
+    "segments": [
+      {
+        "text": "जब तुम प्रेम में कुछ पाने की चाह छोड़ देते हो, तब अनंत ब्रह्मांड तुम्हारा हो जाता है।",
+        "visual_prompt": "Unreal Engine 5 modern render, hyper-realistic cosmic flute floating in space surrounded by glowing nebulae, ethereal golden lotus petals swirling, IMAX cinematic volumetric lighting, 8k resolution, vertical 9:16 aspect ratio, cinematic blockbuster aesthetic."
+      },
+      {
+        "text": "श्री कृष्ण कहते हैं कि सच्चा प्रेम किसी बंधन का नाम नहीं, बल्कि आत्मा की परम मुक्ति है।",
+        "visual_prompt": "Photorealistic 4K Unreal Engine 5 view of a glowing peacock feather radiating neon cyan and gold energy against an infinite starfield, cinematic god rays, dark celestial background, IMAX depth of field, vertical 9:16 aspect ratio."
+      },
+      {
+        "text": "राधा का प्रेम कोई भौतिक आकर्षण नहीं, बल्कि परमात्मा और प्रकृति के बीच का अलौकिक महामिलन है।",
+        "visual_prompt": "Hyper-realistic cinematic depiction of two intertwined celestial energy spirals of blue and rose-gold light merging in deep cosmos, Unreal Engine 5 render, blockbuster movie visual effects, vertical 9:16 aspect ratio."
+      },
+      {
+        "text": "जब संसार का कोलाहल शांत होता है, तब हृदय की गहराई में राधा नाम की मुरली बजती है।",
+        "visual_prompt": "Cinematic 4K hyper-detailed ancient Vrindavan mystical forest at midnight, bioluminescent glowing trees, crystal clear sacred Yamuna river reflecting galaxy stars, volumetric fog, Unreal Engine 5, IMAX lighting, vertical 9:16 aspect ratio."
+      },
+      {
+        "text": "जीवन की कठिन से कठिन परिस्थितियों में भी तुम्हारा शांत चित्त ही तुम्हारी सबसे बड़ी शक्ति बनता है।",
+        "visual_prompt": "A solitary glowing spiritual silhouette in deep lotus meditation atop a colossal floating cosmic island, surrounded by orbiting asteroids and gentle golden stardust, Unreal Engine 5 render, cinematic lighting, vertical 9:16 aspect ratio."
+      },
+      {
+        "text": "कर्म करते समय केवल अपने कर्तव्य पर ध्यान दो, परिणाम की चिंता को ब्रह्मांडीय चेतना पर छोड़ो।",
+        "visual_prompt": "Epic cosmic wheel of destiny and golden sacred geometry gears rotating gracefully in the cosmic void, hyper-detailed textures, volumetric light beams, photorealistic Unreal Engine 5 render, vertical 9:16 aspect ratio."
+      },
+      {
+        "text": "जो प्रेम त्याग और समर्पण की अग्नि में तपकर निखरता है, वही प्रेम ईश्वर का रूप लेता है।",
+        "visual_prompt": "Close-up cinematic shot of a divine golden butter-lamp flame transforming into shimmering cosmic butterflies, ultra-fine dust motes, IMAX 70mm lens aesthetic, Unreal Engine 5, vertical 9:16 aspect ratio."
+      },
+      {
+        "text": "अपनी आत्मा के भीतर उस असीम आनंद को खोजो, जहां न कोई भय है और न अकेलापन।",
+        "visual_prompt": "A majestic cosmic temple gate made of translucent crystalline quartz opening into an infinite ocean of golden light, cinematic scale, hyper-realistic Unreal Engine 5 lighting, vertical 9:16 aspect ratio."
+      },
+      {
+        "text": "प्रेम ही इस ब्रह्मांड की नींव है, इसे जियो और स्वयं को दिव्य चेतना में विलीन करो।",
+        "visual_prompt": "Massive divine cosmic tree of life with glowing roots extending into stars, pulsating spiritual aura of teal and gold, Hollywood sci-fi blockbuster quality, Unreal Engine 5, vertical 9:16 aspect ratio."
+      }
+    ],
+    "name": "post1",
+    "video_file": "out/2026-10-06/post1.mp4",
+    "full_caption": "श्री राधा-कृष्ण का अनंत ब्रह्मांडीय प्रेम\n\nप्रेम कोई मोह नहीं, बल्कि संपूर्ण ब्रह्मांड की सर्वोच्च चेतना और शाश्वत सत्य है। #RadhaKrishna #CosmicWisdom #DivineConsciousness #Bhakti\n\n#PunamRaj #Shorts #Reels"
+  },
+  {
+    "id": 2,
+    "theme": "chanakya_niti",
+    "voice": "hi-IN-MadhurNeural",
+    "headline": "आचार्य चाणक्य के 5 अचूक जीवन नियम",
+    "caption": "सफलता भाग्य से नहीं, कठोर अनुशासन, मौन और अचूक रणनीति से हासिल होती है। #ChanakyaNiti #PowerStrategy #MindsetMatters #AncientWisdom",
+    "segments": [
+      {
+        "text": "चाणक्य कहते हैं कि अपनी गुप्त रणनीति का भेद अपने सबसे करीबी मित्र को भी कभी मत बताओ।",
+        "visual_prompt": "Dark atmospheric ancient royal council chamber, massive carved stone pillars, dramatic shadow and firelight from stone braziers, photorealistic Unreal Engine 5, IMAX cinematic lighting, vertical 9:16 aspect ratio."
+      },
+      {
+        "text": "जिस व्यक्ति में अपनी भावनाओं पर नियंत्रण रखने की शक्ति है, वह पूरे संसार को जीत सकता है।",
+        "visual_prompt": "Cinematic close-up of a royal ancient warrior's hand holding a sculpted black obsidian king chess piece over an ornate stone tactical war board, Unreal Engine 5 render, hyper-detailed, vertical 9:16 aspect ratio."
+      },
+      {
+        "text": "सांप यदि विषैला न भी हो, तो भी उसे फुंकारना कभी नहीं छोड़ना चाहिए, अपनी गरिमा बनाए रखो।",
+        "visual_prompt": "An imposing stone serpent statue with glowing ruby eyes guarding an ancient treasury gate, cinematic rim lighting, atmospheric dust particles, Unreal Engine 5 blockbuster look, vertical 9:16 aspect ratio."
+      },
+      {
+        "text": "मूर्ख व्यक्ति से कभी भी शास्त्रार्थ मत करो, क्योंकि वह तुम्हारी ऊर्जा और समय दोनों नष्ट करेगा।",
+        "visual_prompt": "A weathered antique hourglass on an ancient teakwood table, golden sands slipping rapidly through the glass, soft moody candlelight, IMAX depth of field, Unreal Engine 5 render, vertical 9:16 aspect ratio."
+      },
+      {
+        "text": "संकट के समय केवल तीन चीजें साथ देती हैं—तुम्हारा ज्ञान, तुम्हारा धैर्य और तुम्हारी जमा की हुई संपत्ति।",
+        "visual_prompt": "Ancient royal treasury vault filled with chests of raw gold coins and rolled papyrus scrolls, lit by single golden beam of sunlight, photorealistic 4K Unreal Engine 5, vertical 9:16 aspect ratio."
+      },
+      {
+        "text": "जो इंसान अपनी गलतियों से नहीं सीखता, उसकी हार निश्चित है; दूसरों के अनुभवों से सबक लो।",
+        "visual_prompt": "Grand imperial fortress standing resolute amidst a fierce thunderstorm on a rocky cliffside, lightning flashes revealing dramatic stone architecture, Unreal Engine 5, cinematic IMAX framing, vertical 9:16 aspect ratio."
+      },
+      {
+        "text": "दुर्बलता को अपनी ढाल मत बनाओ, दुनिया केवल ताकतवर और संकल्पवान व्यक्ति के सामने ही झुकती है।",
+        "visual_prompt": "An ancient master strategist in flowing silk robes viewed from behind, standing on a palace balcony overlooking an immense sprawling ancient empire at dawn, cinematic Unreal Engine 5, vertical 9:16 aspect ratio."
+      },
+      {
+        "text": "अपनी मेहनत को तब तक खामोश रखो, जब तक तुम्हारी शानदार सफलता पूरी दुनिया में गूंज न जाए।",
+        "visual_prompt": "An ancient iron-forged royal seal pressing hot crimson wax onto a strategic royal decree, detailed smoke rising, cinematic macro lens, Unreal Engine 5 photorealism, vertical 9:16 aspect ratio."
+      },
+      {
+        "text": "आज ही अपनी दिशा चुनो, रणनीति बनाओ और अपने सपनों के साम्राज्य की नींव मजबूत करो।",
+        "visual_prompt": "Epic wide shot of a majestic golden throne set on elevated marble steps inside a colossal ancient palace hall, dramatic god rays piercing from high domes, Unreal Engine 5 render, vertical 9:16 aspect ratio."
+      }
+    ],
+    "name": "post2",
+    "video_file": "out/2026-10-06/post2.mp4",
+    "full_caption": "आचार्य चाणक्य के 5 अचूक जीवन नियम\n\nसफलता भाग्य से नहीं, कठोर अनुशासन, मौन और अचूक रणनीति से हासिल होती है। #ChanakyaNiti #PowerStrategy #MindsetMatters #AncientWisdom\n\n#PunamRaj #Shorts #Reels"
+  },
+  {
+    "id": 3,
+    "theme": "motivation",
+    "voice": "hi-IN-MadhurNeural",
+    "headline": "हार कभी मत मानो: अपनी पहचान खुद बनाओ",
+    "caption": "जब तक जीत हासिल न हो जाए, तब तक रुकना मना है। अपनी आग को दुनिया की ताकत बनाओ! #NeverGiveUp #Unstoppable #Grindset #SuccessMotivation",
+    "segments": [
+      {
+        "text": "अगर रास्ते में कांटे और मुश्किलें नहीं आ रहीं, तो समझ लो कि तुम्हारी मंजिल बहुत छोटी है।",
+        "visual_prompt": "Cinematic low-angle shot of a determined cloaked traveler ascending a brutal, razor-sharp black volcanic mountain ridge in a tempest, Unreal Engine 5 hyper-realistic render, IMAX scale, vertical 9:16 aspect ratio."
+      },
+      {
+        "text": "दुनिया तुम्हें तब तक नहीं हरा सकती, जब तक तुम खुद अपने हौसलों को टूटने नहीं देते।",
+        "visual_prompt": "A glowing golden cybernetic lion statue standing unyielding in the heart of a stormy wasteland, eyes blazing with pure energy, dramatic rain reflections, Unreal Engine 5, vertical 9:16 aspect ratio."
+      },
+      {
+        "text": "रात की खामोशी में की गई कड़ी मेहनत ही एक दिन दिन के उजाले में इतिहास रचती है।",
+        "visual_prompt": "Dark modern high-tech penthouse gym at 3 AM overlooking a sprawling rainy cyberpunk metropolis, sweat droplets glowing in neon cyan backlight, photorealistic Unreal Engine 5, vertical 9:16 aspect ratio."
+      },
+      {
+        "text": "बहाने बनाना छोड़ दो, क्योंकि इतिहास बनाने वाले कभी भी अपनी परिस्थितियों का रोना नहीं रोते।",
+        "visual_prompt": "Heavy rusted iron chains violently shattering into glowing metallic embers under massive mechanical tension, high-speed IMAX camera capture, photorealistic Unreal Engine 5 render, vertical 9:16 aspect ratio."
+      },
+      {
+        "text": "हर ठोकर के बाद दोगुनी ताकत से खड़े हो जाओ, यही एक सच्चे विजेता की असली पहचान है।",
+        "visual_prompt": "A solitary armored gladiator rising firmly from cracked arena ground amidst swirling ash and fiery sparks, back muscles tense, cinematic rim lighting, Unreal Engine 5 blockbuster style, vertical 9:16 aspect ratio."
+      },
+      {
+        "text": "तुम्हारा सबसे बड़ा मुकाबला केवल उस इंसान से है, जिसे तुम रोज सुबह आईने में देखते हो।",
+        "visual_prompt": "A dark shattered mirror reflecting multiple sharp angled fractures of a burning golden warrior spirit within, high contrast studio lighting, Unreal Engine 5 photorealism, vertical 9:16 aspect ratio."
+      },
+      {
+        "text": "दर्द को अपनी कमजोरी मत बनने दो, उस दर्द को अपनी सबसे बड़ी ताकत में बदल डालो।",
+        "visual_prompt": "Molten pure gold liquid flowing into an intricate titanium mold, glowing embers swirling in dark air, hyper-detailed macro photography style, Unreal Engine 5 render, vertical 9:16 aspect ratio."
+      },
+      {
+        "text": "जब इरादे फौलाद जैसे मजबूत हों, तो किस्मत को भी तुम्हारे सामने अपना सिर झुकाना पड़ता है।",
+        "visual_prompt": "An unstoppable high-speed sports spacecraft breaking the sound barrier through thunderclouds, shockwaves distorting the atmosphere, Hollywood blockbuster VFX, Unreal Engine 5, vertical 9:16 aspect ratio."
+      },
+      {
+        "text": "उठो, अपने डर को कुचलो और आज ही अपने सपनों की दुनिया को सच कर दिखाओ।",
+        "visual_prompt": "A triumphant warrior figure standing on the pinnacle of the highest world skyscraper at sunrise, golden sunburst engulfing the horizon, epic scale, photorealistic Unreal Engine 5 render, vertical 9:16 aspect ratio."
+      }
+    ],
+    "name": "post3",
+    "video_file": "out/2026-10-06/post3.mp4",
+    "full_caption": "हार कभी मत मानो: अपनी पहचान खुद बनाओ\n\nजब तक जीत हासिल न हो जाए, तब तक रुकना मना है। अपनी आग को दुनिया की ताकत बनाओ! #NeverGiveUp #Unstoppable #Grindset #SuccessMotivation\n\n#PunamRaj #Shorts #Reels"
+  }
+]
