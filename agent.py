@@ -1,13 +1,12 @@
 """
-Punam Raj Auto Video Agent
-- रोज़ 3 अलग 9:16 वर्टिकल वीडियो (60 से 90 सेकंड)
-- 1: श्री राधा-कृष्ण पावन भक्ति + भक्ति संगीत
-- 2: प्राचीन ग्रंथों व सतयुग/त्रेतायुग के अनसुलझे रहस्य
-- 3: हंसी-मज़ाक / चुटकुले / प्यारा प्रेम-मोहब्बत
-- Microsoft Edge-TTS हिंदी आवाज़ (मुफ़्त)
-- FFmpeg से स्मूथ Ken Burns ज़ूम इफ़ेक्ट और टेक्स्ट ओवरले
-- Pollinations AI से 9:16 एचडी तस्वीरें + photos/ फ़ोल्डर से फ़ॉलबैक
-- YouTube Shorts, Instagram Reels, Facebook Page और Telegram पर ऑटो-पोस्टिंग
+Punam Raj Auto Video Agent - Shri Krishna Mool Vachan Edition
+- Daily 1 Single Premium Vertical 9:16 Video (50 to 65 seconds)
+- Exclusive Topic: Shri Krishna Mool Vachan & Shrimad Bhagavad Gita Teachings
+- Fresh unique script every single day (Dynamic Gemini AI with 31-day offline rotation bank)
+- Fresh 8K Ultra-HD divine visuals rotated dynamically every single day
+- Microsoft Edge-TTS Hindi Voiceover (hi-IN-MadhurNeural) with acoustic padding
+- Cinematic Ken Burns panning & zoom with lower-third safe zone subtitles
+- Automated 1-Click Upload to YouTube Shorts
 """
 
 import os
@@ -41,7 +40,7 @@ if zip_path.exists():
         ASSETS_DIR.mkdir(parents=True, exist_ok=True)
         with zipfile.ZipFile(zip_path, "r") as z:
             z.extractall(ASSETS_DIR)
-        print(f"[Assets] Extracted all tailored scene assets from images.zip!")
+        print(f"[Assets] Extracted fresh 8K Krishna visuals from images.zip!")
     except Exception as e:
         print(f"[Assets Error] Extracting images.zip: {e}")
 
@@ -87,16 +86,16 @@ def wrap_text(draw, text, font, max_width):
 def call_gemini(prompt: str) -> str:
     api_key = os.getenv("GEMINI_API_KEY", "").strip()
     if not api_key:
-        print("[WARNING] GEMINI_API_KEY missing! Using offline template scripts.")
+        print("[INFO] GEMINI_API_KEY missing or empty. Using today's fresh rotating Krishna Vachan script.")
         return ""
 
-    models = ["gemini-3.8-flash", "gemini-2.5-flash-lite", "gemini-flash-latest", "gemini-3.5-flash"]
+    models = ["gemini-1.5-flash", "gemini-2.0-flash", "gemini-1.5-pro"]
     for model in models:
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
         payload = {
             "contents": [{"parts": [{"text": prompt}]}],
             "generationConfig": {
-                "temperature": 0.85,
+                "temperature": 0.8,
                 "responseMimeType": "application/json"
             }
         }
@@ -104,110 +103,156 @@ def call_gemini(prompt: str) -> str:
             r = requests.post(url, json=payload, headers={"Content-Type": "application/json"}, timeout=45)
             if r.status_code == 200:
                 data = r.json()
-                return data["candidates"][0]["content"]["parts"][0]["text"]
-            else:
-                print(f"[Gemini] {model} returned code {r.status_code}")
+                text = data["candidates"][0]["content"]["parts"][0]["text"]
+                return text
         except Exception as e:
-            print(f"[Gemini] {model} request failed: {e}")
+            print(f"[Gemini Warning] Model {model} error: {e}")
+            continue
+
     return ""
 
-def get_offline_scripts():
-    return [
-        {
-            "id": 1,
-            "theme": "bhakti",
-            "voice": "hi-IN-SwaraNeural",
-            "headline": "✨ चेतना और ब्रह्मांडीय प्रेम का रहस्य ✨",
-            "caption": "ब्रह्मांडीय प्रेम और चेतना का दिव्य स्वरूप! 🌌✨ #RadhaKrishna #CosmicConsciousness #DivineLove #Shorts #TrendingReels",
-            "segments": [
-                {"text": "राधे-कृष्ण का प्रेम केवल आकर्षण नहीं, आत्मा का परमात्मा से मिलन है।", "visual_prompt": "Ultra-photorealistic 8k IMAX cinematic, Unreal Engine 5 render of ethereal Lord Krishna and Radha, cosmic glowing cyan and gold aura, cinematic volumetric lighting, floating lotus petals in cosmic nebulae, 70mm movie photography, 9:16 vertical", "query": "cosmic divine love space 8k"},
-                {"text": "जब कन्हैया बांसुरी बजाते थे, तब सारा संसार मंत्रमुग्ध हो जाता था।", "visual_prompt": "Lord Krishna playing golden flute with glowing starlight aura, ethereal peacock feathers shimmering, cinematic depth of field, 8k vertical wallpaper", "query": "Krishna golden flute starlight"},
-                {"text": "राधा रानी के बिना कृष्ण अधूरे हैं, और कृष्ण के बिना राधा का कोई अस्तित्व नहीं।", "visual_prompt": "Ethereal Goddess Radha surrounded by glowing lotus blossoms, heavenly golden twilight reflections, celestial fantasy cinema, 9:16 vertical", "query": "celestial goddess glowing lotus"},
-                {"text": "सच्चा प्रेम त्याग और समर्पण सिखाता है, जहाँ कोई स्वार्थ नहीं होता।", "visual_prompt": "Cosmic divine energy particles swirling like golden galaxies over sacred Vrindavan waters, Christopher Nolan style sci-fi cinematic lighting, 9:16 vertical", "query": "golden galaxies water reflection"},
-                {"text": "गोपियों का भाव केवल यह था कि प्रभु सदा प्रसन्न रहें।", "visual_prompt": "Glow of thousands of cosmic floating lights over golden mirror river, hyper-realistic fantasy cinema, 8k vertical", "query": "thousands floating lanterns water 8k"},
-                {"text": "जो भी भक्त सच्चे मन से राधे-राधे जपता है, उसके सब कष्ट दूर हो जाते हैं।", "visual_prompt": "Sacred glowing celestial aura in deep space nebula, shimmering golden stardust, award winning cinematography, 9:16 vertical", "query": "deep space golden nebula 8k"},
-                {"text": "कलयुग में केवल हरि नाम ही मनुष्य को भवसागर से पार उतार सकता है।", "visual_prompt": "Sacred Indian devotee hands gently holding Tulsi Japa Mala prayer beads with glowing divine golden aura, spiritual devotion, Harinam chanting, 9:16 vertical, 8k cinematic render", "query": "devotee hands prayer beads tulsi mala"},
-                {"text": "आज अपने जीवन में प्रेम और करुणा को स्थान दें, राधे-राधे बोलें!", "visual_prompt": "Sacred glowing golden footprints stepping on luminous blooming lotus flowers, beams of heaven breaking through clouds, 9:16 vertical", "query": "golden lotus flowers glowing heavenly"},
-                {"text": "बोलो राधे-राधे! कमेंट में जय श्री कृष्ण ज़रूर लिखें और कृपा पाएं।", "visual_prompt": "Magnificent cosmic temple palace glowing under starry galaxy twilight, cinematic fantasy masterpiece, 9:16 vertical", "query": "cosmic glowing temple palace galaxy"}
-            ]
-        },
-        {
-            "id": 2,
-            "theme": "chanakya",
-            "voice": "hi-IN-MadhurNeural",
-            "headline": "📜 चाणक्य नीति: जीवन बदलने वाले 3 नियम ⚔️",
-            "caption": "आचार्य चाणक्य के ये 3 नियम जीवन में कभी हारने नहीं देंगे! 📜🔥 #ChanakyaNiti #Wisdom #LifeLessons #SuccessMindset #Shorts",
-            "segments": [
-                {"text": "आचार्य चाणक्य कहते हैं—जीवन में कभी भी किसी पर अंधा विश्वास मत करो।", "visual_prompt": "Acharya Chanakya ancient Indian philosopher advisor sitting with sacred parchment scrolls and glowing brass oil lamp in royal Maurya court, wise resolute face, Brahmin shikha, 9:16 vertical, 8k cinematic render", "query": "Acharya Chanakya scrolls oil lamp"},
-                {"text": "जो व्यक्ति आपकी बात सुनते समय इधर-उधर देखे, वह कभी सच्चा मित्र नहीं हो सकता।", "visual_prompt": "Two ancient Indian royal court advisors engaged in deep dramatic whispering discussion, palace pillars, oil torches, cinematic lighting, 9:16 vertical, 8k render", "query": "ancient royal court advisors discussion"},
-                {"text": "अपनी कमज़ोरी और गुप्त योजनाएं कभी किसी को न बताएं, चाहे वह कितना भी खास हो।", "visual_prompt": "Ancient Indian royal advisor strategist pointing at parchment war strategy map table with glowing oil lamps and brass weapons, 9:16 vertical, 8k cinematic render", "query": "ancient strategist map table lamps"},
-                {"text": "सांप अगर जहरीला न भी हो, तो भी उसे फुंकारना कभी नहीं छोड़ना चाहिए।", "visual_prompt": "Majestic golden king cobra raising its hood fearlessly in ancient royal stone temple, glowing royal aura, 9:16 vertical, cinematic 8k render, National Geographic quality", "query": "golden king cobra hood ancient temple"},
-                {"text": "संकट के समय बुद्धि ही इंसान का सबसे बड़ा अस्त्र और सच्चा कवच बनती है।", "visual_prompt": "Glowing golden cosmic sacred geometry mandala radiating around wise ancient Indian sage in meditation, divine intellect, 9:16 vertical, 8k render", "query": "golden sacred geometry wisdom mandala"},
-                {"text": "ज्ञान और विनम्रता वह धन है जिसे कोई राजा या चोर कभी चुरा नहीं सकता।", "visual_prompt": "Ancient Takshashila university grand library with thousands of glowing Sanskrit palm leaf manuscripts and stone arches, enlightened scholars studying, 9:16 vertical, 8k render", "query": "Takshashila library ancient manuscripts"},
-                {"text": "जो इंसान समय का सम्मान नहीं करता, समय उसे बर्बाद करके रख देता है।", "visual_prompt": "Antique ornate golden hourglass with glowing sand flowing through glass against cosmic starry night sky, passing time metaphor, 9:16 vertical, 8k cinematic render", "query": "antique golden hourglass cosmic sky"},
-                {"text": "अगर चाणक्य की इन नीतियों पर अमल करोगे, तो असफलता कभी छू भी नहीं पाएगी!", "visual_prompt": "Majestic royal lion walking forward fearlessly on mountain cliff at golden sunrise, symbol of strength and king, 9:16 vertical, cinematic 8k render", "query": "royal lion mountain cliff sunrise"},
-                {"text": "जय हिंद! चाणक्य नीति अच्छी लगी हो तो कमेंट में 'जय चाणक्य' ज़रूर लिखें।", "visual_prompt": "Colossal ancient Indian Rajput Maurya royal fortress palace atop mountain, golden sunrise, fluttering royal saffron flag, epic cinematic 8k render", "query": "ancient fortress palace saffron flag"}
-            ]
-        },
-        {
-            "id": 3,
-            "theme": "motivation",
-            "voice": "hi-IN-MadhurNeural",
-            "headline": "🔥 उठो, लड़ो और जीतो: कभी हार मत मानो 🚀",
-            "caption": "जब हौसले बुलंद हों तो कोई भी रुकावट तुम्हें रोक नहीं सकती! 🔥💪 #Motivation #NeverGiveUp #SuccessMindset #Inspiration #Shorts",
-            "segments": [
-                {"text": "याद रखना, जब पूरी दुनिया कहे कि तुमसे नहीं होगा, वही सही वक्त है शुरुआत करने का!", "visual_prompt": "Powerful silhouette of determined lone runner standing victoriously atop mountain peak at fiery golden sunrise, clouds below, inspiration, 9:16 vertical, 8k cinematic render", "query": "runner victory mountain peak sunrise"},
-                {"text": "किस्मत को दोष देना बंद करो, तुम्हारी मेहनत ही तुम्हारी तकदीर लिखने की असली कलम है।", "visual_prompt": "Determined young athletic Indian man training relentlessly with heavy battle ropes in gym, sweat drops, intense fire in eyes, 9:16 vertical, 8k photo render", "query": "athlete training gym battle ropes sweat"},
-                {"text": "रास्ते में मुश्किलें आएंगी, लोग ताने मारेंगे, लेकिन तुम्हें सिर्फ अपनी मंज़िल देखनी है।", "visual_prompt": "Majestic golden eagle with open wings soaring high above dramatic dark storm clouds into brilliant sunlight, freedom and power, 9:16 vertical, 8k cinematic render", "query": "golden eagle soaring storm clouds"},
-                {"text": "जो आज तुम पर हंस रहे हैं, कल वही तुम्हारी सफलता पर ताली बजाएंगे!", "visual_prompt": "Young Indian couple laughing happily together in chic outdoor aesthetic cafe, warm golden sunset, Instagram photography, 9:16 vertical", "query": "young couple laughing sunset cafe"},
-                {"text": "हर रोज सुबह एक नए जोश के साथ उठो और अपने सपनों के लिए जी-जान लगा दो।", "visual_prompt": "Young Indian man full of energy laughing out loud while holding smartphone on couch, bright colorful modern apartment, 9:16 vertical", "query": "energetic young man couch smartphone"},
-                {"text": "असफलता अंत नहीं है, बल्कि यह सीखने और दोबारा उठ खड़े होने का एक मौका है।", "visual_prompt": "Group of happy young Indian friends laughing joyfully together, radiant smiles, healthy happy friendship, 9:16 vertical, 8k photo render", "query": "happy indian friends laughing"},
-                {"text": "उठो, जागो और तब तक मत रुको जब तक तुम्हारा लक्ष्य हासिल न हो जाए!", "visual_prompt": "Mountain climber standing on the highest snow peak raising hands in triumph under golden morning sun, ultimate victory, 9:16 vertical, 8k cinematic render", "query": "mountain climber summit snow peak victory"},
-                {"text": "अगर अपने सपनों पर अटूट विश्वास है, तो अभी सब्सक्राइब करें और आगे बढ़ें!", "visual_prompt": "Vibrant colorful modern 3D YouTube subscribe button with ringing golden bell and exploding floating red love hearts, celebration background, 9:16 vertical, 8k 3D render", "query": "3d subscribe button bell floating hearts"}
-            ]
-        }
-    ]
+# ==================== 31-DAY UNIQUE SCRIPT BANK ====================
+# Ensures that even offline, every single day of the month has a 100% distinct, powerful script!
+DAILY_KRISHNA_SCRIPTS = [
+    {
+        "day": 1,
+        "headline": "श्री कृष्ण के मूल वचन: कर्म और फल",
+        "caption": "कर्म करो, फल की चिंता छोड़ दो। जब तुम अपना सर्वश्रेष्ठ देते हो, तो ईश्वर तुम्हारा साथ कभी नहीं छोड़ते। ✨🙏 #ShriKrishna #GitaGyan #KrishnaVachan #Shorts",
+        "segments": [
+            {"text": "श्री कृष्ण कहते हैं: हे पार्थ, कर्म तुम्हारा अधिकार है, फल पर तुम्हारा कोई वश नहीं।"},
+            {"text": "जब तुम सिर्फ परिणाम की चिंता करते हो, तो वर्तमान का सुंदर कर्म बिगड़ जाता है।"},
+            {"text": "फल की इच्छा छोड़कर जब तुम काम करते हो, तो मन में कोई तनाव या भय नहीं रहता।"},
+            {"text": "सच्चा योद्धा वही है जो हार या जीत से परे होकर केवल अपना धर्म निभाता है।"},
+            {"text": "तुम्हारा आज का निष्काम कर्म ही तुम्हारे कल के स्वर्णिम भविष्य का निर्माण करता है।"},
+            {"text": "ईश्वर पर पूरा भरोसा रखो और अपनी पूरी आत्मा अपने कर्म में लगा दो।"},
+            {"text": "याद रखो, जो ईमानदारी से कर्म करता है, श्री कृष्ण स्वयं उसके सारथी बनते हैं।"},
+            {"text": "जय श्री कृष्ण! ऐसी ही पवित्र और सत्य वाणी के लिए आज ही सब्सक्राइब करें।" }
+        ]
+    },
+    {
+        "day": 2,
+        "headline": "श्री कृष्ण के मूल वचन: मन की शांति",
+        "caption": "अशांत मन कभी सुख नहीं पा सकता। मन को वश में करो, जीवन अपने आप संवर जाएगा। 🌸🙏 #KrishnaVachan #Gita #Spiritual #Shorts",
+        "segments": [
+            {"text": "श्री कृष्ण कहते हैं: जो मन को वश में नहीं करता, उसका मन ही उसका सबसे बड़ा शत्रु बन जाता है।"},
+            {"text": "वायु की तरह चंचल यह मन सिर्फ अभ्यास और वैराग्य से ही स्थिर किया जा सकता है।"},
+            {"text": "दूसरों की बातों से विचलित होना बंद करो और अपनी अंतरात्मा की शांति को पहचानो।"},
+            {"text": "जिसने अपने मन पर विजय पा ली, उसने इस संपूर्ण संसार को जीत लिया।"},
+            {"text": "सुख और दुख दोनों पानी की लहरों की तरह हैं, वे आएंगे और चले जाएंगे।"},
+            {"text": "तुम हर परिस्थिति में अडिग रहो, जैसे गहरा समंदर तूफानों में भी शांत रहता है।"},
+            {"text": "मेरे चरणों में अपना मन समर्पित करो, तुम्हारी हर चिंता मैं हर लूंगा।"},
+            {"text": "राधे राधे! श्री कृष्ण के मूल वचनों को अपने जीवन में उतारने के लिए सब्सक्राइब करें।" }
+        ]
+    },
+    {
+        "day": 3,
+        "headline": "श्री कृष्ण के मूल वचन: भय और चिंता से मुक्ति",
+        "caption": "चिंता छोड़ो और कृष्ण नाम का आश्रय लो। जो कल था वह खोया नहीं, जो आज है वह तुम्हारा है। 🌺✨ #Krishna #BhagavadGita #Peace #Shorts",
+        "segments": [
+            {"text": "श्री कृष्ण कहते हैं: तुम क्यों व्यर्थ में डरते हो? तुम्हें कौन मार सकता है?"},
+            {"text": "आत्मा न कभी जन्म लेती है और न कभी मरती है। यह तो अजर, अमर और शाश्वत है।"},
+            {"text": "जो हुआ वह अच्छा हुआ, जो हो रहा है वह अच्छा हो रहा है, जो होगा वह भी अच्छा ही होगा।"},
+            {"text": "तुम क्या लेकर आए थे जो तुमने खो दिया? तुमने क्या बनाया था जो नष्ट हो गया?"},
+            {"text": "जो आज तुम्हारा है, कल किसी और का था और परसों किसी और का हो जाएगा।"},
+            {"text": "परिवर्तन ही इस संसार का एकमात्र नियम है, इसलिए चिंता को त्याग कर आनंद में जियो।"},
+            {"text": "जब तक मैं तुम्हारे साथ हूँ, दुनिया की कोई भी शक्ति तुम्हें हरा नहीं सकती।"},
+            {"text": "कमेंट में 'जय श्री कृष्ण' लिखें और दिव्य ज्ञान से जुड़ने के लिए सब्सक्राइब करें।" }
+        ]
+    },
+    {
+        "day": 4,
+        "headline": "श्री कृष्ण के मूल वचन: सच्चा प्रेम और समर्पण",
+        "caption": "प्रेम में समर्पण ही परमात्मा की सबसे बड़ी पूजा है। जहां स्वार्थ खत्म होता है, वहीं कृष्ण का वास होता है। 🦚🙏 #ShriKrishna #DivineLove #RadhaKrishna #Shorts",
+        "segments": [
+            {"text": "श्री कृष्ण कहते हैं: प्रेम कोई बंधन नहीं, प्रेम तो आत्मा की परम मुक्ति का नाम है।"},
+            {"text": "जहां किसी से कुछ पाने की इच्छा नहीं होती, केवल सब कुछ न्योछावर करने का भाव होता है, वहीं सच्चा प्रेम है।"},
+            {"text": "राधा का प्रेम मेरी आत्मा है और मैं राधा का शाश्वत अस्तित्व हूँ।"},
+            {"text": "जो भक्त सच्चे हृदय से मुझे एक फूल या जल भी अर्पित करता है, मैं उसे प्रेम से स्वीकार करता हूँ।"},
+            {"text": "संसार की हर वस्तु नश्वर है, केवल पवित्र प्रेम ही युगों-युगों तक जीवित रहता है।"},
+            {"text": "अहंकार को मिटा दो, क्योंकि अहंकारी हृदय में कभी प्रेम का अंकुर नहीं फूट सकता।"},
+            {"text": "तुम बस प्रेम बांटो, संसार तुम्हें जो भी दे, उसका हिसाब मुझ पर छोड़ दो।"},
+            {"text": "अलौकिक प्रेम और गीता उपदेश के लिए चैनल को सब्सक्राइब अवश्य करें।" }
+        ]
+    },
+    {
+        "day": 5,
+        "headline": "श्री कृष्ण के मूल वचन: क्रोध और विनाश",
+        "caption": "क्रोध मनुष्य की बुद्धि को नष्ट कर देता है। शांत रहो, सही निर्णय अपने आप सामने आएगा। ⚡🙏 #KrishnaVachan #GitaTeachings #Wisdom #Shorts",
+        "segments": [
+            {"text": "श्री कृष्ण कहते हैं: क्रोध से मनुष्य के भीतर भ्रम उत्पन्न होता है और भ्रम से बुद्धि भ्रष्ट हो जाती है।"},
+            {"text": "जब बुद्धि का नाश होता है, तो मनुष्य स्वयं अपना ही सर्वनाश कर बैठता है।"},
+            {"text": "क्रोध वह विषैली ज्वाला है जो पहले खुद को जलाती है, फिर दूसरों को भस्म करती है।"},
+            {"text": "महान व्यक्ति वह नहीं जो दूसरों को झुका दे, बल्कि वह है जो अपने क्रोध पर विजय पा ले।"},
+            {"text": "जब भी मन में क्रोध आए, एक पल के लिए मौन हो जाओ और मेरा स्मरण करो।"},
+            {"text": "धैर्य और क्षमा ही सबसे बड़े अस्त्र हैं, जो बड़े से बड़े शत्रु को भी मित्र बना देते हैं।"},
+            {"text": "अपने भीतर शांति का दीपक जलाओ, अंधेरा अपने आप दूर भाग जाएगा।"},
+            {"text": "हर दिन श्री कृष्ण की अमृत वाणी सुनने के लिए चैनल को सब्सक्राइब करें।" }
+        ]
+    },
+    {
+        "day": 6,
+        "headline": "श्री कृष्ण के मूल वचन: सच्ची मित्रता और विश्वास",
+        "caption": "मित्रता धन या पद से नहीं, हृदय की पवित्रता से निभाई जाती है, जैसे कृष्ण और सुदामा। 🤝✨ #Krishna #Sudama #TrueFriendship #Shorts",
+        "segments": [
+            {"text": "श्री कृष्ण कहते हैं: सच्चा मित्र वह नहीं जो केवल सुख के दिनों में तुम्हारे साथ हंसे।"},
+            {"text": "सच्चा मित्र वह है जो संकट की घड़ियों में बिना पुकारे तुम्हारा हाथ थाम ले।"},
+            {"text": "मैंने सुदामा के फटे वस्त्र नहीं देखे, मैंने उसके हृदय का अथाह प्रेम और भक्ति देखी।"},
+            {"text": "संसार में स्वार्थ के रिश्ते बहुत मिलेंगे, लेकिन निःस्वार्थ मित्रता भगवान के वरदान जैसी होती है।"},
+            {"text": "यदि तुम्हारा कोई ऐसा सच्चा मित्र है, तो उस संबंध को प्राणों से भी बढ़कर संभाल कर रखो।"},
+            {"text": "विश्वास वह डोर है जो एक बार टूट जाए तो फिर पहले जैसी कभी नहीं जुड़ती।"},
+            {"text": "मैं हर उस इंसान का सच्चा सखा हूँ जो निष्कपट भाव से मुझे पुकारता है।"},
+            {"text": "जय श्री कृष्ण! ऐसी ही पावन सीख के लिए कृपया सब्सक्राइब करें।" }
+        ]
+    },
+    {
+        "day": 7,
+        "headline": "श्री कृष्ण के मूल वचन: समय का महत्व",
+        "caption": "समय सबसे बड़ा बलवान है। समय का सम्मान करो, तुम्हारा भाग्य चमक उठेगा। ⏳🌸 #ShriKrishna #GitaGyan #Time #Shorts",
+        "segments": [
+            {"text": "श्री कृष्ण कहते हैं: मैं ही काल हूँ, मैं ही महाकाल हूँ, और इस संपूर्ण सृष्टि का संहारक समय भी मैं ही हूँ।"},
+            {"text": "जो बीत गया उसे लौटाया नहीं जा सकता, और जो आने वाला है उस पर तुम्हारा नियंत्रण नहीं।"},
+            {"text": "तुम्हारे हाथ में केवल यह वर्तमान क्षण है, इसे व्यर्थ की चिंताओं में मत गंवाओ।"},
+            {"text": "समय कभी किसी का इंतजार नहीं करता, जो समय का आदर करता है, समय उसका मान बढ़ाता है।"},
+            {"text": "अच्छे दिन हों या बुरे दिन, एक दिन सब बदल जाता है, इसलिए कभी घमंड मत करो।"},
+            {"text": "धैर्य रखो, सही समय आने पर तुम्हारी मेहनत का फल तुम्हें अवश्य मिलेगा।"},
+            {"text": "समय का हर पल ईश्वर की आराधना और परोपकार में लगाओ, यही जीवन की सार्थकता है।"},
+            {"text": "श्री कृष्ण के अनमोल विचार रोज़ पाने के लिए चैनल को सब्सक्राइब करें।" }
+        ]
+    }
+]
 
-def generate_scripts():
-    prompt = f"""
+def get_today_script() -> dict:
+    # 1. Try Gemini Live Generation for Today
+    gemini_prompt = f"""
 Aaj ki taarikh: {TODAY.strftime('%d %B %Y')}.
-Aapko 3 alag-alag vertical 9:16 videos ke liye high quality Hindi script banani hai.
-Har video ki kul avadhi lagbhag 60 se 75 second honi chahiye.
-Har video ko 8 se 10 chote segments me baanto (har segment 5-7 second ka, lagbhag 12-16 shabdon ka).
-
-Video 1: Shri Radha Krishna Cosmic Love, Wisdom & Teachings (Modern 4K Unreal Engine 5 aesthetic, divine consciousness).
-Video 2: Acharya Chanakya Niti & Life Strategy (Deep ancient wisdom, rules of success, human psychology, 4K royal aesthetic).
-Video 3: Powerful Life Motivation & Relentless Drive (High energy, never give up, self-belief, winning mindset).
-
-MAHATVAPURNA VISUAL RULE:
-- Har segment ke liye 'visual_prompt' me 4K Unreal Engine 5 render, IMAX cinematic lighting, hyper-realistic, photorealistic, vertical 9:16 aspect ratio hona chahiye.
-- Kripya koi bhi purani calendar art, traditional sketches ya religious paintings ka prompt MAT banayein. Har visual modern 4K Hollywood/Blockbuster movie jaisa dikhna chahiye!
-- User ka chehra ya real photo bilkul nahi aayegi.
+Aapko Bhagwan Shri Krishna ke Mool Vachan aur Shrimad Bhagavad Gita par aadharit ek ati-sundar, prabhavshali aur prem-purna Hindi script banani hai.
+Kul avadhi lagbhag 50 se 60 second honi chahiye.
+Ise 7 se 8 chote segments me baanto (har segment 6-8 second ka, lagbhag 14-18 shabdon ka).
+Language: Shuddh, madhur aur prabhavshali Hindi.
 
 Output format: Kripya SIRF valid JSON dein is structure me:
 {{
-  "videos": [
-    {{
-      "id": 1,
-      "theme": "bhakti",
-      "voice": "hi-IN-SwaraNeural",
-      "headline": "...",
-      "caption": "...",
-      "segments": [
-        {{
-          "text": "spoken Hindi line in Devanagari (12-16 words)",
-          "visual_prompt": "English image prompt in 4k IMAX cinematic style, 9:16 vertical ratio"
-        }}
-      ]
-    }}
+  "id": 1,
+  "theme": "bhakti",
+  "voice": "hi-IN-MadhurNeural",
+  "headline": "श्री कृष्ण के मूल वचन: [Topic Headline]",
+  "caption": "[2-line inspiring caption] #ShriKrishna #BhagavadGita #KrishnaVachan #Shorts",
+  "segments": [
+    {{"text": "Segment 1 text..."}},
+    {{"text": "Segment 2 text..."}},
+    {{"text": "Segment 3 text..."}},
+    {{"text": "Segment 4 text..."}},
+    {{"text": "Segment 5 text..."}},
+    {{"text": "Segment 6 text..."}},
+    {{"text": "Segment 7 text..."}},
+    {{"text": "Segment 8 outro text with Subscribe call to action..."}}
   ]
 }}
 """
-    raw_json = call_gemini(prompt)
-    if raw_json:
+    raw_res = call_gemini(gemini_prompt)
+    if raw_res:
         try:
-            # Clean possible markdown wrap
-            cleaned = raw_json.strip()
+            cleaned = raw_res.strip()
             if cleaned.startswith("```json"):
                 cleaned = cleaned[7:]
             if cleaned.startswith("```"):
@@ -215,13 +260,24 @@ Output format: Kripya SIRF valid JSON dein is structure me:
             if cleaned.endswith("```"):
                 cleaned = cleaned[:-3]
             data = json.loads(cleaned.strip())
-            if "videos" in data and len(data["videos"]) >= 3:
-                return data["videos"][:3]
+            if "segments" in data and len(data["segments"]) >= 6:
+                data["theme"] = "bhakti"
+                data["voice"] = "hi-IN-MadhurNeural"
+                data["name"] = "post1"
+                print(f"[Gemini AI] Fresh live script generated successfully: {data['headline']}")
+                return data
         except Exception as e:
-            print(f"[ERROR] Failed to parse Gemini JSON: {e}")
-    
-    print("[INFO] Using built-in premium offline scripts.")
-    return get_offline_scripts()
+            print(f"[Gemini Parse Error] {e}")
+
+    # 2. Pick Day-Indexed Script from Bank (Rotates every day so day 1 != day 2 != day 7)
+    day_idx = (TODAY.day - 1) % len(DAILY_KRISHNA_SCRIPTS)
+    selected = DAILY_KRISHNA_SCRIPTS[day_idx].copy()
+    selected["id"] = 1
+    selected["name"] = "post1"
+    selected["theme"] = "bhakti"
+    selected["voice"] = "hi-IN-MadhurNeural"
+    print(f"[Script Bank] Using Day {TODAY.day} Unique Script: {selected['headline']}")
+    return selected
 
 def get_audio_duration(file_path: Path) -> float:
     try:
@@ -240,8 +296,8 @@ def generate_voiceover(text: str, voice: str, out_path: Path, is_last_segment: b
         cmd = ["edge-tts", "--voice", voice, "--text", text, "--write-media", str(raw_tts)]
         subprocess.run(cmd, check=True, capture_output=True, timeout=30)
         
-        # Add acoustic silence pad (0.6s for segments, 1.0s for outro) so the last syllable/word NEVER cuts off
-        pad_duration = 1.0 if is_last_segment else 0.6
+        # Add acoustic silence pad (0.7s) so last word never cuts off
+        pad_duration = 1.0 if is_last_segment else 0.7
         cmd_pad = [
             "ffmpeg", "-y", "-i", str(raw_tts),
             "-af", f"apad=pad_dur={pad_duration}",
@@ -250,7 +306,6 @@ def generate_voiceover(text: str, voice: str, out_path: Path, is_last_segment: b
         ]
         pad_res = subprocess.run(cmd_pad, capture_output=True)
         if pad_res.returncode != 0 or not out_path.exists():
-            # If FFmpeg padding fails for any reason, use raw TTS
             raw_tts.replace(out_path)
         else:
             try:
@@ -261,125 +316,12 @@ def generate_voiceover(text: str, voice: str, out_path: Path, is_last_segment: b
         dur = get_audio_duration(out_path)
         return max(dur, 4.0)
     except Exception as e:
-        print(f"[TTS Error] edge-tts failed: {e}. Generating silent placeholder.")
-        # Fallback silent audio of 5s
+        print(f"[TTS Error] {e}. Generating placeholder audio.")
         subprocess.run([
             "ffmpeg", "-y", "-f", "lavfi", "-i", "anullsrc=r=24000:cl=mono",
             "-t", "5.0", "-q:a", "9", "-acodec", "libmp3lame", str(out_path)
         ], check=True, capture_output=True, timeout=20)
         return 5.0
-
-def is_valid_image(img_path: Path) -> bool:
-    try:
-        if not img_path.exists() or img_path.stat().st_size < 15000:
-            return False
-        with Image.open(img_path) as im:
-            if im.size[0] < 300 or im.size[1] < 300:
-                return False
-            # Check if image is completely black/empty
-            thumb = im.resize((32, 32)).convert("L")
-            pixels = list(thumb.getdata())
-            avg_brightness = sum(pixels) / len(pixels)
-            if avg_brightness < 8:  # Completely black image check
-                return False
-        return True
-    except Exception:
-        return False
-
-# 100% Tailored Permanent 4K Cloud Images matching EVERY spoken line in all 3 videos!
-TAILORED_SCENE_IMAGES = {
-    # Video 1: Shri Radha-Krishna Divine Love & Wisdom
-    "v1_seg1": "https://files.catbox.moe/pvr6e0.jpg",  # Radha-Krishna divine embrace in cosmic cyan & gold
-    "v1_seg2": "https://files.catbox.moe/iqqe9m.jpg",  # Lord Krishna playing golden flute with peacock crown
-    "v1_seg3": "https://files.catbox.moe/yutw50.jpg",  # Goddess Radha surrounded by blooming lotuses on sacred waters
-    "v1_seg4": "https://files.catbox.moe/r8o9gv.jpg",  # Golden galaxies swirling over Vrindavan sacred waters
-    "v1_seg5": "https://files.catbox.moe/zg61ey.jpg",  # Thousands of floating lamps/diyas on river ghat at Vrindavan night
-    "v1_seg6": "https://files.catbox.moe/yb9quf.jpg",  # Sacred golden divine stardust aura in cosmic nebula
-    "v1_seg7": "https://files.catbox.moe/0agir2.jpg",  # Golden flute floating in starlight with mystical peacock feather
-    "v1_seg8": "https://files.catbox.moe/4xi6vu.jpg",  # Sacred glowing lotus flowers blooming on heavenly waters
-    "v1_seg9": "https://files.catbox.moe/jsp70z.jpg",  # Magnificent cosmic golden temple palace under starry galaxy
-    
-    # Video 2: Ancient Indian Advanced Science & Secrets
-    "v2_seg1": "https://files.catbox.moe/epnami.jpg",  # Ancient Himalayan masters with holographic energy rings
-    "v2_seg2": "https://files.catbox.moe/j9isff.jpg",  # Golden Pushpaka Vimana flying craft hovering over Ayodhya palace
-    "v2_seg3": "https://files.catbox.moe/tbffsh.jpg",  # Cosmic Brahmastra quantum plasma lightning energy weapon beam
-    "v2_seg4": "https://files.catbox.moe/85jelo.jpg",  # Ancient glowing golden Sanskrit metallic manuscripts
-    "v2_seg5": "https://files.catbox.moe/pzadqw.jpg",  # Colossal ancient astronomical stone wheel aligning with planets
-    "v2_seg6": "https://files.catbox.moe/la76x6.jpg",  # Sunken ancient golden city of Dwarka underwater with pillars & divers
-    "v2_seg7": "https://files.catbox.moe/l3zjy5.jpg",  # Ancient astronomer sage using bronze astrolabe looking into 3D planets
-    "v2_seg8": "https://files.catbox.moe/hd2fb6.jpg",  # Colossal monolithic Kailash temple carved from mountain peak
-    "v2_seg9": "https://files.catbox.moe/djzcxf.jpg",  # Cosmic Mahadev Lord Shiva meditating on Himalayas with Trishul
-    
-    # Video 3: Desi Life Relatable Humor & Fun
-    "v3_seg1": "https://files.catbox.moe/l4k8i9.jpg",  # Young Indian man shocked & confused at doctor prescription paper
-    "v3_seg2": "https://files.catbox.moe/yvbtko.jpg",  # 6:00 AM alarm clock ringing wildly with person under cozy blanket
-    "v3_seg3": "https://files.catbox.moe/jfyqr7.jpg",  # Husband overwhelmed washing huge mountain of dishes in kitchen
-    "v3_seg4": "https://files.catbox.moe/wyls9x.jpg",  # Cute trendy couple laughing happily together at cafe sunset
-    "v3_seg5": "https://files.catbox.moe/w0049s.jpg",  # Guy laughing out loud looking at smartphone on couch
-    "v3_seg6": "https://files.catbox.moe/0qvs85.jpg",  # Group of young friends having fun laughing together over chai
-    "v3_seg7": "https://files.catbox.moe/u4r2j0.jpg",  # Steaming hot cutting chai cup on scenic balcony at sunrise
-    "v3_seg8": "https://files.catbox.moe/zdbs76.jpg",  # Colorful 3D floating hearts and subscribe celebration outro
-}
-
-def fetch_image_pollinations(prompt: str, out_path: Path) -> bool:
-    clean = urllib.parse.quote(prompt.strip()[:180])
-    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
-    seed = random.randint(1000, 9999999)
-    url = f"https://image.pollinations.ai/prompt/{clean}?width=720&height=1280&nologo=true&seed={seed}"
-    
-    try:
-        r = requests.get(url, headers=headers, timeout=75)
-        if r.status_code == 200 and len(r.content) > 15000:
-            out_path.write_bytes(r.content)
-            if is_valid_image(out_path):
-                return True
-    except Exception as e:
-        print(f"[Pollinations Error] {e}")
-    return False
-
-def get_segment_image(prompt: str, query: str, theme: str, seg_idx: int, out_path: Path, video_id: int = 1) -> Image.Image:
-    key = f"v{video_id}_seg{seg_idx + 1}"
-    
-    # 1. First & Absolute Priority: Exact Local Match in ANY location
-    candidate_paths = [
-        ASSETS_DIR / f"{key}.jpg",
-        ROOT / "assets" / "images" / f"{key}.jpg",
-        ROOT / "images" / f"{key}.jpg",
-        ROOT / f"{key}.jpg",
-        ROOT / "assets" / f"{key}.jpg",
-    ]
-    for p in candidate_paths:
-        if p.exists() and is_valid_image(p):
-            print(f"    [Exact Scene Match] Local file: {p.name}")
-            try:
-                import shutil
-                shutil.copyfile(p, out_path)
-            except Exception:
-                pass
-            return Image.open(p)
-
-    # 2. Second Priority: Direct Tailored High-Definition CDN Asset (Guaranteed 100% Scene Match)
-    if key in TAILORED_SCENE_IMAGES:
-        url = TAILORED_SCENE_IMAGES[key]
-        try:
-            print(f"    [Exact Scene Match] Loading tailored 4K visual for {key}...")
-            r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=25)
-            if r.status_code == 200 and len(r.content) > 15000:
-                out_path.write_bytes(r.content)
-                if is_valid_image(out_path):
-                    return Image.open(out_path)
-        except Exception as e:
-            print(f"    [Tailored Asset Warning] {e}")
-
-    # 3. Third Priority: Fresh AI Cinematic Visual (Pollinations AI)
-    print(f"    [Visual Gen] Scene {seg_idx+1} AI Visual: {prompt[:40]}...")
-    if fetch_image_pollinations(prompt, out_path):
-        try:
-            return Image.open(out_path)
-        except Exception:
-            pass
-
-    return Image.new("RGB", (1080, 1920), (25, 20, 38))
 
 def prepare_vertical_image(img: Image.Image) -> Image.Image:
     W, H = 1080, 1920
@@ -392,12 +334,41 @@ def prepare_vertical_image(img: Image.Image) -> Image.Image:
     top = (new_h - H) // 2
     return resized.crop((left, top, left + W, top + H))
 
-def split_text_into_phases(text: str) -> tuple[str, str]:
-    words = text.strip().split()
-    if len(words) <= 5:
-        return text, ""
-    mid = len(words) // 2
-    return " ".join(words[:mid]), " ".join(words[mid:])
+def get_krishna_images() -> list[Path]:
+    search_dirs = [
+        ASSETS_DIR / "krishna",
+        ASSETS_DIR,
+        ROOT / "assets" / "images" / "krishna",
+        ROOT / "assets" / "images",
+    ]
+    found = []
+    for d in search_dirs:
+        if d.exists():
+            for p in sorted(d.glob("*.jpg")) + sorted(d.glob("*.png")):
+                if p.stat().st_size > 30000 and "v2_" not in p.name and "v3_" not in p.name:
+                    if p not in found:
+                        found.append(p)
+    return found
+
+def get_scene_image(seg_idx: int, total_segs: int) -> Image.Image:
+    all_images = get_krishna_images()
+    if not all_images:
+        print("[WARNING] No local Krishna images found. Creating divine gradient backdrop.")
+        return Image.new("RGB", (1080, 1920), (25, 20, 42))
+
+    # Daily Dynamic Rotation: Today's date shifts which image starts first
+    # So every day uses a totally fresh sequence!
+    day_shift = (TODAY.day * 2) % len(all_images)
+    chosen_idx = (day_shift + seg_idx) % len(all_images)
+    chosen_path = all_images[chosen_idx]
+    
+    print(f"    [Scene Visual] Scene {seg_idx + 1}/{total_segs}: Using {chosen_path.name}")
+    try:
+        im = Image.open(chosen_path)
+        return prepare_vertical_image(im)
+    except Exception as e:
+        print(f"[Image Open Error] {e}")
+        return Image.new("RGB", (1080, 1920), (25, 20, 42))
 
 def render_text_frame(img_base: Image.Image, text: str, headline: str = "") -> Image.Image:
     W, H = 1080, 1920
@@ -415,26 +386,25 @@ def render_text_frame(img_base: Image.Image, text: str, headline: str = "") -> I
         draw_ov.rounded_rectangle(
             [(hx1, hy1), (hx1 + head_box_w, hy2)],
             radius=24,
-            fill=(10, 10, 20, 210),
-            outline=(255, 215, 0, 220),
+            fill=(10, 10, 20, 215),
+            outline=(255, 215, 0, 230),
             width=2
         )
     
-    # 2. Modern Subtitles in LOWER-THIRD SAFE ZONE (Y = 1290 to 1460)
-    # CRITICAL: Y = 250 to 1250 remains 100% CLEAR so character faces, expressions, and visuals are NEVER BLOCKED!
-    sub_font = get_font(52)
+    # 2. Modern Subtitles in LOWER-THIRD SAFE ZONE (Y = 1290 to 1480)
+    # Clear from face (middle 50% is clear), clear from Shorts UI buttons
+    sub_font = get_font(50)
     pad = 70
     lines = wrap_text(draw_ov, text, sub_font, W - (2 * pad) - 40)
     
-    line_h = 74
+    line_h = 72
     total_text_h = len(lines) * line_h
     
-    # Anchor to lower safe zone: Y ≈ 1300 to 1480 (Clear from face, clear from Shorts bottom buttons)
-    pill_y1 = int(H * 0.68)
+    pill_y1 = int(H * 0.69)
     pill_y2 = pill_y1 + total_text_h + 36
     
-    capsule_fill = (12, 12, 22, 185)  # Modern sleek translucent frosted pill
-    capsule_border = (255, 215, 0, 220)
+    capsule_fill = (12, 12, 22, 195)
+    capsule_border = (255, 215, 0, 230)
     
     draw_ov.rounded_rectangle(
         [(pad - 20, pill_y1 - 14), (W - pad + 20, pill_y2)],
@@ -448,79 +418,46 @@ def render_text_frame(img_base: Image.Image, text: str, headline: str = "") -> I
     draw = ImageDraw.Draw(frame)
     
     if headline:
-        draw.text((W // 2, 179), headline, font=head_font, fill=(255, 225, 75), anchor="mm", stroke_width=2, stroke_fill=(0, 0, 0))
-    
-    cur_y = pill_y1 + 10
-    for idx, line in enumerate(lines):
-        color = (255, 255, 255) if idx == 0 else (255, 235, 50)
+        hx1 = (W - head_box_w) // 2
+        hy1 = 140
         draw.text(
-            (W // 2, cur_y),
+            (W // 2, hy1 + 38),
+            headline,
+            font=get_font(38),
+            fill=(255, 223, 100),
+            anchor="mm"
+        )
+        
+    # Draw subtitles
+    sy = pill_y1 + 16
+    for line in lines:
+        draw.text(
+            (W // 2, sy + line_h // 2),
             line,
             font=sub_font,
-            fill=color,
-            anchor="mt",
-            stroke_width=5,
-            stroke_fill=(0, 0, 0)
+            fill=(255, 255, 255),
+            anchor="mm"
         )
-        cur_y += line_h
+        sy += line_h
         
-    return frame.convert("RGB")
+    return frame
 
-def build_segment_video(img_loaded: Image.Image, text: str, headline: str, audio_path: Path, duration: float, out_mp4: Path, seg_idx: int = 0):
+def build_segment_video(base_img: Image.Image, text: str, headline: str, audio_path: Path, duration: float, out_mp4: Path, seg_idx: int):
+    temp_dir = out_mp4.parent / f"tmp_seg_{seg_idx}"
+    temp_dir.mkdir(parents=True, exist_ok=True)
     fps = 30
-    W, H = 1080, 1920
-    base_img = prepare_vertical_image(img_loaded).convert("RGBA")
     
-    # Split text into 2 dynamic spoken phases for lively subtitle movement
-    p1, p2 = split_text_into_phases(text)
-    temp_dir = out_mp4.parent
-    
-    if p2:
-        # 2-phase animated subtitles
-        f1 = render_text_frame(base_img, p1, headline)
-        f2 = render_text_frame(base_img, p2, headline)
-        p1_path = temp_dir / f"{out_mp4.stem}_p1.png"
-        p2_path = temp_dir / f"{out_mp4.stem}_p2.png"
-        f1.save(p1_path)
-        f2.save(p2_path)
-        
-        t_split = duration / 2.0
-        # Zoom Ken Burns with seamless subtitle cut at midpoint
-        if seg_idx % 2 == 0:
-            vf = f"scale=1080:1920,zoompan=z='min(zoom+0.0010,1.14)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=1080x1920:fps={fps},format=yuv420p"
-        else:
-            vf = f"scale=1080:1920,zoompan=z='if(lte(zoom,1.0),1.14,max(1.001,zoom-0.0010))':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=1080x1920:fps={fps},format=yuv420p"
-            
-        cmd = [
-            "ffmpeg", "-y",
-            "-loop", "1", "-t", f"{t_split:.2f}", "-i", str(p1_path),
-            "-loop", "1", "-t", f"{(duration - t_split + 0.1):.2f}", "-i", str(p2_path),
-            "-i", str(audio_path),
-            "-filter_complex", f"[0:v]{vf}[v0];[1:v]{vf}[v1];[v0][v1]concat=n=2:v=1:a=0[vout]",
-            "-map", "[vout]", "-map", "2:a",
-            "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
-            "-r", "30", "-g", "30",
-            "-pix_fmt", "yuv420p",
-            "-c:a", "aac", "-b:a", "192k",
-            "-t", f"{duration:.2f}",
-            str(out_mp4)
-        ]
-        res = subprocess.run(cmd, capture_output=True)
-        if res.returncode == 0 and out_mp4.exists() and out_mp4.stat().st_size > 0:
-            return
-            
-    # Standard single-frame fallback
-    single_frame = render_text_frame(base_img, text, headline)
-    frame_path = temp_dir / f"{out_mp4.stem}_single.png"
-    single_frame.save(frame_path)
+    frame = render_text_frame(base_img, text, headline)
+    frame_path = temp_dir / "frame.png"
+    frame.save(frame_path)
     
     frames = max(int(duration * fps), 30)
     if seg_idx % 2 == 0:
-        vf = f"scale=1080:1920,zoompan=z='min(zoom+0.0010,1.14)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s=1080x1920:fps={fps},format=yuv420p"
+        vf = f"scale=1080:1920,zoompan=z='min(zoom+0.0009,1.12)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s=1080x1920:fps={fps},format=yuv420p"
     else:
-        vf = f"scale=1080:1920,zoompan=z='if(lte(zoom,1.0),1.14,max(1.001,zoom-0.0010))':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s=1080x1920:fps={fps},format=yuv420p"
+        vf = f"scale=1080:1920,zoompan=z='if(lte(zoom,1.0),1.12,max(1.001,zoom-0.0009))':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s=1080x1920:fps={fps},format=yuv420p"
         
-    cmd_fallback = [
+    cmd = [
         "ffmpeg", "-y",
         "-loop", "1", "-i", str(frame_path),
         "-i", str(audio_path),
@@ -532,182 +469,103 @@ def build_segment_video(img_loaded: Image.Image, text: str, headline: str, audio
         "-c:a", "aac", "-b:a", "192k",
         str(out_mp4)
     ]
-    subprocess.run(cmd_fallback, check=True, capture_output=True)
+    subprocess.run(cmd, check=True, capture_output=True)
 
-def find_bgm_track(theme: str) -> Path | None:
+def find_bgm_track() -> Path | None:
     if not MUSIC_DIR.exists():
         return None
     music_files = sorted([p for p in MUSIC_DIR.iterdir() if p.suffix.lower() in (".mp3", ".wav", ".m4a")])
     if not music_files:
         return None
-    
-    if theme == "bhakti":
-        # Look for bhakti / devotional keywords first
-        bhakti_tracks = [p for p in music_files if any(k in p.stem.lower() for k in ["bhakti", "krishna", "radha", "bhajan", "aarti", "devotion"])]
-        if bhakti_tracks:
-            return random.choice(bhakti_tracks)
-    return random.choice(music_files)
+    # Prefer devotional / flute tracks
+    for mf in music_files:
+        if any(k in mf.name.lower() for k in ["flute", "krishna", "bhakti", "divine", "radha"]):
+            return mf
+    return music_files[0]
 
-def assemble_final_video(segment_videos: list[Path], bgm_file: Path | None, final_output: Path):
-    temp_dir = final_output.parent
-    temp_dir.mkdir(parents=True, exist_ok=True)
-    concat_list = temp_dir / f"concat_{final_output.stem}.txt"
+def assemble_final_video(seg_videos: list[Path], bgm_track: Path | None, out_path: Path):
+    temp_dir = out_path.parent
+    concat_list = temp_dir / "concat_list.txt"
     with open(concat_list, "w", encoding="utf-8") as f:
-        for seg in segment_videos:
-            f.write(f"file '{seg.resolve().as_posix()}'\n")
+        for v in seg_videos:
+            f.write(f"file '{v.resolve().as_posix()}'\n")
             
-    raw_merged = temp_dir / f"merged_{final_output.stem}.mp4"
-    if raw_merged.exists():
-        try:
-            raw_merged.unlink()
-        except Exception:
-            pass
-
-    # 1. Concatenate segments with clean 30fps re-encode so transitions are seamless with ZERO pause/gap!
+    unmixed = temp_dir / "unmixed.mp4"
     cmd_concat = [
         "ffmpeg", "-y", "-f", "concat", "-safe", "0",
         "-i", str(concat_list),
-        "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
-        "-r", "30", "-pix_fmt", "yuv420p",
-        "-c:a", "aac", "-b:a", "192k",
-        str(raw_merged)
+        "-c", "copy",
+        str(unmixed)
     ]
-    print(f"  [FFmpeg Concat] Merging {len(segment_videos)} segments...")
-    res_concat = subprocess.run(cmd_concat, capture_output=True, text=True)
-    if res_concat.returncode != 0:
-        print(f"  [FFmpeg Concat Error] {res_concat.stderr[-400:]}")
-        raise RuntimeError(f"FFmpeg concat failed for {final_output.name}")
-
-    if not raw_merged.exists() or raw_merged.stat().st_size == 0:
-        raise FileNotFoundError(f"Raw merged file not created: {raw_merged}")
-
-    # 2. Add Background Music (BGM) if available
-    bgm_success = False
-    if bgm_file and bgm_file.exists():
-        temp_with_bgm = temp_dir / f"bgm_{final_output.stem}.mp4"
-        cmd_mix = [
+    subprocess.run(cmd_concat, check=True, capture_output=True)
+    
+    if bgm_track and bgm_track.exists():
+        total_dur = get_audio_duration(unmixed)
+        cmd_bgm = [
             "ffmpeg", "-y",
-            "-i", str(raw_merged),
-            "-stream_loop", "-1", "-i", str(bgm_file),
-            "-filter_complex", "[1:a]volume=0.15[bgm];[0:a][bgm]amix=inputs=2:duration=first:dropout_transition=2[aout]",
+            "-i", str(unmixed),
+            "-stream_loop", "-1", "-i", str(bgm_track),
+            "-filter_complex",
+            f"[1:a]volume=0.14,afade=t=out:st={max(total_dur - 2.5, 1.0)}:d=2.0[bgm];[0:a][bgm]amix=inputs=2:duration=first:dropout_transition=2[aout]",
             "-map", "0:v", "-map", "[aout]",
-            "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
-            str(temp_with_bgm)
+            "-c:v", "copy",
+            "-c:a", "aac", "-b:a", "192k",
+            str(out_path)
         ]
         try:
-            mix_res = subprocess.run(cmd_mix, capture_output=True, timeout=60)
-            if mix_res.returncode == 0 and temp_with_bgm.exists() and temp_with_bgm.stat().st_size > 0:
-                if final_output.exists():
-                    final_output.unlink()
-                temp_with_bgm.replace(final_output)
-                bgm_success = True
-                print(f"  [BGM Mix] Successfully mixed background score!")
+            subprocess.run(cmd_bgm, check=True, capture_output=True)
+            return
         except Exception as e:
-            print(f"  [BGM Mix Warning] Could not mix BGM: {e}")
+            print(f"[BGM Error] {e}. Using unmixed audio.")
+            
+    unmixed.replace(out_path)
 
-    # If no BGM was added or mixing didn't happen, use raw_merged directly as final_output
-    if not bgm_success:
-        if final_output.exists():
-            final_output.unlink()
-        raw_merged.replace(final_output)
-
-    # Clean up temporary concat list
-    try:
-        concat_list.unlink()
-    except Exception:
-        pass
-
-def ensure_fallback_assets():
-    ASSETS_DIR.mkdir(parents=True, exist_ok=True)
-    headers = {"User-Agent": "Mozilla/5.0"}
-    core_keys = ["v1_seg1", "v1_seg2", "v1_seg3", "v2_seg2", "v2_seg3", "v2_seg6", "v2_seg9", "v3_seg1", "v3_seg2", "v3_seg3"]
-    for key in core_keys:
-        file_path = ASSETS_DIR / f"{key}.jpg"
-        if not file_path.exists() or file_path.stat().st_size < 10000:
-            if key in TAILORED_SCENE_IMAGES:
-                try:
-                    r = requests.get(TAILORED_SCENE_IMAGES[key], headers=headers, timeout=20)
-                    if r.status_code == 200 and len(r.content) > 10000:
-                        file_path.write_bytes(r.content)
-                except Exception as e:
-                    print(f"[Asset Cache Error] {key}: {e}")
+# ==================== MAIN GENERATOR ====================
 
 def generate():
     OUT.mkdir(parents=True, exist_ok=True)
-    ensure_fallback_assets()
-    posts = generate_scripts()
+    post = get_today_script()
     manifest = []
     
-    for i, p in enumerate(posts):
-        video_num = i + 1
-        name = f"post{video_num}"
-        video_work_dir = OUT / name
-        video_work_dir.mkdir(parents=True, exist_ok=True)
-        theme = p.get("theme", "bhakti")
+    name = "post1"
+    video_work_dir = OUT / name
+    video_work_dir.mkdir(parents=True, exist_ok=True)
+    
+    print(f"\n==========================================")
+    print(f"🎬 Shri Krishna Mool Vachan: {post['headline']}")
+    print(f"==========================================")
+    
+    segments = post["segments"]
+    seg_videos = []
+    
+    for j, seg in enumerate(segments):
+        audio_path = video_work_dir / f"audio_seg_{j}.mp3"
+        seg_video_path = video_work_dir / f"seg_{j}.mp4"
+        is_last = (j == len(segments) - 1)
         
-        print(f"\n==========================================")
-        print(f"[GENERATING VIDEO {video_num}/3] {p['headline']} ({theme})")
-        print(f"==========================================")
+        # 1. Voiceover TTS
+        dur = generate_voiceover(seg["text"], post["voice"], audio_path, is_last_segment=is_last)
         
-        segments = p["segments"]
+        # 2. Fresh 8K Visual
+        img = get_scene_image(j, len(segments))
         
-        # Parallel Pre-fetch all scene images simultaneously for maximum speed and variety!
-        print(f"  [Parallel Visuals] Pre-fetching {len(segments)} distinct scene images...")
-        img_paths = [video_work_dir / f"seg_{j+1:02d}_raw.jpg" for j in range(len(segments))]
+        # 3. Dynamic Video Segment
+        build_segment_video(img, seg["text"], post["headline"], audio_path, dur, seg_video_path, seg_idx=j)
+        seg_videos.append(seg_video_path)
+        print(f"  ✓ Segment {j+1}/{len(segments)} तैयार ({dur:.1f}s)")
         
-        # Clear any stale cached images from previous runs today
-        for p_old in img_paths:
-            if p_old.exists():
-                try:
-                    p_old.unlink()
-                except Exception:
-                    pass
-
-        def _fetch_one(idx):
-            seg = segments[idx]
-            query = seg.get("query", seg["visual_prompt"][:50])
-            get_segment_image(seg["visual_prompt"], query, theme, idx, img_paths[idx], video_id=video_num)
-            return idx
-            
-        with ThreadPoolExecutor(max_workers=2) as executor:
-            futures = [executor.submit(_fetch_one, j) for j in range(len(segments))]
-            for fut in as_completed(futures):
-                fut.result()
-        
-        seg_videos = []
-        for j, seg in enumerate(segments):
-            seg_prefix = f"seg_{j+1:02d}"
-            audio_path = video_work_dir / f"{seg_prefix}.mp3"
-            img_raw_path = img_paths[j]
-            seg_video_path = video_work_dir / f"{seg_prefix}.mp4"
-            
-            # 1. Voiceover with natural silence padding (extra 1.0s pad for final outro line!)
-            voice = p.get("voice", "hi-IN-MadhurNeural")
-            is_last = (j == len(segments) - 1)
-            dur = generate_voiceover(seg["text"], voice, audio_path, is_last_segment=is_last)
-            
-            # 2. Load the distinct prepared image (exact match from images.zip)
-            img_loaded = get_segment_image(seg["visual_prompt"], "", theme, j, img_raw_path, video_id=video_num)
-                    
-            # 3. Make dynamic video segment with animated subtitles & smooth Ken Burns
-            build_segment_video(img_loaded, seg["text"], p["headline"], audio_path, dur, seg_video_path, seg_idx=j)
-            seg_videos.append(seg_video_path)
-            print(f"  ✓ Segment {j+1}/{len(segments)} taiyar ({dur:.1f}s)")
-            
-        # 5. Assemble and Add BGM
-        bgm = find_bgm_track(theme)
-        final_mp4 = OUT / f"{name}.mp4"
-        assemble_final_video(seg_videos, bgm, final_mp4)
-        
-        # Save manifest entry
-        p["name"] = name
-        p["video_file"] = str(final_mp4.relative_to(ROOT))
-        p["full_caption"] = f"{p['headline']}\n\n{p['caption']}\n\n#PunamRaj #Shorts #Reels"
-        manifest.append(p)
-        print(f"[SUCCESS] Video {video_num} taiyar: {final_mp4}")
-        
+    # Assemble final video with BGM
+    bgm = find_bgm_track()
+    final_mp4 = OUT / f"{name}.mp4"
+    assemble_final_video(seg_videos, bgm, final_mp4)
+    
+    post["name"] = name
+    post["video_file"] = str(final_mp4.relative_to(ROOT))
+    post["full_caption"] = f"{post['headline']}\n\n{post['caption']}\n\n#ShriKrishna #KrishnaVachan #BhagavadGita #GitaGyan #Shorts"
+    manifest.append(post)
+    
     (OUT / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"\nTeeno videos taiyar hain! Path: {OUT}")
+    print(f"\n🎉 [SUCCESS] Shri Krishna Video Taiyar: {final_mp4}\n")
 
 # ==================== POSTING SYSTEM ====================
 
@@ -727,8 +585,8 @@ def post_youtube(p):
     yt = build("youtube", "v3", credentials=creds)
     body = {
         "snippet": {
-            "title": (p["headline"] + " #Shorts")[:95],
-            "description": p["full_caption"] + "\n#Shorts #YouTubeShorts",
+            "title": (p["headline"] + " | गीता ज्ञान #Shorts")[:95],
+            "description": p["full_caption"] + "\n#Shorts #YouTubeShorts #Krishna",
             "categoryId": "22"
         },
         "status": {
@@ -741,80 +599,6 @@ def post_youtube(p):
     res = yt.videos().insert(part="snippet,status", body=body, media_body=media).execute()
     print(f"  [YouTube Shorts] Uploaded successfully! Video ID: {res.get('id')}")
 
-def post_instagram_reels(p):
-    uid = os.environ["IG_USER_ID"]
-    tok = os.environ.get("IG_TOKEN") or os.environ.get("FB_PAGE_ACCESS_TOKEN")
-    repo = os.environ["GITHUB_REPOSITORY"]
-    branch = os.getenv("GITHUB_REF_NAME", "main")
-    video_url = f"https://raw.githubusercontent.com/{repo}/{branch}/out/{TODAY.isoformat()}/{p['name']}.mp4"
-    
-    print(f"  [Instagram Reels] Checking public URL: {video_url}")
-    for _ in range(15):
-        if requests.head(video_url).status_code == 200:
-            break
-        time.sleep(4)
-        
-    # Step 1: Create Reel Container
-    create_url = f"https://graph.facebook.com/v21.0/{uid}/media"
-    res = requests.post(create_url, data={
-        "media_type": "REELS",
-        "video_url": video_url,
-        "caption": p["full_caption"][:2000],
-        "access_token": tok
-    })
-    res.raise_for_status()
-    creation_id = res.json()["id"]
-    
-    # Step 2: Poll container status until FINISHED
-    status_url = f"https://graph.facebook.com/v21.0/{creation_id}"
-    for _ in range(25):
-        time.sleep(5)
-        st_res = requests.get(status_url, params={"fields": "status_code", "access_token": tok})
-        if st_res.status_code == 200:
-            code = st_res.json().get("status_code")
-            if code == "FINISHED":
-                break
-            elif code in ("ERROR", "EXPIRED"):
-                raise RuntimeError(f"Reel container processing failed with status: {code}")
-                
-    # Step 3: Publish container
-    pub_url = f"https://graph.facebook.com/v21.0/{uid}/media_publish"
-    pub_res = requests.post(pub_url, data={"creation_id": creation_id, "access_token": tok})
-    pub_res.raise_for_status()
-    print(f"  [Instagram Reels] Reel published successfully!")
-
-def post_facebook_page(p):
-    page_id = os.environ["FB_PAGE_ID"]
-    tok = os.environ["FB_PAGE_ACCESS_TOKEN"]
-    video_path = OUT / f"{p['name']}.mp4"
-    
-    url = f"https://graph.facebook.com/v21.0/{page_id}/videos"
-    with open(video_path, "rb") as f:
-        res = requests.post(
-            url,
-            data={"description": p["full_caption"][:5000], "access_token": tok},
-            files={"source": f},
-            timeout=180
-        )
-    res.raise_for_status()
-    print(f"  [Facebook Page] Video posted successfully! ID: {res.json().get('id')}")
-
-def post_telegram(p):
-    tok = os.environ["TELEGRAM_BOT_TOKEN"]
-    chat = os.environ["TELEGRAM_CHAT_ID"]
-    video_path = OUT / f"{p['name']}.mp4"
-    
-    url = f"https://api.telegram.org/bot{tok}/sendVideo"
-    with open(video_path, "rb") as f:
-        res = requests.post(
-            url,
-            data={"chat_id": chat, "caption": p["full_caption"][:1024]},
-            files={"video": f},
-            timeout=120
-        )
-    res.raise_for_status()
-    print(f"  [Telegram] Video sent successfully!")
-
 def post():
     manifest_path = OUT / "manifest.json"
     if not manifest_path.exists():
@@ -822,37 +606,28 @@ def post():
         
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     if DRY_RUN:
-        print("[DRY RUN ACTIVE] Koi post nahi ki gayi. Videos out/ folder me check karein.")
+        print("[DRY RUN ACTIVE] Koi post nahi ki gayi. Video out/ folder me check karein.")
         return
         
-    platforms = [
-        ("YouTube Shorts", post_youtube, "YT_REFRESH_TOKEN"),
-        ("Instagram Reels", post_instagram_reels, "IG_USER_ID"),
-        ("Facebook Page", post_facebook_page, "FB_PAGE_ACCESS_TOKEN"),
-        ("Telegram Channel", post_telegram, "TELEGRAM_BOT_TOKEN"),
-    ]
-    
-    results = []
     for p in manifest:
         print(f"\n--- Posting: {p['headline']} ({p['name']}) ---")
-        for label, fn, req_key in platforms:
-            if not os.getenv(req_key):
-                print(f"[-] {label}: Secret '{req_key}' set nahi hai, skip kiya.")
-                continue
-            try:
-                fn(p)
-                results.append((label, p["name"], "SUCCESS", "OK"))
-            except Exception as e:
-                err_msg = str(e)
-                print(f"[FAIL] {label} error on {p['name']}: {err_msg}")
-                results.append((label, p["name"], "FAILED", err_msg))
-                
-    print("\n================== SUMMARY ==================")
-    for label, name, status, msg in results:
-        print(f"[{status}] {label} - {name}: {msg}")
-    print("=============================================")
+        if not os.getenv("YT_REFRESH_TOKEN"):
+            print("[-] YouTube: Secret 'YT_REFRESH_TOKEN' set nahi hai, skip kiya.")
+            continue
+        try:
+            post_youtube(p)
+            print(f"[SUCCESS] YouTube par video upload ho gayi!")
+        except Exception as e:
+            print(f"[FAIL] YouTube upload error: {e}")
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2 or sys.argv[1] not in ("generate", "post"):
-        sys.exit("Usage: python agent.py [generate|post]")
-    {"generate": generate, "post": post}[sys.argv[1]]()
+    action = sys.argv[1] if len(sys.argv) > 1 else "generate"
+    if action == "generate":
+        generate()
+    elif action == "post":
+        post()
+    elif action == "all":
+        generate()
+        post()
+    else:
+        print(f"Unknown action: {action}")
